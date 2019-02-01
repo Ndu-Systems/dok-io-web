@@ -1,0 +1,32 @@
+.form {
+  border-radius: 5px;
+  background:transparent;
+  padding: 20px;
+.form-group{
+    margin-bottom: .5em;
+}
+
+  input[type=text], input[type=email],input[type=password],input[type=number], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit] {
+    background: #DEE5ED;
+    color: #000;
+    border-radius: 1000em;
+    padding: .5em 1.5em;
+    box-shadow: 10px -1px 83px -21px rgba(0, 0, 0, 1);
+    cursor: 'pointer';
+  }
+  
+  input[type=submit]:hover {
+    background-color: $green-light-color;
+  }
+}

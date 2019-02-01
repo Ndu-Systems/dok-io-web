@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import "mixins";
+
+*  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html{
+    font-weight: 400;
+    font-size: 80%;  // 1 rem = 12.8px; therefore 12.8px/16px = 80% Therefore we will decrease by -1px from the base of 12.8px NB: For this project only
+   
+    @include responsive(tab-land){
+        font-size: 73.75%; // 1 rem = 11.8px , 10.8/16 = 67.5%;
+    }
+ 
+    @include responsive(tab-port){
+        font-size: 67.5%; // 1 rem = 10.8px  , 10.8/16 = 67.5%;
+    }
+
+    @include responsive(phone){
+        font-size: 61.25%; // 1 rem = 9.8  , 10.8/16 = 67.5%;
+    }
+  
+    @include responsive(big-desktop){
+        font-size: 100%; // 1 rem = 16px  , 10.8/16 = 67.5%;
+    }
+
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif; 
+    letter-spacing: 1.7;
+    color: #000;
+    background-color: #FBFCFC;
+    padding: 1.5rem;
+   
+    @include responsive(phone){
+        padding: 0;
+        padding-left:0;
+    }
+
+  }
+  
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  
+  h1 {
+    font-size: 1.5em;
+  }
+  
+  img {
+    widows: 100%;
+  }
+  
+
+  
+  .btn.primary {
+    background: #26C6DA;
+    color: #fff;
+  }
+  
