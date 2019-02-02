@@ -1,8 +1,57 @@
-<h1>
-  Home
-</h1>
 
-<a routerLink="/dashboard">Dash</a>
-<button (click)="OpenLogin()">Login</button>
 
-<div class="overlay"> <H1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus quidem nulla sint facilis sequi sed hic mollitia perferendis, quod dolores sapiente harum dolore illo, debitis ab magni optio consequuntur ratione!</H1></div>
+<!-- <div id="page-wrap">
+    <h1>
+        Home
+      </h1>
+      
+      <a routerLink="/dashboard">Dash</a>
+      <button (click)="OpenLogin()">Login</button>
+</div>
+
+<div id="modal">
+      <h1>I Work  </h1>
+      <button (click)="closeLogin()">Close</button>
+</div> -->
+  
+
+<h2>Modal Login Form</h2>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+<div id="id01" class="modal">  
+  <form class="modal-content animate" >
+    <div class="imgcontainer">
+      <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>    
+    </div>
+
+    <div class="row">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>

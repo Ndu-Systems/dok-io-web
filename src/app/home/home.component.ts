@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  show:boolean =false;
   constructor() { }
 
   ngOnInit() {
   }
   OpenLogin(){
-    alert(3);
+      this.show =  true;
+  }
+
+  closeLogin(){
+    this.show = false;
   }
 }
