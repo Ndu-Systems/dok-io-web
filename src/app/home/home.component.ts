@@ -11,11 +11,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  OpenLogin(){
-      this.show =  true;
+
+  Login(){
+
+    alert("I am HIT");
+
   }
 
-  closeLogin(){
-    this.show = false;
-  }
+
 }

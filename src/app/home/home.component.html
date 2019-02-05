@@ -1,30 +1,33 @@
-
 <div class="home" id="home">
-<h1>Welocme to Dok-io</h1>
+  <h1>Welocome to Dok-io</h1>
 </div>
 
 <a href="#popup" class="btn btn-green">
-  Launch Modal
+  Launch Login
 </a>
 
 <div class="popup" id="popup">
   <div class="popup__content">
-    <div class="popup__left">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwMqweJliyN9F05r4HpEM5NTMZK9FuIPryHkDi8PnpijM3t_rl"
-        alt="device connect photo" class="popup__img">
-      <img src="https://influitive.blob.core.windows.net/media/2015/10/connected_device_consumer_advocates.jpg" alt="hand connect photo"
-        class="popup__img">
+    <!-- <a href="#home" class="popup__close">&times;</a> -->
+    <a href="#home" class="btn btn-close">Exit</a>
+
+    <div class="popup__form">
+      <div class="header">
+        <h1>Login</h1>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password">
+      </div>
+      <div class="form-group">
+        <a routerLink="#" (click)="Login()" class="btn">Login</a>
+      </div>
     </div>
-    <div class="popup__right">
-      <a href="#home" class="popup__close">&times;</a>
-      <h2 class="heading-secondary">Demo Now</h2>
-      <h3 class="heading-tertiary">Tertiary is On Point</h3>
-      <p class="popup__text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, alias laborum ea
-          dolorem doloremque numquam laudantium officia in saepe commodi, atque voluptatibus asperiores quia illum
-          accusantium quas harum reiciendis a.
-      </p>
-      <a href="#" class="btn btn--green">Apply Now</a>
+    <div class="popup__gradient">
     </div>
   </div>
 </div>

@@ -1,10 +1,65 @@
 @import "../../assets/sass/variables";
 
-.home{
+.home {
   padding: 2rem;
 }
-.btn-green{
-  background-color: $green-color;
+
+.btn-green {
+  background-color: $blue-color;
   color: $white-color;
+}
+
+.popup {
+
+  &__content{
+    width: 50%;
+    height: 45rem;
+  }
+
+
+  &__form{
+    position: absolute;
+    top: 24%;
+    left: 40%;
+  }
+
   
+
+
+  &__gradient {    
+    height: 30vh;
+    margin-top: 30rem;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9c27b0+0,29b6f6+100 */
+    background: rgb(156, 39, 176);
+    /* Old browsers */
+    background: -moz-linear-gradient(45deg, rgba(156, 39, 176, 1) 0%, rgba(41, 182, 246, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, rgba(156, 39, 176, 1) 0%, rgba(41, 182, 246, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, rgba(156, 39, 176, 1) 0%, rgba(41, 182, 246, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9c27b0', endColorstr='#29b6f6', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    clip-path: polygon(0 0%, 100% 40%, 100% 100%, 0% 100%);
+  }
+
+
+  .btn.btn-close {
+    border: 2.5px solid $primary-color;
+
+    &:link,
+    &:visited {
+      color: $primary-color;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .2s;
+      background: none;
+    }
+
+  }
+
 }
