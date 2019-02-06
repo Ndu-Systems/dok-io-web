@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { HttpClient } from "@angular/common/http";
+import { LoginService } from './login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +11,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  rForm : FormGroup;
+ 
+  email: string = "";
+  password: string = "";
 
-  ngOnInit() {
+  constructor(private fb: FormBuilder, 
+        private loginService: LoginService,
+        private router: Router) {
+    this.rForm = fb.group({      
+      email: [
+        null,
+        Validators.compose([Validators.required, Validators.minLength(5)])
+      ],
+      password: [null, Validators.required],
+       
+    });
   }
-  Login(){
 
-    alert("I am HIT");
+  ngOnInit() {    
+  }
+ get formValues() {
+   return this.rForm.controls;
+ }
+
+  Login(){
+    
+    this.loginService.loginUser(this.formValues.email.value, this.formValues.password.value)
+        .subscribe(response => {
+          if(response){
+            this.router.navigate(['/dashboard']);
+          }
+        });
+     
 
   }
 }

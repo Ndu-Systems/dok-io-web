@@ -51,7 +51,7 @@
     background-color: #e8eeef;
     color: $black-color;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     border-radius: 1000px;
   }
 
@@ -59,17 +59,18 @@
   button {
     padding: 19px 39px 18px 39px;
     color: #FFF;
-    background-color: #4bc970;
+    background-color: $primary-color;
     font-size: 18px;
     text-align: center;
     font-style: normal;
     border-radius: 5px;
     width: 100%;
-    border: 1px solid #3ac162;
+    border: 1px solid $primary-color;
     border-width: 1px 1px 3px;
     box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
     margin-bottom: 10px;
     border-radius: 1000px;
+    cursor: pointer;
   }
 
 
@@ -94,6 +95,10 @@
     display: inline;
   }
 
+.alert{
+  color: $pink-color;
+  padding-bottom: 0.5rem;
+}
 
   &__gradient {
     height: 30vh;
