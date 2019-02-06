@@ -1,33 +1,4 @@
 <div class="home" id="home">
   <h1>Welocome to Dok-io</h1>
-</div>
-
-<a href="#popup" class="btn btn-green">
-  Launch Login
-</a>
-
-<div class="popup" id="popup">
-  <div class="popup__content">
-    <!-- <a href="#home" class="popup__close">&times;</a> -->
-    <a href="#home" class="btn btn-close">Exit</a>
-
-    <div class="popup__form">
-      <div class="header">
-        <h1>Login</h1>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" id="email">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password">
-      </div>
-      <div class="form-group">
-        <a routerLink="#" (click)="Login()" class="btn">Login</a>
-      </div>
-    </div>
-    <div class="popup__gradient">
-    </div>
-  </div>
+  <app-login></app-login>
 </div>
