@@ -1,0 +1,20 @@
+.dashboard {
+  box-shadow: 10px -1px 83px -21px rgba(0, 0, 0, 1);
+  background: #f6f9fc;
+
+  .top-bar{
+      display: grid;
+      grid-template-columns: 10% 20% 40% auto;
+      background: #29B6F6;
+      padding: .4rem 2rem;
+
+      div{
+       position: relative;
+       border: 1px solid red;
+      }
+      .profile{
+          display: grid;
+          grid-template-columns: 20% 50% auto;
+      }
+  }
+}
