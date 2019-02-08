@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PatientService } from 'src/app/services';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-patients',
@@ -6,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patients.component.scss']
 })
 export class PatientsComponent implements OnInit {
-
-  constructor() { }
+  patients$:Observable<Array<any>> = this.patientService.getPatients();
+  constructor(private patientService:PatientService) { }
 
   ngOnInit() {
   }

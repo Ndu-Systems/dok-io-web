@@ -11,13 +11,16 @@
       padding-left: 2rem;
       padding-right: 3rem;
 
-      h1 {}
+      h1 {
+          text-transform: uppercase;
+      }
 
       .filters {
         text-align: right;
 
         label {
           font-weight: 700;
+          font-size: .8rem;
         }
 
         select {
@@ -25,7 +28,7 @@
           border: none;
           font-weight: 700;
           color: #29B6F6;
-
+          font-size: .8rem;
         }
       }
     }
@@ -34,6 +37,34 @@
         padding: 2rem;
         table{
             width: 100%;
+            tbody{
+                tr{
+                    background: #FFFFFF;
+                    td{
+                    background: #FFFFFF;
+
+                        padding: 1rem;
+                        border: none;
+                        .btn-group{
+                            display: grid;
+                            grid-template-columns: 30% 30% 30%;
+                            column-gap: .3rem;
+                            .btns{
+                              img{
+                                  width: 2rem;
+                              }
+                            }
+                          }
+                    }
+                    .full-name{
+                        span{
+                            display: block;
+                            font-size: .7rem;
+                            padding: .2rem;
+                        }
+                    }
+                }
+            }
         }
     }
   }

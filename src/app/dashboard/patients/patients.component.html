@@ -1,50 +1,85 @@
 <section class="main">
   <section class="section-main">
-      <div class="table-heading">
-          <h1>
-            Active patients
-          </h1>
-          <div class="filters">
-           <label> Sort By :</label>
-            <select name="" id="">
-              <option value="">
-                Create Date
-              </option>
-            </select>
-          </div>
-        </div>
-      
-        <div class="table">
-      <table>
+    <div class="table-heading">
+      <h1>
+        Active patients
+      </h1>
+      <div class="filters">
+        <label> Sort By :</label>
+        <select name="" id="">
+          <option value="">
+            Create Date
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table">
+      <table *ngIf=" patients$ | async as  patients">
         <thead>
           <tr>
             <td>
-                FULLNAME
+              FULLNAME
             </td>
             <td>
-                MEDICAL AID
+              MEDICAL AID
             </td>
             <td>
-                EMAIL 
+              EMAIL
             </td>
             <td>
-                CELLPHONE
+              CELLPHONE
             </td>
             <td>
-                UPCOMING APPOINTMENTS
+              UPCOMING APPOINTMENTS
             </td>
             <td>
-                ACTIONS
+              ACTIONS
             </td>
-           
+
           </tr>
         </thead>
+        <tbody>
+          <tr *ngFor="let data of patients.patients">
+            <td class="full-name">
+              {{data.FirstName}}  {{data.Surname}}
+              <span>{{data.CreateDate}}</span>
+            </td>
+            <td>
+              YES
+            </td>
+            <td>
+                {{data.Email}} 
+              </td>
+            <td>
+                {{data.Cellphone}} 
+              </td>
+
+              <td>
+                <span class="number-dadge">
+                  0
+                </span>
+              </td>
+              <td>
+             <div class="btn-group">
+                <div class="btns">
+                    <img src="assets/images/dashboard/btn-search.svg" alt="">
+                  </div>
+                  <div class="btns">
+                    <img src="assets/images/dashboard/btn-edit.svg" alt="">
+                  </div>
+                  <div class="btns">
+                    <img src="assets/images/dashboard/btn-delete.svg" alt="">
+                  </div>
+             </div>
+              </td>
+          </tr>
+        </tbody>
       </table>
-        </div>
+    </div>
   </section>
   <section class="section-feed">
     Feed
   </section>
 
 </section>
-

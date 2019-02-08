@@ -2,7 +2,7 @@ export const IS_LOCAL = true;
 let api = 'http://dokio.ndu-systems.net/api';
 let web = 'http://dokio.ndu-systems.net';
 if (IS_LOCAL) {
-    api = 'http://localhost:8080/dok-io-api/api';
+    api = 'http://localhost:8080/dok-io-api/';
     web = 'http://localhost:4200';
 }
 
