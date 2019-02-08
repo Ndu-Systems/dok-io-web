@@ -4,7 +4,7 @@
 
   .top-bar {
     display: grid;
-    grid-template-columns: 6% 20% 40% auto;
+    grid-template-columns: 8% 20% 40% auto;
     background: #29b6f6;
     padding: 0.5rem 2rem;
     color: #f6f9fc;
@@ -25,7 +25,6 @@
       p {
         position: absolute;
         top: 30%;
-        left: 2%;
         font-weight: 200;
         font-size: .8rem
       }

@@ -1,0 +1,44 @@
+.main {
+  display: grid;
+  grid-template-columns: 80% 20%;
+
+  .section-main {
+    padding: 3%;
+
+    .table-heading {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      padding-left: 2rem;
+      padding-right: 3rem;
+
+      h1 {}
+
+      .filters {
+        text-align: right;
+
+        label {
+          font-weight: 700;
+        }
+
+        select {
+          background: none;
+          border: none;
+          font-weight: 700;
+          color: #29B6F6;
+
+        }
+      }
+    }
+
+    .table {
+        padding: 2rem;
+        table{
+            width: 100%;
+        }
+    }
+  }
+
+  .section-feed {
+    padding: 5%;
+  }
+}
