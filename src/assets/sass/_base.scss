@@ -82,7 +82,20 @@
   background: #29B6F6;
   color: #fff;
   text-align: center;
-  width: 5rem;
-  height: 5rem;
+  width: 15rem;
+  // height: 5rem;
   border-radius: 5rem;
+  padding: .5rem .8rem;
+  margin: 0 auto;
+}
+.aling-center{
+  text-align: center;
+}
+
+.img-btn{
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover{
+transform: translate(.3rem)
+  }
 }

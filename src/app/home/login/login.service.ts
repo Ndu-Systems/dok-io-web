@@ -19,7 +19,7 @@ public loginUser(Email: string, Password: string): Observable<any>{
     };
 
     let reqheaders = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.httpClient.post<any>(this.url + '/login/login-user.php', JSON.stringify(data), { headers: reqheaders});
+    return this.httpClient.post<any>(this.url + 'api/login/login-user.php', JSON.stringify(data), { headers: reqheaders});
 
 }
 }

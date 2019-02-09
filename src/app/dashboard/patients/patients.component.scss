@@ -1,6 +1,5 @@
 .main {
-  display: grid;
-  grid-template-columns: 80% 20%;
+
 
   .section-main {
     padding: 3%;
@@ -12,7 +11,7 @@
       padding-right: 3rem;
 
       h1 {
-          text-transform: uppercase;
+        text-transform: uppercase;
       }
 
       .filters {
@@ -34,42 +33,48 @@
     }
 
     .table {
-        padding: 2rem;
-        table{
-            width: 100%;
-            tbody{
-                tr{
-                    background: #FFFFFF;
-                    td{
-                    background: #FFFFFF;
+      padding: 2rem;
+      border-collapse: collapse;
 
-                        padding: 1rem;
-                        border: none;
-                        .btn-group{
-                            display: grid;
-                            grid-template-columns: 30% 30% 30%;
-                            column-gap: .3rem;
-                            .btns{
-                              img{
-                                  width: 2rem;
-                              }
-                            }
-                          }
-                    }
-                    .full-name{
-                        span{
-                            display: block;
-                            font-size: .7rem;
-                            padding: .2rem;
-                        }
-                    }
+
+      table {
+        width: 100%;
+
+        tbody {
+          tr {
+            background: #FFFFFF;
+            border-right: none;
+            border-left: none;
+            td {
+           
+              padding: 1rem;
+    
+
+              .btn-group {
+                display: grid;
+                grid-template-columns: 30% 30% 30%;
+                column-gap: .3rem;
+
+                .btns {
+                  img {
+                    width: 2rem;
+                  }
                 }
+              }
             }
+
+            .full-name {
+              span {
+                display: block;
+                font-size: .7rem;
+                padding: .2rem;
+              }
+            }
+          }
         }
+      }
     }
   }
 
-  .section-feed {
-    padding: 5%;
-  }
+
 }
