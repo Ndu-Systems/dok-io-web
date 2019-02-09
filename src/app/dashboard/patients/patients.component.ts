@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from 'src/app/services';
 import { Observable } from 'rxjs';
+import { BreadCrumb } from '../bread-crumb/bread-crumb.model';
 
 @Component({
   selector: 'app-patients',
@@ -8,6 +9,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./patients.component.scss']
 })
 export class PatientsComponent implements OnInit {
+  items:Array<BreadCrumb> = [
+    {
+      name:'ACTIVE PATIENTS', url:'/dashboard', active:true
+    },
+    {
+      name:'INCOMPLETE PATIENTS', url:'/dashboard', active:false
+    }, {
+      name:' ARCHIVED PATIENTS', url:'/dashboard', active:false
+    }
+
+  ];
   patients$:Observable<Array<any>> = this.patientService.getPatients();
   constructor(private patientService:PatientService) { }
 
@@ -15,3 +27,4 @@ export class PatientsComponent implements OnInit {
   }
 
 }
+

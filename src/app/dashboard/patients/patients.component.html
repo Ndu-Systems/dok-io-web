@@ -1,5 +1,5 @@
 <section class="main">
-    <app-bread-crumb></app-bread-crumb>
+    <app-bread-crumb [items]="items"></app-bread-crumb>
   <section class="section-main">
     <div class="table-heading">
       <h1>
@@ -57,7 +57,7 @@
               </td>
 
               <td class="aling-center">
-                <span class="number-dadge">
+                <span class="number-dadge  number-{{data.NumAppointments}}">
                  {{data.NumAppointments}}
                 </span>
               </td>
