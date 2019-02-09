@@ -3,13 +3,16 @@ import { DashboardHomeComponent } from './dashboard-home/dashboard-home.componen
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
+import { PatientComponent } from './patient/patient.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent ,children:[
-    {path:'', component:PatientsComponent}
+    {path:'dashboard', component:PatientsComponent},
+    {path:'', component:PatientsComponent},
+    {path:'patient/:id', component:PatientComponent},
   ]}
 ];
-export const declarations:Array<any> =[DashboardComponent,DashboardHomeComponent, PatientsComponent]
+export const declarations:Array<any> =[DashboardComponent,DashboardHomeComponent, PatientsComponent,PatientComponent]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
