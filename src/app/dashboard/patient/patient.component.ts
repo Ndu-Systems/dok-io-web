@@ -7,13 +7,15 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./patient.component.scss"]
 })
 export class PatientComponent implements OnInit {
-  PatientId: string;
   constructor(private activatedRoute: ActivatedRoute) {
     activatedRoute.params.subscribe(r => {
-      this.PatientId = r["id"];
-      alert(this.PatientId)
+     let patientId = r["id"];
+     this.getPatientDetails(patientId)
     });
   }
 
   ngOnInit() {}
+  getPatientDetails(patientId:string){
+
+  }
 }
