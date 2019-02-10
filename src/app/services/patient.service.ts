@@ -11,4 +11,7 @@ export class PatientService {
   getPatients(): Observable<any> {
     return this.http.get<any>(`${API_URL}/api/patient/get-active-patients.php`);
   }
+  getPatient(id:string): Observable<any> {
+    return this.http.get<any>(`${API_URL}/api/patient/get-patient.php?PatientId=${id}`);
+  }
 }

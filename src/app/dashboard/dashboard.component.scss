@@ -61,9 +61,10 @@
       }
 
       .name {
-          h3{
-              font-weight: 300;
-          }
+        h3 {
+          font-weight: 300;
+        }
+
         p {
           font-size: .7rem;
         }
@@ -83,28 +84,31 @@
     }
   }
 
-  
-.main-outlet{
-  display: grid;
-  grid-template-columns: 80% 20%;
-  .section-feed {
-    padding: 6%;
-    background: #fff;
-    .add-patient{
-      padding: .8rem .1rem;
-      img{
-        width: 50%;
-        cursor: pointer;
+
+  .main-outlet {
+    display: grid;
+    grid-template-columns: 80% 20%;
+
+    .section-feed {
+      padding: 6%;
+      background: #fff;
+
+      .add-patient {
+        padding: .8rem .1rem;
+
+        img {
+          width: 50%;
+          cursor: pointer;
+        }
       }
-    }
 
-    .feed{
-      h1{
-        color: #1C2833;
+      .feed {
+        h1 {
+          color: #1C2833;
 
+        }
       }
     }
   }
-}
 
 }

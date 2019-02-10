@@ -1,6 +1,129 @@
 <section class="main">
   <app-bread-crumb [items]="items"></app-bread-crumb>
   <section class="section-main">
+    <section class="section-user-details">
+      <div class="user-info">
+        <section>
+          <h1>
+            {{patientData.FirstName}} {{patientData.Surname}}
+          </h1>
+          <table>
+            <tr>
+              <td>
+                EMAIL
+              </td>
+              <td>
+                {{patientData.Email}}
+              </td>
+            </tr>
 
-</section>
+            <tr>
+              <td>
+                PHONE
+              </td>
+              <td>
+                {{patientData.Cellphone}}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                DOB
+              </td>
+              <td>
+                {{patientData.DOB}}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                ID NUMBER
+              </td>
+              <td>
+                {{patientData.IdNumber}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                REG:DATE
+              </td>
+              <td>
+                {{patientData.CreateDate}}
+              </td>
+            </tr>
+
+          </table>
+        </section>
+
+        <section>
+          <img src="assets/images/dashboard/user-more.svg" alt="">
+        </section>
+      </div>
+      <div class="medical-aid-details">
+        <section>
+          <h1>
+            {{patientData.MedicalaidName }} 
+          </h1>
+          <table>
+            <tr>
+              <td>
+                Member
+              </td>
+              <td>
+                {{patientData.PrimaryMember}}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Membership #
+              </td>
+              <td>
+                {{patientData.PrimaryMemberId}}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                STREET
+              </td>
+              <td>
+                <!-- {{patientData.DOB}} -->
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                CITY
+              </td>
+              <td>
+                <!-- {{patientData.IdNumber}} -->
+              </td>
+            </tr>
+            <tr>
+              <td>
+                PROVINCE
+              </td>
+              <td>
+                <!-- {{patientData.CreateDate}} -->
+              </td>
+            </tr>
+            <tr>
+              <td>
+                POST-CODE
+              </td>
+              <td>
+                <!-- {{patientData.CreateDate}} -->
+              </td>
+            </tr>
+
+          </table>
+        </section>
+
+        <section>
+          <img src="assets/images/dashboard/medical-aid-icon.svg" alt="">
+        </section>
+      </div>
+    </section>
+  </section>
 </section>
