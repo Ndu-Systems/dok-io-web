@@ -10,7 +10,7 @@
 
   .modal-header {
     background: #29B6F6;
-    padding-top: 1rem;
+    padding-top: .3rem;
 
     ul {
       list-style: none;
@@ -20,7 +20,7 @@
         display: inline-block;
         width: 25%;
         text-align: right;
-        padding: 1rem;
+        padding: .7rem;
 
         a {
           color: rgb(209, 214, 214);
@@ -37,6 +37,7 @@
       .exit {
           img{
               width: 5rem;
+              cursor: pointer;
           }
       }
 
