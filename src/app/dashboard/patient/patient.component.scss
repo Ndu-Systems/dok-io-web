@@ -1,0 +1,28 @@
+.main {
+  .section-main {
+      padding: 5%;
+    .section-user-details {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-gap: 2rem;
+        .user-info ,  .medical-aid-details{
+            background: #fff;
+            display: grid;
+            grid-template-columns: 80% 20%;
+            padding: 5%;
+            img{
+               width:  60%;
+            }
+        }
+      .user-info {
+
+        section {}
+      }
+
+      .medical-aid-details {
+
+        section {}
+      }
+    }
+  }
+}
