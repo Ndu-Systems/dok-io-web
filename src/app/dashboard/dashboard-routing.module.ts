@@ -1,3 +1,4 @@
+import { AddPatientComponent } from './add-patient/add-patient.component';
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
 import { PatientsComponent } from "./patients/patients.component";
 import { DashboardHomeComponent } from "./dashboard-home/dashboard-home.component";
@@ -22,7 +23,8 @@ export const declarations: Array<any> = [
   DashboardHomeComponent,
   PatientsComponent,
   PatientComponent,
-  BreadCrumbComponent
+  BreadCrumbComponent,
+  AddPatientComponent
 ];
 
 @NgModule({

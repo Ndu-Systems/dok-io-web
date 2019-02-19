@@ -1,0 +1,45 @@
+.add-patient {
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  width: 70%;
+  height: 40%;
+  z-index: 100;
+  background: #FFFFFF;
+
+
+  .modal-header {
+    background: #29B6F6;
+    padding-top: 1rem;
+
+    ul {
+      list-style: none;
+      width: 100%;
+
+      li {
+        display: inline-block;
+        width: 25%;
+        text-align: right;
+        padding: 1rem;
+
+        a {
+          color: rgb(209, 214, 214);
+        }
+      }
+
+      .active {
+        border-bottom: .3rem solid rgb(248, 248, 248);
+
+        a {
+          color: #fff;
+        }
+      }
+      .exit {
+          img{
+              width: 5rem;
+          }
+      }
+
+    }
+  }
+}

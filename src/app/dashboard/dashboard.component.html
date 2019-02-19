@@ -46,7 +46,7 @@
     </section>
     <section class="section-feed">
       <div class="add-patient">
-        <img src="assets/images/dashboard/btn-add-patient.svg" class="img-btn" alt="">
+        <img src="assets/images/dashboard/btn-add-patient.svg" (click)="showAddPatientModal()" class="img-btn" alt="">
       </div>
       <div class="feed">
         <h1>
@@ -57,3 +57,6 @@
   
   </section>
 </section>
+<div class="overlay" *ngIf="showAddPatient">
+<app-add-patient></app-add-patient>
+</div>
