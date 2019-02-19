@@ -14,5 +14,8 @@ export class DashboardComponent implements OnInit {
   showAddPatientModal(){
     this.showAddPatient = true;
   }
+  closeModal(e){
+  this.showAddPatient = false;
+  }
 
 }
