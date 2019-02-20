@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  showAddPatient= true;
+  showAddPatient= false;
   constructor() { }
 
   ngOnInit() {
@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
     this.showAddPatient = true;
   }
   closeModal(e){
-  this.showAddPatient = false;
+      this.showAddPatient = false;
   }
 
 }
