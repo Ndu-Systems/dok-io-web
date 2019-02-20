@@ -2,7 +2,6 @@ import { PatientService } from "./../../services/patient.service";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { BreadCrumb } from "../bread-crumb/bread-crumb.model";
-import { discardPeriodicTasks } from "@angular/core/testing";
 
 @Component({
   selector: "app-patient",
@@ -10,7 +9,9 @@ import { discardPeriodicTasks } from "@angular/core/testing";
   styleUrls: ["./patient.component.scss"]
 })
 export class PatientComponent implements OnInit {
+  
   patientData;
+  patientId;
   items: Array<BreadCrumb> = [
     {
       name: "PERSONAL DETAILS",
@@ -19,7 +20,7 @@ export class PatientComponent implements OnInit {
     },
     {
       name: "PRESCRIPTIONS",
-      url: "/dashboard",
+      url: `/dashboard`,
       active: false
     },
     {
@@ -28,20 +29,23 @@ export class PatientComponent implements OnInit {
       active: false
     }
   ];
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private patientService: PatientService
   ) {
-    activatedRoute.params.subscribe(r => {
-      let patientId = r["id"];
-      this.getPatientDetails(patientId);
+    this.activatedRoute.params.subscribe(r => {
+      this.patientId = r["id"];
+      this.getPatientDetails(this.patientId);
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   getPatientDetails(patientId: string) {
     this.patientService.getPatient(patientId).subscribe(r => {
       this.patientData = r;
     });
   }
+
+  
 }
