@@ -1,12 +1,12 @@
 import { PatientPrescriptionComponent } from './prescription/patient-prescription/patient-prescription.component';
-import { AddPatientComponent } from './add-patient/add-patient.component';
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
-import { PatientsComponent } from "./patients/patients.component";
 import { DashboardHomeComponent } from "./dashboard-home/dashboard-home.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { DashboardComponent } from "./dashboard.component";
-import { PatientComponent } from './patient-details/patient.component';
+import { PatientsComponent } from './Patient/patients/patients.component';
+import { PatientComponent } from './Patient/patient-details/patient.component';
+import { AddPatientComponent } from './Patient/add-patient/add-patient.component';
 
 const routes: Routes = [
   {

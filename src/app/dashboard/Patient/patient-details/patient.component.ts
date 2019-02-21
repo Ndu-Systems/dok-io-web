@@ -1,8 +1,8 @@
-import { PatientService } from "./../../services/patient.service";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { BreadCrumb } from "../bread-crumb/bread-crumb.model";
 import { discardPeriodicTasks } from "@angular/core/testing";
+import { BreadCrumb } from "../../bread-crumb/bread-crumb.model";
+import { PatientService } from "src/app/services";
 
 @Component({
   selector: "app-patient",

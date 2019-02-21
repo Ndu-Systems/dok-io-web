@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from 'src/app/services';
 import { Observable } from 'rxjs';
-import { BreadCrumb } from '../bread-crumb/bread-crumb.model';
+import { BreadCrumb } from '../../bread-crumb/bread-crumb.model';
 
 @Component({
   selector: 'app-patients',
