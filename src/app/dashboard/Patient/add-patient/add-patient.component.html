@@ -15,4 +15,20 @@
      </li>
    </ul>
  </section>
+ <section class="popup-body">
+    <form [formGroup]="rForm" (ngSubmit)="send(rForm.value)" class="box form-group">
+        <div class="controls">
+          <label for="">First Name</label> <br />
+          <input type="text" formControlName="FirstName" />
+          <div class="alert" *ngIf="!rForm.controls['FirstName'].valid && rForm.controls['FirstName'].touched">
+            Name is requried
+          </div>
+        </div>
+       
+      
+        <div class="controls">
+          <input type="submit" value="Send" class="btn-gold" [disabled]="!rForm.valid" />
+        </div>
+      </form>
+ </section>
 </section>
