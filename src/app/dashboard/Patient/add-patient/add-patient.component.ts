@@ -1,5 +1,6 @@
 import { Component, OnInit, Output ,EventEmitter} from '@angular/core';
-// import { EventEmitter } from 'protractor';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms"; //l-f
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-patient',
@@ -8,7 +9,53 @@ import { Component, OnInit, Output ,EventEmitter} from '@angular/core';
 })
 export class AddPatientComponent implements OnInit {
 @Output() closeModalAction:EventEmitter<boolean> = new EventEmitter();
-  constructor() { }
+
+/*
+Form begin here
+*/
+rForm: FormGroup;
+
+FirstName: string;
+Surname: string;
+IdNumber: string;
+DOB: string;
+Gender: string;
+Email: string;
+Cellphone: string;
+AddressLine1: string;
+AddressLine2: string;
+AddressLine3: string;
+City: string;
+PostCode: string;
+CreateUserId: string;
+ModifyUserId: string;
+StatusId: number;
+//validation
+message: string = '';
+
+/*
+Form ends here
+*/
+
+  constructor(private fb:FormBuilder, private http:HttpClient) {
+    this.rForm = fb.group({
+      'FirstName':[null, Validators.required],
+      'Surname':[null, Validators.required],
+      'IdNumber':[null, Validators.required],
+      'DOB':[null, Validators.required],
+      'Gender':[null, Validators.required],
+      'Email':[null, Validators.required],
+      'Cellphone':[null, Validators.required],
+      'AddressLine1':[null, Validators.required],
+      'City':[null, Validators.required],
+      'PostCode':[null, Validators.required],
+      'cell':[null,Validators.required],
+      'message':[null,Validators.compose([
+        Validators.required,
+        Validators.minLength(15)
+      ])],
+    })
+   }
 
   ngOnInit() {
   }
