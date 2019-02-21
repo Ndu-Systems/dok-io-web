@@ -6,7 +6,7 @@ import { DashboardHomeComponent } from "./dashboard-home/dashboard-home.componen
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { DashboardComponent } from "./dashboard.component";
-import { PatientComponent } from "./patient/patient.component";
+import { PatientComponent } from './patient-details/patient.component';
 
 const routes: Routes = [
   {
