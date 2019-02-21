@@ -2,7 +2,7 @@
   <app-bread-crumb [items]="items"></app-bread-crumb>
   <section class="section-main">
     <section class="section-user-details">
-      <div class="user-info">
+      <div class="user-info" *ngIf="patientData">
         <section>
           <h1>
             {{patientData.FirstName}} {{patientData.Surname}}
@@ -59,7 +59,7 @@
           <img src="assets/images/dashboard/user-more.svg" alt="">
         </section>
       </div>
-      <div class="medical-aid-details">
+      <div class="medical-aid-details"  *ngIf="patientData">
         <section>
           <h1>
             {{patientData.MedicalaidName }} 

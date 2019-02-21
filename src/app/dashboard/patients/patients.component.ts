@@ -9,6 +9,7 @@ import { BreadCrumb } from '../bread-crumb/bread-crumb.model';
   styleUrls: ['./patients.component.scss']
 })
 export class PatientsComponent implements OnInit {
+
   items:Array<BreadCrumb> = [
     {
       name:'ACTIVE PATIENTS', url:'/dashboard', active:true
@@ -20,6 +21,7 @@ export class PatientsComponent implements OnInit {
     }
 
   ];
+  
   patients$:Observable<Array<any>> = this.patientService.getPatients();
   constructor(private patientService:PatientService) { }
 

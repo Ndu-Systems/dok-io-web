@@ -1,21 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.scss"]
 })
 export class DashboardComponent implements OnInit {
-  showAddPatient= false;
-  constructor() { }
+  showAddPatient = false;
+  constructor() {}
 
-  ngOnInit() {
-  }
-  showAddPatientModal(){
+  ngOnInit() {}
+  showAddPatientModal() {
     this.showAddPatient = true;
   }
-  closeModal(e){
-  this.showAddPatient = false;
+  closeModal(e) {
+    this.showAddPatient = false;
   }
-
 }

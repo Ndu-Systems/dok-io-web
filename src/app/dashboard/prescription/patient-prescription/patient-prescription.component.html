@@ -1,0 +1,71 @@
+<section class="main">
+  <app-bread-crumb [items]="items"></app-bread-crumb>
+  <section class="section-main">
+    <section class="section-user-details">
+      <div class="table">
+        <table *ngIf=" prescriptions$ | async as  prescriptions">
+          <thead>
+            <tr>
+              <td>
+                SYSMPTOMS
+              </td>
+              <td>
+                DIAGNOSIS
+              </td>
+              <td>
+                EMAIL
+              </td>
+              <td>
+                CELLPHONE
+              </td>
+              <td>
+                UPCOMING <br> APPOINTMENTS
+              </td>
+              <td>
+                ACTIONS
+              </td>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of prescriptions.PatientPrescriptions">
+              <td class="full-name">
+                {{data.symptoms}}
+              </td>
+              <td>
+               {{data.diagnosis}}
+              </td>
+              <td>
+                  {{data.Email}} 
+                </td>
+              <td>
+                  {{data.Cellphone}} 
+                </td>
+  
+                <td class="aling-center">
+                  <span class="number-dadge  number-{{data.NumAppointments}}">
+                   {{data.NumAppointments}}
+                  </span>
+                </td>
+                <td>
+               <div class="btn-group">
+                  <div class="btns">
+                      <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/btn-search.svg" class="img-btn" alt=""></a>
+                    </div>
+                    <div class="btns">
+                      <img src="assets/images/dashboard/btn-edit.svg" class="img-btn"  alt="">
+                    </div>
+                    <div class="btns">
+                      <img src="assets/images/dashboard/btn-delete.svg"  class="img-btn" alt="">
+                    </div>
+               </div>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</section>
+
+

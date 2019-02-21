@@ -11,31 +11,34 @@ import { discardPeriodicTasks } from "@angular/core/testing";
 })
 export class PatientComponent implements OnInit {
   patientData;
-  items: Array<BreadCrumb> = [
-    {
-      name: "PERSONAL DETAILS",
-      url: "/dashboard",
-      active: true
-    },
-    {
-      name: "PRESCRIPTIONS",
-      url: "/dashboard",
-      active: false
-    },
-    {
-      name: " APPOINTMENTS",
-      url: "/dashboard",
-      active: false
-    }
-  ];
+  items: Array<BreadCrumb> = [];
+  patientId: any;
   constructor(
     private activatedRoute: ActivatedRoute,
     private patientService: PatientService
   ) {
-    activatedRoute.params.subscribe(r => {
-      let patientId = r["id"];
-      this.getPatientDetails(patientId);
+     this.activatedRoute.params.subscribe(r => {
+      this.patientId = r["id"];
+      this.getPatientDetails(this.patientId);
     });
+
+    this.items = [
+      {
+        name: "PERSONAL DETAILS",
+        url: `/dashboard/patient/${this.patientId}`,
+        active: true
+      },
+      {
+        name: "PRESCRIPTIONS",
+        url: `/dashboard/patient-prescription/${this.patientId}`,
+        active: false
+      },
+      {
+        name: " APPOINTMENTS",
+        url: "/dashboard",
+        active: false
+      }
+    ];
   }
 
   ngOnInit() {}
