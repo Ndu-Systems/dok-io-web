@@ -30,12 +30,14 @@ PostCode: string;
 CreateUserId: string;
 ModifyUserId: string;
 StatusId: number;
+Province: number;
 //validation
 message: string = '';
 
 /*
 Form ends here
 */
+Age="0";
 
   constructor(private fb:FormBuilder, private http:HttpClient) {
     this.rForm = fb.group({
@@ -50,6 +52,8 @@ Form ends here
       'City':[null, Validators.required],
       'PostCode':[null, Validators.required],
       'cell':[null,Validators.required],
+      'Age':[null],
+      'Province':[null],
       'message':[null,Validators.compose([
         Validators.required,
         Validators.minLength(15)

@@ -30,3 +30,25 @@
     background-color: $green-light-color;
   }
 }
+
+
+.dashboard-forms{
+  padding: 2rem;
+  label{
+      color: #78909C;
+      font-weight: 600;
+      text-transform: capitalize;
+  }
+  .input-field{
+      border: none;
+      background: rgba(120, 144, 156, 0.151);
+      border-radius: 5rem;
+      padding: .5rem 2rem;
+      margin: 1rem 0;
+      width: 100%;
+      color: #78909C;
+      font-weight: 600;
+
+
+  }
+}
