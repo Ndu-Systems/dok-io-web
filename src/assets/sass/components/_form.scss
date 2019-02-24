@@ -1,12 +1,18 @@
 .form {
   border-radius: 5px;
-  background:transparent;
+  background: transparent;
   padding: 20px;
-.form-group{
-    margin-bottom: .5em;
-}
 
-  input[type=text], input[type=email],input[type=password],input[type=number], select, textarea {
+  .form-group {
+    margin-bottom: .5em;
+  }
+
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=number],
+  select,
+  textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -16,7 +22,7 @@
     margin-bottom: 16px;
     resize: vertical;
   }
-  
+
   input[type=submit] {
     background: #DEE5ED;
     color: #000;
@@ -25,30 +31,54 @@
     box-shadow: 10px -1px 83px -21px rgba(0, 0, 0, 1);
     cursor: 'pointer';
   }
-  
+
   input[type=submit]:hover {
     background-color: $green-light-color;
   }
 }
 
 
-.dashboard-forms{
+.dashboard-forms {
   padding: 2rem;
-  label{
-      color: #78909C;
-      font-weight: 600;
-      text-transform: capitalize;
-  }
-  .input-field{
-      border: none;
-      background: rgba(120, 144, 156, 0.151);
-      border-radius: 5rem;
-      padding: .5rem 2rem;
-      margin: 1rem 0;
-      width: 100%;
-      color: #78909C;
-      font-weight: 600;
 
+  label {
+    color: #78909C;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  .input-field {
+    border: none;
+    background: rgba(120, 144, 156, 0.151);
+    border-radius: 5rem;
+    padding: .5rem 2rem;
+    margin: 1rem 0;
+    width: 100%;
+    color: #78909C;
+    font-weight: 600;
+  }
+
+  .button {
+    width: auto;
+    padding: .4rem;
+    background: #29B6F6;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+
+    // &:disabled {
+    //   background: rgb(161, 209, 231);
+
+    //   &:hover {
+    //     background: rgb(161, 209, 231);
+    //   }
+    // }
+
+    &:hover {
+      background: rgb(28, 155, 214);
+    }
 
   }
 }

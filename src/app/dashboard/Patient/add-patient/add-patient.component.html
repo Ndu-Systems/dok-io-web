@@ -16,7 +16,7 @@
    </ul>
  </section>
  <section class="popup-body">
-    <form [formGroup]="rForm" (ngSubmit)="send(rForm.value)" class="box form-group" class="dashboard-forms">
+    <form [formGroup]="rForm" (ngSubmit)="register(rForm.value)" class="box form-group" class="dashboard-forms">
       <div class="col-1-of-3">
         <div class="controls">
           <label for="">First Name</label> <br />
@@ -47,7 +47,7 @@
         </div>
         <div class="controls">
           <label for="">Email</label> <br />
-          <input type="text" class ="input-field" formControlName="Email" />
+          <input type="email" class ="input-field" formControlName="Email" />
           <div class="alert" *ngIf="!rForm.controls['Email'].valid && rForm.controls['Email'].touched">
               Email is requried
           </div>
@@ -76,9 +76,9 @@
         </div>
         <div class="controls">
           <label for="">Date of birth</label> <br />
-          <input type="date" class ="input-field" formControlName="Email" />
-          <div class="alert" *ngIf="!rForm.controls['Email'].valid && rForm.controls['Email'].touched">
-              Email is requried
+          <input type="date" class ="input-field" formControlName="DOB" />
+          <div class="alert" *ngIf="!rForm.controls['DOB'].valid && rForm.controls['DOB'].touched">
+              Date of birth is requried
           </div>
         </div>
         <div class="controls">
@@ -90,9 +90,9 @@
       <div class="col-1-of-3 col-1-of-2">
           <div class="controls">
             <label for="">Street address</label> <br />
-            <input type="text" class ="input-field" formControlName="City" />
-            <div class="alert" *ngIf="!rForm.controls['City'].valid && rForm.controls['City'].touched">
-                City is requried
+            <input type="text" class ="input-field" formControlName="AddressLine1" />
+            <div class="alert" *ngIf="!rForm.controls['AddressLine1'].valid && rForm.controls['AddressLine1'].touched">
+                Address is requried
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@
        
       
         <div class="controls">
-          <input type="submit" value="Send" class="btn-gold" [disabled]="!rForm.valid" />
+          <input type="submit" value="REGISTER" class="button" [disabled]="!rForm.valid" />
         </div>
       </form>
  </section>
