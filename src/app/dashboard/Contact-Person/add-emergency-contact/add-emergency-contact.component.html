@@ -1,0 +1,78 @@
+<section class="modal shadow-black">
+  <section class="modal-header">
+    <ul>
+      <li>
+        <a>REGISTER PATIENT</a>
+      </li>
+      <li>
+        <a>MEDICAL INFO</a>
+      </li>
+      <li class="active">
+        <a>EMERGENCY CONTACTS</a>
+      </li>
+      <li class="exit">
+        <img src="../../../assets/images/dashboard/btn-exit.png" (click)="closeModal()" class="img-btn" alt="">
+      </li>
+    </ul>
+  </section>
+  <section class="popup-body">
+    <form [formGroup]="rForm" (ngSubmit)="register(rForm.value)" class="box form-group" class="dashboard-forms">
+
+      <div class="col-1-of-3 col-3-1">
+        <div class="controls">
+          <label for="">Name</label> <br />
+          <input type="text" class="input-field" formControlName="Name" />
+          <div class="alert" *ngIf="!rForm.controls['Name'].valid && rForm.controls['Name'].touched">
+             Name is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Relationship</label> <br />
+          <input type="text" class="input-field" formControlName="Relationship" />
+          <div class="alert" *ngIf="!rForm.controls['Relationship'].valid && rForm.controls['Relationship'].touched">
+              Relationship is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Contact no.</label> <br />
+          <input type="text" class="input-field" formControlName="CellNumber" />
+          <div class="alert" *ngIf="!rForm.controls['CellNumber'].valid && rForm.controls['CellNumber'].touched">
+              Contact no. is requried
+          </div>
+        </div>
+        <div class="image-div">
+          <img src="assets/images/dashboard/emegency.svg" alt="">
+        </div>
+      </div>
+
+   <div class="col-1-of-3 col-3-1">
+        <div class="controls">
+          <label for="">Name</label> <br />
+          <input type="text" class="input-field" formControlName="Name" />
+          <div class="alert" *ngIf="!rForm.controls['Name'].valid && rForm.controls['Name'].touched">
+             Name is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Relationship</label> <br />
+          <input type="text" class="input-field" formControlName="Relationship" />
+          <div class="alert" *ngIf="!rForm.controls['Relationship'].valid && rForm.controls['Relationship'].touched">
+              Relationship is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Contact no.</label> <br />
+          <input type="text" class="input-field" formControlName="CellNumber" />
+          <div class="alert" *ngIf="!rForm.controls['CellNumber'].valid && rForm.controls['CellNumber'].touched">
+              Contact no. is requried
+          </div>
+        </div>
+        <div class="image-div">
+        </div>
+      </div>
+      <div class="controls">
+        <input type="submit" value="SUBMIT" class="button" [disabled]="!rForm.valid" />
+      </div>
+    </form>
+  </section>
+</section>

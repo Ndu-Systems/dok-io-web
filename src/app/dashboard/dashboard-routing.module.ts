@@ -1,3 +1,5 @@
+import { AddEmergencyContactComponent } from './Contact-Person/add-emergency-contact/add-emergency-contact.component';
+import { AddMedicalAidComponent } from './Medical-aid/add-medical-aid/add-medical-aid.component';
 import { PatientPrescriptionComponent } from './prescription/patient-prescription/patient-prescription.component';
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
 import { DashboardHomeComponent } from "./dashboard-home/dashboard-home.component";
@@ -27,7 +29,9 @@ export const declarations: Array<any> = [
   PatientComponent,
   BreadCrumbComponent,
   AddPatientComponent,
-  PatientPrescriptionComponent
+  PatientPrescriptionComponent,
+  AddMedicalAidComponent,
+  AddEmergencyContactComponent
 ];
 
 @NgModule({

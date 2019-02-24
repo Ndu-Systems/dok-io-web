@@ -19,7 +19,7 @@
         li {
           display: inline-block;
           width: 25%;
-          text-align: right;
+          text-align: center;
           padding: .7rem;
   
           a {
@@ -37,6 +37,7 @@
           }
         }
         .exit {
+          text-align: right;
             img{
                 width: 5rem;
                 cursor: pointer;

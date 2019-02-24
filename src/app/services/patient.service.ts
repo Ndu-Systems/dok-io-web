@@ -14,4 +14,7 @@ export class PatientService {
   getPatient(id:string): Observable<any> {
     return this.http.get<any>(`${API_URL}/api/patient/get-patient.php?PatientId=${id}`);
   }
+  addPatient(data): Observable<any> {
+    return this.http.post<any>(`${API_URL}/api/patient/add-patient.php`,data);
+  }
 }
