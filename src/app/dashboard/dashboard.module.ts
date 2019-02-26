@@ -1,10 +1,10 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   DashboardRoutingModule,
   declarations
-} from "./dashboard-routing.module";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+} from './dashboard-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [

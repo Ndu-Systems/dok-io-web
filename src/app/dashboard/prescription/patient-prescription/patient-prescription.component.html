@@ -1,6 +1,19 @@
 <section class="main">
   <app-bread-crumb [items]="items"></app-bread-crumb>
   <section class="section-main">
+    <section class="header-content">
+      <div class="panel col-1-of-3">
+        <div>
+          <h1>Patient Name</h1>
+        </div>
+        <div>
+          <h1>Medical details</h1>
+        </div>
+        <div>
+          <h1>icon</h1>
+        </div>
+      </div>
+    </section>
     <section class="section-user-details">
       <div class="table">
         <table *ngIf=" prescriptions$ | async as  prescriptions">
