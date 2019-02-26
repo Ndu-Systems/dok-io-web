@@ -37,12 +37,14 @@ UserId: string = "fe47252d-34cc-11e9-8a5d-f48e38e878a3";
 constructor(private fb: FormBuilder, private patientService: PatientService) {
   this.rForm = fb.group({
     PatientId: [null, Validators.required],
+    HasMedicalAid: [true, Validators.required],
     MedicalaidName: [null, Validators.required],
     MedicalaidType: [null, Validators.required],
     MemberShipNumber: [null, Validators.required],
+    PrimaryMember: [null, Validators.required],
     PrimaryMemberId: [null, Validators.required],
     CreateUserId: [this.UserId, Validators.required],
-    StatusId: [null, Validators.required],
+    StatusId: [1, Validators.required],
   });
 
   this.rForm.valueChanges.subscribe(data => {
