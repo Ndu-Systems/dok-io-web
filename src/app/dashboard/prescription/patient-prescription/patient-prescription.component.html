@@ -2,15 +2,20 @@
   <app-bread-crumb [items]="items"></app-bread-crumb>
   <section class="section-main">
     <section class="header-content">
-      <div class="panel col-1-of-3">
+      <div class="panel col-1-of-3" *ngIf="patient">
         <div>
-          <h1>Patient Name</h1>
+          <h1> {{patient.FirstName}} {{patient.Surname}} </h1>
         </div>
-        <div>
-          <h1>Medical details</h1>
+        <div *ngIf="patient.MemberShipNumber; else nomembership">
+          <h1>Membership # {{patient.MemberShipNumber}}</h1>
         </div>
+        <ng-template #nomembership>
+          <div>
+            <h1 class="no-membership">No Medical Aid</h1>
+          </div>
+        </ng-template>
         <div>
-          <h1>icon</h1>
+            <img src="assets/images/dashboard/user-more.svg" alt="user icon">
         </div>
       </div>
     </section>

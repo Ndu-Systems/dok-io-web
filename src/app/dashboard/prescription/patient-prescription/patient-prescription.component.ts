@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { BreadCrumb } from "../../bread-crumb/bread-crumb.model";
 import { ActivatedRoute } from "@angular/router";
-import { PrescriptionService } from "src/app/services";
+import { PrescriptionService, PatientService } from "src/app/services";
 import { Observable } from "rxjs";
+import { Patient } from "src/app/models/patient.model";
 
 @Component({
   selector: "app-patient-prescription",
@@ -13,13 +14,16 @@ export class PatientPrescriptionComponent implements OnInit {
   items: Array<BreadCrumb> = [];
   patientId: string;
   prescriptions$: Observable<Array<any>>;
+  patient: Patient;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private prescriptionService: PrescriptionService
+    private prescriptionService: PrescriptionService,
+    private patientService: PatientService
   ) {
     activatedRoute.params.subscribe(r => {
       this.patientId = r["id"];
       this.getPatientPrescriptions(this.patientId);
+      this.getPatientDetails(this.patientId);
     });
     this.prescriptions$ = this.prescriptionService.getPatientPrescriptions(
       this.patientId
@@ -46,5 +50,10 @@ export class PatientPrescriptionComponent implements OnInit {
   ngOnInit() {}
   getPatientPrescriptions(patientId: string): any {
     // throw new Error("Method not implemented.");
+  }
+  getPatientDetails(patientId: string) {
+    this.patientService.getPatient(patientId).subscribe(r => {
+      this.patient = r;
+    });
   }
 }
