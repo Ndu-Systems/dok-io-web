@@ -1,3 +1,4 @@
+import { CloseModalEventEmmiter } from "./../../../models/modal.eventemitter.model";
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"; //l-f
 import { HttpClient } from "@angular/common/http";
@@ -9,7 +10,9 @@ import { PatientService } from "src/app/services";
   styleUrls: ["./add-patient.component.scss"]
 })
 export class AddPatientComponent implements OnInit {
-  @Output() closeModalAction: EventEmitter<boolean> = new EventEmitter();
+  @Output() closeModalAction: EventEmitter<
+    CloseModalEventEmmiter
+  > = new EventEmitter();
 
   /*
 Form begin here
@@ -38,8 +41,9 @@ Form begin here
   /*
 Form ends here
 */
-  Age:number;
-  UserId: string="fe47252d-34cc-11e9-8a5d-f48e38e878a3";
+  Age: number;
+  UserId: string = "fe47252d-34cc-11e9-8a5d-f48e38e878a3";
+
 
   constructor(private fb: FormBuilder, private patientService: PatientService) {
     this.rForm = fb.group({
@@ -59,28 +63,37 @@ Form ends here
       Province: [null]
     });
 
-    this.rForm.valueChanges.subscribe(data=>{
+    this.rForm.valueChanges.subscribe(data => {
       console.log(data);
-      
-      if(data.DOB) this.calculateAge(data.DOB);
+      if (data.DOB) this.calculateAge(data.DOB);
     });
-    
   }
-  
-  
 
   ngOnInit() {}
   closeModal() {
-    this.closeModalAction.emit(false);
+    this.closeModalAction.emit({
+      closeAll: true,
+      openAddEmengencyContact: false,
+      openAddMedicalAid: false,
+      openAddPatient: false
+    });
   }
   register(data) {
-    this.patientService.addPatient(data).subscribe(response=>{
-      console.log(response);
-      
-    })
+    this.patientService.addPatient(data).subscribe(response => {
+      if (response === true) {
+        alert(response);
+        this.closeModalAction.emit({
+          closeAll: false,
+          openAddEmengencyContact: false,
+          openAddMedicalAid: true,
+          openAddPatient: false
+        });
+      } else {
+        alert(`Error: ${response}`);
+      }
+    });
   }
-  calculateAge(date){
-    
+  calculateAge(date) {
     var ageDifMs = Date.now() - new Date(date).getTime();
     var ageDate = new Date(ageDifMs); // miliseconds from epoch
     this.Age = Math.abs(ageDate.getUTCFullYear() - 1970);
