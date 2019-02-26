@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CloseModalEventEmmiter } from "../models/modal.eventemitter.model";
 
 @Component({
   selector: "app-dashboard",
@@ -6,14 +7,31 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./dashboard.component.scss"]
 })
 export class DashboardComponent implements OnInit {
-  showPopup= true;
+  showPopup:boolean;
+  openAddPatient:boolean;
+  openAddMedicalAid:boolean;
+  openAddEmengencyContact:boolean;
   constructor() { }
 
   ngOnInit() {}
   showAddPatientModal() {
     this.showPopup = true;
+    this.openAddPatient = true;
   }
-  closeModal(e){
+  closeModal(e:CloseModalEventEmmiter){
+    console.log(e);
+
+    if(e.closeAll){
       this.showPopup = false;
+    }
+    else if(e.openAddMedicalAid){
+      this.openAddPatient = false;
+      this.openAddMedicalAid = true;
+    }
+    else if(e.openAddEmengencyContact){
+      this.openAddPatient = false;
+      this.openAddMedicalAid = false;
+      this.openAddEmengencyContact = true;
+    }
   }
 }
