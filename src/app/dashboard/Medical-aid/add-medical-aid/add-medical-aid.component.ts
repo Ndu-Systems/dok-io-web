@@ -1,3 +1,4 @@
+import { PatientService } from 'src/app/services';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CloseModalEventEmmiter } from 'src/app/models/modal.eventemitter.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -23,7 +24,6 @@ message: string = "";
 /*
 Form ends here
 */
-Age: number;
 UserId: string = "fe47252d-34cc-11e9-8a5d-f48e38e878a3";
 
   PatientId: string;
@@ -34,7 +34,7 @@ UserId: string = "fe47252d-34cc-11e9-8a5d-f48e38e878a3";
   PrimaryMemberId: string;
   CreateUserId: string;
   StatusId: number;
-constructor(private fb: FormBuilder, private patientService: any) {
+constructor(private fb: FormBuilder, private patientService: PatientService) {
   this.rForm = fb.group({
     PatientId: [null, Validators.required],
     MedicalaidName: [null, Validators.required],
@@ -47,7 +47,6 @@ constructor(private fb: FormBuilder, private patientService: any) {
 
   this.rForm.valueChanges.subscribe(data => {
     console.log(data);
-    if (data.DOB) this.calculateAge(data.DOB);
   });
 }
 
@@ -74,13 +73,6 @@ register(data) {
       alert(`Error: ${response}`);
     }
   });
-}
-calculateAge(date) {
-  var ageDifMs = Date.now() - new Date(date).getTime();
-  var ageDate = new Date(ageDifMs); // miliseconds from epoch
-  this.Age = Math.abs(ageDate.getUTCFullYear() - 1970);
-  //  this.rForm.controls['Age'].setValue(this.Age);
-  // this.rForm.get('Age').setValue(this.Age)
 }
 
 }
