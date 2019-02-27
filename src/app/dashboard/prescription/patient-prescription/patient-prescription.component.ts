@@ -20,7 +20,7 @@ export class PatientPrescriptionComponent implements OnInit {
     private prescriptionService: PrescriptionService,
     private patientService: PatientService
   ) {
-    activatedRoute.params.subscribe(r => {
+    this.activatedRoute.params.subscribe(r => {
       this.patientId = r["id"];
       this.getPatientPrescriptions(this.patientId);
       this.getPatientDetails(this.patientId);
@@ -47,7 +47,7 @@ export class PatientPrescriptionComponent implements OnInit {
     ];
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   getPatientPrescriptions(patientId: string): any {
     // throw new Error("Method not implemented.");
   }

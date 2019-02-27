@@ -10,6 +10,7 @@ import { PatientsComponent } from './Patient/patients/patients.component';
 import { PatientComponent } from './Patient/patient-details/patient.component';
 import { AddPatientComponent } from './Patient/add-patient/add-patient.component';
 import { PrintPrescriptionComponent } from './prescription/print-prescription';
+import { ViewPrescriptionComponent } from './prescription/view-prescription';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: '', component: PatientsComponent },
       { path: 'patient/:id', component: PatientComponent },
       { path: 'patient-prescription/:id', component: PatientPrescriptionComponent },
+      { path: 'view-prescription/:id', component: ViewPrescriptionComponent },
     ]
   }
 ];
@@ -33,7 +35,8 @@ export const declarations: Array<any> = [
   PatientPrescriptionComponent,
   AddMedicalAidComponent,
   AddEmergencyContactComponent,
-  PrintPrescriptionComponent
+  PrintPrescriptionComponent,
+  ViewPrescriptionComponent
 ];
 
 @NgModule({

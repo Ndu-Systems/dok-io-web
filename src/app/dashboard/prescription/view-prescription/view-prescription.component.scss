@@ -1,0 +1,16 @@
+.header-content{
+    padding: 2%;
+
+    .panel{
+        padding: 1%;
+        padding-top: 2%;
+        background: #fff;
+        img{
+            height: 60%;
+         }
+    }
+
+    .col-1-of-3{
+        grid-template-columns: 30% 50% auto;
+    }
+}
