@@ -27,23 +27,18 @@ Form ends here
 */
 UserId: string = getCurrentUser();
 
-  PatientId: string;
-  MedicalaidName: string;
-  MedicalaidType: string;
-  MemberShipNumber: string;
-  PrimaryMember: string;
-  PrimaryMemberId: string;
-  CreateUserId: string;
-  StatusId: number;
+PatientId: string;
+Name: string;
+Relationship: string;
+CellNumber: string;
+CreateUserId: string;
+StatusId: number;
 constructor(private fb: FormBuilder, private emergencyContactService: EmergencyContactService) {
   this.rForm = fb.group({
     PatientId: [localStorage.getItem(LAST_INSERT_ID), Validators.required],
-    HasMedicalAid: [true, Validators.required],
-    MedicalaidName: [null, Validators.required],
-    MedicalaidType: [null, Validators.required],
-    MemberShipNumber: [null, Validators.required],
-    PrimaryMember: [null, Validators.required],
-    PrimaryMemberId: [null, Validators.required],
+    Name: [null, Validators.required],
+    Relationship: [null, Validators.required],
+    CellNumber: [null, Validators.required],
     CreateUserId: [this.UserId, Validators.required],
     StatusId: [1, Validators.required],
   });
@@ -62,7 +57,7 @@ closeModal() {
     openAddPatient: false
   });
 }
-addmedicalaid(data) {
+addcontact(data) {
   this.emergencyContactService.addEmergencyContact(data).subscribe(response => {    
     if (response) {
       alert(response);

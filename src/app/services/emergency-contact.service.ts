@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class EmergencyContactService {
   constructor(private http: HttpClient) {}
   addEmergencyContact(data): Observable<any> {
-    return this.http.post<any>(`${API_URL}/api/medicalaid/add-medicalaid.php`,data);
+    return this.http.post<any>(`${API_URL}/api/contactperson/add-contactperson.php`,data);
   }
 
 }
