@@ -1,3 +1,4 @@
+import { CURRENT_USER } from './../../shared/config';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
         .subscribe(response => {
           if(response){
             this.router.navigate(['/dashboard']);
+            localStorage.setItem(CURRENT_USER, "fe47252d-34cc-11e9-8a5d-f48e38e878a3")
           }
         });
      

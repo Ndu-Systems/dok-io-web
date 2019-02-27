@@ -1,7 +1,9 @@
-import { PatientService } from 'src/app/services';
+import { LAST_INSERT_ID } from 'src/app/shared';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CloseModalEventEmmiter } from 'src/app/models/modal.eventemitter.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { getCurrentUser } from 'src/app/shared';
+import { MedicalaidService } from 'src/app/services/medicalaid.service';
 
 @Component({
   selector: 'app-add-medical-aid',
@@ -24,7 +26,7 @@ message: string = "";
 /*
 Form ends here
 */
-UserId: string = "fe47252d-34cc-11e9-8a5d-f48e38e878a3";
+UserId: string = getCurrentUser();
 
   PatientId: string;
   MedicalaidName: string;
@@ -34,9 +36,9 @@ UserId: string = "fe47252d-34cc-11e9-8a5d-f48e38e878a3";
   PrimaryMemberId: string;
   CreateUserId: string;
   StatusId: number;
-constructor(private fb: FormBuilder, private patientService: PatientService) {
+constructor(private fb: FormBuilder, private medicalaidService: MedicalaidService) {
   this.rForm = fb.group({
-    PatientId: [null, Validators.required],
+    PatientId: [localStorage.getItem(LAST_INSERT_ID), Validators.required],
     HasMedicalAid: [true, Validators.required],
     MedicalaidName: [null, Validators.required],
     MedicalaidType: [null, Validators.required],
@@ -61,14 +63,14 @@ closeModal() {
     openAddPatient: false
   });
 }
-register(data) {
-  this.patientService.addPatient(data).subscribe(response => {
-    if (response === true) {
+addmedicalaid(data) {
+  this.medicalaidService.addMedicalaid(data).subscribe(response => {    
+    if (response) {
       alert(response);
       this.closeModalAction.emit({
         closeAll: false,
-        openAddEmengencyContact: false,
-        openAddMedicalAid: true,
+        openAddEmengencyContact: true,
+        openAddMedicalAid: false,
         openAddPatient: false
       });
     } else {

@@ -9,8 +9,8 @@ import { CloseModalEventEmmiter } from "../models/modal.eventemitter.model";
 export class DashboardComponent implements OnInit {
   showPopup:boolean =true;
   openAddPatient:boolean;
-  openAddMedicalAid:boolean=true;
-  openAddEmengencyContact:boolean;
+  openAddMedicalAid:boolean;
+  openAddEmengencyContact:boolean =true;
   constructor() { }
 
   ngOnInit() {}
