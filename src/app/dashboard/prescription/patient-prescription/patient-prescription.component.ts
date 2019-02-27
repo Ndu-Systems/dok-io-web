@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { BreadCrumb } from "../../bread-crumb/bread-crumb.model";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { PrescriptionService, PatientService } from "src/app/services";
 import { Observable } from "rxjs";
 import { Patient } from "src/app/models/patient.model";
@@ -18,11 +18,11 @@ export class PatientPrescriptionComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private prescriptionService: PrescriptionService,
-    private patientService: PatientService
+    private patientService: PatientService,
+    private router: Router
   ) {
     this.activatedRoute.params.subscribe(r => {
-      this.patientId = r["id"];
-      this.getPatientPrescriptions(this.patientId);
+      this.patientId = r["id"];       
       this.getPatientDetails(this.patientId);
     });
     this.prescriptions$ = this.prescriptionService.getPatientPrescriptions(
@@ -48,12 +48,14 @@ export class PatientPrescriptionComponent implements OnInit {
   }
 
   ngOnInit() { }
-  getPatientPrescriptions(patientId: string): any {
-    // throw new Error("Method not implemented.");
-  }
+ 
   getPatientDetails(patientId: string) {
     this.patientService.getPatient(patientId).subscribe(r => {
       this.patient = r;
     });
+  }
+
+  viewPrescription(prescription) {
+    this.router.navigate([`/dashboard/view-prescription/${prescription.prescriptionId}`]);
   }
 }

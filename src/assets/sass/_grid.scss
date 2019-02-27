@@ -64,7 +64,11 @@
     }
   }
   .col-1-of-2{
+      display: grid;
       grid-template-columns: 84% auto;
+      grid-gap: 3rem;
+      box-sizing: border-box;
+      margin-bottom: 1rem;
   }
   .col-3-1{
       grid-template-columns: 27% 27% 27% 10%;

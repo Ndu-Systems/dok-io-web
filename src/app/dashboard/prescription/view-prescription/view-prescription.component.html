@@ -1,3 +1,65 @@
 <section class="main">
-  
+  <app-bread-crumb [items]="items"></app-bread-crumb>
+  <section class="section-main">
+    <section class="header-content">
+      <div class="panel col-1-of-3" *ngIf="patient">
+        <div>
+          <h1> {{patient.FirstName}} {{patient.Surname}} </h1>
+        </div>
+        <div *ngIf="patient.MemberShipNumber; else nomembership">
+          <h1>Membership # {{patient.MemberShipNumber}}</h1>
+        </div>
+        <ng-template #nomembership>
+          <div>
+            <h1 class="no-membership">No Medical Aid</h1>
+          </div>
+        </ng-template>
+        <div>
+          <img src="assets/images/dashboard/user-more.svg" alt="user icon">
+        </div>
+      </div>
+    </section>
+    <section class="prescription-main">
+      <div *ngIf="prescription; else error">
+        <div class="col-1-of-2">
+          <div>
+            <h1>Prescription</h1>
+          </div>
+          <div>
+            <img src="assets/images/dashboard/medicine-icon.svg" alt="">
+          </div>
+        </div>
+        <div class="col-1-of-3">
+          <div>
+            <h1><span class="header-text">Symptom</span>
+              <span class="text">{{prescription[0].symptoms}}</span> </h1>
+          </div>
+
+          <div>
+            <h1><span class="header-text">Blood Pressure</span>
+              <span class="text">{{prescription[0].boolPreasure}}</span></h1>
+          </div>
+        </div>
+        <div class="col-1-of-3">
+                <div>
+                  <h1><span class="header-text">Symptom</span>
+                    <span class="text">{{prescription[0].symptoms}}</span> </h1>
+                </div>
+      
+                <div>
+                  <h1><span class="header-text">Blood Pressure</span>
+                    <span class="text">{{prescription[0].boolPreasure}}</span></h1>
+                </div>
+              </div>
+      </div>
+
+
+      <ng-template #error>
+        <div class="error">
+          <h1>Oh Snap ! something went wrong please contact system Administrator!</h1>
+        </div>
+      </ng-template>
+    </section>
+
+  </section>
 </section>

@@ -9,8 +9,11 @@ import { API_URL } from '../shared';
 export class PrescriptionService {
   constructor(private http: HttpClient) {}
 
-  getPatientPrescriptions(id:string): Observable<any> {
+  getPatientPrescriptions(id: string): Observable<any> {
     return this.http.get<any>(`${API_URL}/api/prescription/get-patient-prescriptions.php?PatientId=${id}`);
   }
+  getPrescriptionById(id: string): Observable<any> {
+    return this.http.get<any>(`${API_URL}/api/prescription/get-prescription-byId.php?PrescriptionId=${id}`);
+  }
 
-}
+} 
