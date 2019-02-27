@@ -7,15 +7,9 @@ import { CloseModalEventEmmiter } from "../models/modal.eventemitter.model";
   styleUrls: ["./dashboard.component.scss"]
 })
 export class DashboardComponent implements OnInit {
-<<<<<<< HEAD
-  showPopup: boolean ;
-  openAddPatient: boolean;
-  openAddMedicalAid: boolean;
-=======
   showPopup:boolean;
   openAddPatient:boolean;
   openAddMedicalAid:boolean;
->>>>>>> 207c0570f727c384c962e33b30b4a5df80876c9b
   openAddEmengencyContact:boolean;
   constructor() { }
 
