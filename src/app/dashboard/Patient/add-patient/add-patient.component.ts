@@ -1,8 +1,8 @@
 import { CloseModalEventEmmiter } from "./../../../models/modal.eventemitter.model";
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"; //l-f
-import { HttpClient } from "@angular/common/http";
 import { PatientService } from "src/app/services";
+import { LAST_INSERT_ID ,getCurrentUser} from "src/app/shared";
 
 @Component({
   selector: "app-add-patient",
@@ -42,8 +42,7 @@ Form begin here
 Form ends here
 */
   Age: number;
-  UserId: string = "fe47252d-34cc-11e9-8a5d-f48e38e878a3";
-
+  UserId: string = getCurrentUser();
 
   constructor(private fb: FormBuilder, private patientService: PatientService) {
     this.rForm = fb.group({
@@ -80,8 +79,8 @@ Form ends here
   }
   register(data) {
     this.patientService.addPatient(data).subscribe(response => {
-      if (response === true) {
-        alert(response);
+      if (response.PatientId !== null) {
+      localStorage.setItem(LAST_INSERT_ID, response.PatientId)
         this.closeModalAction.emit({
           closeAll: false,
           openAddEmengencyContact: false,

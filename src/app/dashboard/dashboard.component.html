@@ -60,5 +60,5 @@
 <div class="overlay" *ngIf="showPopup">
     <app-add-patient  *ngIf="openAddPatient" (closeModalAction)="closeModal($event)"></app-add-patient>
     <app-add-medical-aid  *ngIf="openAddMedicalAid" (closeModalAction)="closeModal($event)"></app-add-medical-aid> 
-   <app-add-emergency-contact  *ngIf="openAddEmengencyContact"></app-add-emergency-contact> 
+   <app-add-emergency-contact  *ngIf="openAddEmengencyContact"  (closeModalAction)="closeModal($event)"></app-add-emergency-contact> 
 </div>
