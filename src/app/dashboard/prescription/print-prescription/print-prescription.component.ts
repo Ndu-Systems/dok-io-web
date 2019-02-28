@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { ExitModalEventEmmiter } from 'src/app/models/modal.eventemitter.model';
+import { Patient } from 'src/app/models/patient.model';
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-print-prescription',
@@ -6,10 +10,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./print-prescription.component.scss']
 })
 export class PrintPrescriptionComponent implements OnInit {
+  @Output() closeModalAction: EventEmitter<
+  ExitModalEventEmmiter> = new EventEmitter();
+
+  @Input() drugs: any[];
+  @Input() patient: Patient;
+  @Input() prescription: any;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  closeModal() {
+    this.closeModalAction.emit({
+     close: true
+    });
+  }
+
+  print() {
+    let data = document.getElementById('contentToConvert');
+    html2canvas(data).then(canvas => {
+      // required configurations
+      var imgWidth = 208;
+      var pageHeight = 295;
+      var imgHeight = canvas.height * imgWidth / canvas.width;
+      var heightLeft = imgHeight;
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      let pdf = new jspdf('p', 'mm', 'a4'); // A4 size of the pdf
+      var position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth,imgHeight);
+      pdf.save(`prescription for ${this.patient.FirstName} ${this.patient.Surname} ${this.patient.IdNumber}.pdf`);//Generates pdf
+    })
   }
 
 }

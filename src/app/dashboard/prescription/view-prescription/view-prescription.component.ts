@@ -5,6 +5,7 @@ import { Patient } from 'src/app/models/patient.model';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
+import { ExitModalEventEmmiter } from 'src/app/models/modal.eventemitter.model';
 
 @Component({
   selector: 'app-view-prescription',
@@ -20,6 +21,7 @@ export class ViewPrescriptionComponent implements OnInit {
   prescriptionId: string;
   prescription: any;
   drugs: any[];
+  showModal: boolean;
   constructor(
     private activatedRoute: ActivatedRoute,
     private prescriptionService: PrescriptionService,
@@ -29,7 +31,6 @@ export class ViewPrescriptionComponent implements OnInit {
       this.prescriptionId = r['id'];
     });
    this.getPrescription();
-  
   }
 
   ngOnInit() {
@@ -74,5 +75,16 @@ export class ViewPrescriptionComponent implements OnInit {
       }
     ];
   }
+
+  showPrintModal() {
+    this.showModal = true;
+  }
+
+  closeModal(event: ExitModalEventEmmiter){
+    if (event.close) {
+        this.showModal = false;
+    }
+  }
+
 
 }
