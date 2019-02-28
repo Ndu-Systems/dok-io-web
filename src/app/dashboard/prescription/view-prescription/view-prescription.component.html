@@ -41,25 +41,71 @@
           </div>
         </div>
         <div class="col-1-of-3">
-                <div>
-                  <h1><span class="header-text">Symptom</span>
-                    <span class="text">{{prescription[0].symptoms}}</span> </h1>
-                </div>
-      
-                <div>
-                  <h1><span class="header-text">Blood Pressure</span>
-                    <span class="text">{{prescription[0].boolPreasure}}</span></h1>
-                </div>
-              </div>
+          <div>
+            <h1><span class="header-text">Diagnosis</span>
+              <span class="text">{{prescription[0].diagnosis}}</span> </h1>
+          </div>
+
+          <div>
+            <h1><span class="header-text">Pulse rate</span>
+              <span class="text">{{prescription[0].pulseRate}}</span></h1>
+          </div>
+          <div>
+            <h1><span class="header-text">Prescription Date</span>
+              <span class="text">{{prescription[0].createdate}}</span></h1>
+          </div>
+        </div>
       </div>
-
-
+      <section class="medication-main" *ngIf="drugs; else nomedicine">
+        <div class="col-1-of-2">
+          <h1>Medicine (drug) administered</h1>
+        </div>
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <td>DRUG</td>
+                <td>UNITS (tablet(s) or syrup)</td>
+                <td>DOSAGE</td>
+                <td>ACTIONS</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of drugs">
+                <td>
+                  {{item.name}}
+                </td>
+                <td>
+                  {{item.unit}}
+                </td>
+                <td>
+                  {{item.dosage}} times per day
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <div class="btns">
+                      <img src="assets/images/dashboard/btn-edit.svg" class="img-btn" alt="">
+                    </div>
+                    <div class="btns">
+                      <img src="assets/images/dashboard/btn-delete.svg" class="img-btn" alt="">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <ng-template #nomedicine>
+          <div class="info">
+            <h1>No Medication was </h1>
+          </div>
+      </ng-template>
       <ng-template #error>
         <div class="error">
           <h1>Oh Snap ! something went wrong please contact system Administrator!</h1>
         </div>
       </ng-template>
     </section>
-
   </section>
 </section>
