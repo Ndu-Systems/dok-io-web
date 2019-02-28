@@ -9,7 +9,7 @@ import { BreadCrumb } from '../../bread-crumb/bread-crumb.model';
   styleUrls: ['./patients.component.scss']
 })
 export class PatientsComponent implements OnInit {
-
+p:number =1;
   items:Array<BreadCrumb> = [
     {
       name:'ACTIVE PATIENTS', url:'/dashboard', active:true
