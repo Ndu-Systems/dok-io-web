@@ -1,26 +1,48 @@
 @import "../../../assets/sass/variables";
 
 .modal {
-  width: 56%;
-  left: 20%;
+  width: 45%;
+  left: 25%;
+  height: 70%;
+  background-image: url("../../../assets/images/home/login-bg.svg");
+  background-repeat: no-repeat;
+  background-position-y: 100%;
+  background-position-x: center;
 
-    .modal-header {
-      padding: 4%;
-      padding-bottom: 0.5%;
-      color: $black-color;
-      text-align: center;
-      background: transparent;
-    
-      h1{
-        font-size: 2em;
-      }
-    }
-    .dashboard-forms {     
-      width: 50%;
-      margin: 0 auto;
+  .exit-btn{
+    cursor: pointer;
   }
 
-  
+  .modal-header {
+    padding: 4%;
+    padding-bottom: 0.5%;
+    color: $black-color;
+    text-align: center;
+    background: transparent;
+
+    h1 {
+      font-size: 2em;
+    }
+  }
+
+  .dashboard-forms {
+    width: 50%;
+    margin: 0 auto;
+
+    .login {
+      cursor: pointer;
+      margin: 0rem 5rem;
+      padding-top: 2rem;
+    }
+  }
+
+  .contact-us {
+    width: 42%;
+    margin-top: 1.2rem;
+    padding: 2em;
+    .try-us{
+      font-size: 1rem;
+      color: $cloud-white-color;
+    }
+  }
 }
-
-

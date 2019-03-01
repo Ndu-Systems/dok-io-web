@@ -15,7 +15,7 @@
         <h1>Login</h1>
       </div>
       <div>
-        <img src="../../../assets/images/home/login-exit.svg" alt="exit button">
+        <img src="assets/images/home/login-exit.svg" alt="exit button" class="exit-btn" (click)="closeModal()">
       </div>
     </div>
   </section>
@@ -37,8 +37,20 @@
           </div>      
             <div class="controls">
               <!-- <input type="submit" value="Login" class="button" (click) ="Login()" [disabled]="!rForm.valid"  /> -->
-              <input type="submit" value="Login" class="button" (click) ="Login()" />
+              <!-- <input type="submit" value="Login" class="button" /> -->
+              <img src="assets/images/home/login-btn.svg"  (click) ="Login()" alt="Login button" class="login">
             </div>
-          </form>
+      </form>
+      <section class="contact-us">
+          <div class="col-1-of-2">
+              <h1>
+                <span class="try-us">
+                    Not yet with the program? no worries try us out.
+                </span>
+              </h1>
+              <img src="assets/images/home/contact-us.svg" alt="contact us">
+            </div>
+      </section>
+     
   </section>
 </section>
