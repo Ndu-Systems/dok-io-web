@@ -36,8 +36,7 @@ export class LoginComponent implements OnInit {
    return this.rForm.controls;
  }
 
-  Login(){
-    
+  Login(){    
     this.loginService.loginUser(this.formValues.email.value, this.formValues.password.value)
         .subscribe(response => {
           if(response){

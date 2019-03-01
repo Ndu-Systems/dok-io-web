@@ -1,4 +1,22 @@
 <div class="home" id="home">
-  <h1>Welocome to Dok-io</h1>
-  <app-login></app-login>
+  <section class="navigation">
+    <div class="col-1-of-2">
+        <img src="../../assets/images/home/logo.png" alt="logo image">
+        <ul>
+          <li><a routerLink="">Home</a></li>      
+          <li><a routerLink="">About</a></li>      
+          <li><a routerLink="">How it works</a></li>      
+          <li><a routerLink="">Login</a></li>      
+          <li><a routerLink=""><img src="../../assets/images/home/call-us.svg" alt="call us"></a></li>      
+        </ul>
+    </div>  
+  </section>
+  <section class="banner">
+
+  </section>
 </div>
+
+<div class="overlay" *ngIf="showModal">
+    <app-login></app-login>
+</div>
+

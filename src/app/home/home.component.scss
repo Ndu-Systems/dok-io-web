@@ -1,4 +1,35 @@
-
 .home {
-  padding: 2rem;
+  padding: 2%;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  background-image: url("../../assets/images/home/back-ground-header.svg");
+  background-repeat: no-repeat;
+  background-size: 108%;
+  background-position-y: 15%;
+  background-position-x: center;
+
+  .col-1-of-2 {
+    grid-template-columns: auto 50%;
+  }
+
+  .banner {
+    height: 80vh;
+  }
+
+  .navigation {
+    ul {
+      list-style-type: none;
+      display: grid;
+      padding: 0;
+      grid-template-columns: repeat(5, auto);
+
+      a {
+        color: white;
+        font-weight: 500;
+
+        img {
+          margin-top: -1rem;
+        }
+      }
+    }
+  }
 }

@@ -1,29 +1,44 @@
-<a href="#popup" class="btn btn-green">
-  Launch Login
-</a>
-
-<div class="popup" id="popup">
+<!-- <div class="popup">
   <div class="popup__content">
-    <!-- <a href="#home" class="popup__close">&times;</a> -->
+ 
     <a href="#home" class="btn btn-close">Exit</a>
-
-    <form [formGroup]="rForm" >
-      <h1>Login</h1>
-      <fieldset>
-        <label for="mail">Email:</label>
-        <input type="email" id="mail" formControlName="email" >
-        <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
-          Email is requried
-        </div>
-        <label for="password">Password:</label>
-        <input type="password" id="password"  formControlName="password">   
-        <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
-          Passowrd is requried
-        </div>
-      </fieldset>
-      <button type="submit" (click)="Login()">Login</button>
-    </form>    
+      
     <div class="popup__gradient">
     </div>
   </div>
-</div>
+</div> -->
+
+<section class="modal shadow-black">
+  <section class="modal-header">
+    <div class="col-1-of-2">
+      <div>
+        <h1>Login</h1>
+      </div>
+      <div>
+        <img src="../../../assets/images/home/login-exit.svg" alt="exit button">
+      </div>
+    </div>
+  </section>
+  <section class="popup-body">
+      <form [formGroup]="rForm"   class="box form-group" class="dashboard-forms">
+          <div class="controls">
+              <label for="mail">Email:</label>
+              <input type="email"  class ="input-field" id="mail" formControlName="email" >
+              <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+                Email is requried
+              </div>
+          </div>
+           <div class="controls">
+              <label for="password">Password:</label>
+              <input type="password" class ="input-field"  id="password"   formControlName="password">   
+              <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
+                Passowrd is requried
+              </div>
+          </div>      
+            <div class="controls">
+              <!-- <input type="submit" value="Login" class="button" (click) ="Login()" [disabled]="!rForm.valid"  /> -->
+              <input type="submit" value="Login" class="button" (click) ="Login()" />
+            </div>
+          </form>
+  </section>
+</section>
