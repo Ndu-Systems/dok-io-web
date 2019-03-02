@@ -1,8 +1,7 @@
-
 @import '../../assets/sass/variables';
 
 .home {
-  padding: 2%;
+  padding: 0;
   height: auto;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   background-image: url("../../assets/images/home/back-ground-header.svg");
@@ -13,10 +12,12 @@
 
   .col-1-of-2 {
     grid-template-columns: auto 50%;
-  }  
+  }
 }
 
 .navigation {
+  padding: 2%;
+
   ul {
     list-style-type: none;
     display: grid;
@@ -37,24 +38,25 @@
 .banner {
   height: 100vh;
 
-  .header{
+  .header {
     padding: 10%;
     padding-bottom: 0;
 
     color: $cloud-white-color;
 
-    .header-small{
+    .header-small {
       display: block;
       margin-bottom: 3rem;
       font-size: 3.2rem;
       font-weight: 400;
     }
 
-    .header-big{
+    .header-big {
       font-size: 3em;
       display: block;
       margin-bottom: 3rem;
-      .purple{
+
+      .purple {
 
         color: $purple-color;
         border-bottom: 5px solid;
@@ -62,17 +64,18 @@
       }
     }
 
-    .form-text{
-        font-weight: 300;
+    .form-text {
+      font-weight: 300;
     }
   }
 
   .dashboard-forms {
     margin-left: 3rem;
     width: 75%;
-     label{
+
+    label {
       color: $cloud-white-color;
-     }
+    }
 
     .input-field {
       background: $white-transparent-color;
@@ -83,22 +86,22 @@
       padding: 1rem;
       border-radius: 100px;
       margin-top: 1rem;
- 
+
     }
 
-    .alert{
+    .alert {
       font-size: 0.8rem;
       color: $cloud-white-color;
     }
 
   }
 
-  img{
+  img {
     position: absolute;
     top: 35%;
     right: 2rem;
 
-    &.business-rules{
+    &.business-rules {
       top: 90%;
       left: 8rem;
     }
@@ -109,20 +112,22 @@
   height: 70vh;
   padding: 10%;
 
-  .heading{
-    color: $primary-color;    
-    display: block; 
+  .heading {
+    color: $primary-color;
+    display: block;
     font-size: 2rem;
-    
-    &.about{
+
+    &.about {
       font-weight: bold;
       font-size: 3rem;
     }
   }
+
   .caption {
     font-weight: 200;
     font-size: 1rem;
-    &.about{
+
+    &.about {
       font-weight: 300;
       font-size: 1.5rem;
       display: block;
@@ -130,38 +135,100 @@
     }
   }
 
-  .paragraph{      
+  .paragraph {
     font-size: 1rem;
     font-weight: 200;
   }
-  
-  img.learn-more{
+
+  img.learn-more {
     cursor: pointer;
     margin-top: 1rem;
   }
-  
+
 }
 
-.our-mvp{
+.our-mvp {
   height: 80vh;
   padding: 10%;
   text-align: center;
 
-  h1{
+  h1 {
     margin-bottom: 3rem;
   }
 
-  .header{
+  .header {
     font-weight: 900;
     color: $primary-color;
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
-  .col-1-of-3{
+  .col-1-of-3 {
     grid-template-columns: repeat(3, auto);
-    grid-gap: 0rem;
-    padding: 6rem;
+    grid-gap: 10rem;
     padding-top: 0;
     padding-left: 10rem;
+    width: 50%;
+  }
+}
+
+.your-investment {
+  height: 130vh;
+  padding: 10%;
+  padding-top: 2%;
+  text-align: center;
+  background-image: url("../../assets/images/home/investment-bg.svg");
+  background-repeat: no-repeat;
+  background-size: 108%;
+  background-position-y: 10rem;
+  background-position-x: center;
+
+  h1 {
+    margin-bottom: 15rem;
+  }
+
+  .header {
+    font-weight: 900;
+    color: $primary-color;
+    font-size: 3rem;
+  }
+
+  .col-1-of-2 {
+    grid-template-columns: repeat(2, 30%);
+    grid-gap: 10rem;
+    padding-left: 15rem;
+  }
+
+}
+
+.footer {
+  height: 50vh;
+  padding: 10%;
+  padding-top: 2%;
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: $purple-color;
+    margin-bottom: 3rem;
+  }
+
+  hr {
+    margin-top: 2rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $primary-color;
+  }
+
+  .powered-by {
+
+    margin-top: 2rem;
+    font-weight: 400;
+    font-size: 2rem;
+    color: $black-color;
+
+    .powered{
+      color: $pink-color;
+    }
   }
 }
