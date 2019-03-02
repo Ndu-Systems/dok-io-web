@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExitModalEventEmmiter } from '../models/modal.eventemitter.model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,22 @@ import { ExitModalEventEmmiter } from '../models/modal.eventemitter.model';
 })
 export class HomeComponent implements OnInit {
   showModal: boolean;
-  constructor() { }
+  rForm: FormGroup;
+
+  email = '';
+  cellphone = '';
+  name = '';
+
+  constructor(
+    private fb: FormBuilder
+  ) {
+    this.rForm = this.fb.group({
+      name: [null, Validators.required],
+      cellphone: [null,
+      Validators.compose([Validators.required,  Validators.minLength(10)])],
+      email : [null, Validators.required]
+    });
+  }
 
   ngOnInit() {}
 
@@ -21,8 +37,4 @@ export class HomeComponent implements OnInit {
       this.showModal = false;
     }
   }
-
-  
-
-
 }

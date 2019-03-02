@@ -1,24 +1,69 @@
 <div class="home" id="home">
   <section class="navigation">
     <div class="col-1-of-2">
-        <img src="../../assets/images/home/logo.png" alt="logo image">
-        <ul>
-          <li><a routerLink="">Home</a></li>      
-          <li><a routerLink="">About</a></li>      
-          <li><a routerLink="">How it works</a></li>      
-          <li><a routerLink="" (click)="showLoginModal()">Login</a></li>      
-          <li><a routerLink=""><img src="../../assets/images/home/call-us.svg" alt="call us"></a></li>      
-        </ul>
-    </div>  
+      <img src="assets/images/home/logo.png" alt="logo image">
+      <ul>
+        <li><a routerLink="">Home</a></li>
+        <li><a routerLink="">About</a></li>
+        <li><a routerLink="">How it works</a></li>
+        <li><a routerLink="" (click)="showLoginModal()">Login</a></li>
+        <li><a routerLink=""><img src="assets/images/home/call-us.svg" alt="call us"></a></li>
+      </ul>
+    </div>
   </section>
   <section class="banner">
+    <div class="col-1-of-2">
+      <h1 class="header">
+        <span class="header-small">
+          Personalized patient filing
+        </span>
+        <span class="header-big">
+          <span class="purple">Re</span>-imagined
+        </span>
+        <span class="form-text">
+            Try us now, let us call you back
+        </span>
+      </h1>
+    </div>
+    <div class="col-1-of-2">
+      <form [formGroup]="rForm" class="box form-group" class="dashboard-forms">
 
+        <div class="col-1-of-2">
+          <div class="controls">
+            <label for="mail">Name:</label>
+            <input type="name" class="input-field" id="name" formControlName="name">
+            <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+              Name is requried
+            </div>
+          </div>
+          <div class="controls">
+            <label for="mail">Cellphone:</label>
+            <input type="cellphone" class="input-field" id="cellphone" formControlName="cellphone">
+            <div class="alert" *ngIf="!rForm.controls['cellphone'].valid && rForm.controls['cellphone'].touched">
+              CellPhone is requried, and must have at least 10 characters to be valid
+            </div>
+
+          </div>
+        </div>
+        <div class="controls">
+          <label for="email">Email:</label>
+          <input type="email" class="input-field" id="email" formControlName="email">
+          <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+            Email is requried
+          </div>
+        </div>
+        <div class="controls">
+          <input type="submit" value="Submit" class="button" [disabled]="!rForm.valid" />
+        </div>
+      </form>
+      <img src="assets/images/home/laptop-demo.svg" alt="laptop demo">
+    </div>
+    <div class="col-1-of-2">
+      <img src="assets/images/home/business-rules.svg" alt="business rules" class="business-rules">
+    </div>
   </section>
 </div>
 
 <div class="overlay" *ngIf="showModal">
-    <app-login 
-    (closeModalAction)="closeModal($event)"
-    ></app-login>
+  <app-login (closeModalAction)="closeModal($event)"></app-login>
 </div>
-
