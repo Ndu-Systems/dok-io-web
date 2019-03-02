@@ -3,105 +3,165 @@
 
 .home {
   padding: 2%;
+  height: auto;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   background-image: url("../../assets/images/home/back-ground-header.svg");
   background-repeat: no-repeat;
   background-size: 108%;
-  background-position-y: 25%;
+  background-position-y: -6%;
   background-position-x: center;
 
   .col-1-of-2 {
     grid-template-columns: auto 50%;
-  }
+  }  
+}
 
+.navigation {
+  ul {
+    list-style-type: none;
+    display: grid;
+    padding: 0;
+    grid-template-columns: repeat(5, auto);
 
-  .navigation {
-    ul {
-      list-style-type: none;
-      display: grid;
-      padding: 0;
-      grid-template-columns: repeat(5, auto);
+    a {
+      color: white;
+      font-weight: 500;
 
-      a {
-        color: white;
-        font-weight: 500;
-
-        img {
-          margin-top: -1rem;
-        }
+      img {
+        margin-top: -1rem;
       }
     }
   }
+}
 
-  .banner {
-    height: 100vh;
+.banner {
+  height: 100vh;
 
-    .header{
-      padding: 10%;
-      padding-bottom: 0;
+  .header{
+    padding: 10%;
+    padding-bottom: 0;
 
+    color: $cloud-white-color;
+
+    .header-small{
+      display: block;
+      margin-bottom: 3rem;
+      font-size: 3.2rem;
+      font-weight: 400;
+    }
+
+    .header-big{
+      font-size: 3em;
+      display: block;
+      margin-bottom: 3rem;
+      .purple{
+
+        color: $purple-color;
+        border-bottom: 5px solid;
+
+      }
+    }
+
+    .form-text{
+        font-weight: 300;
+    }
+  }
+
+  .dashboard-forms {
+    margin-left: 3rem;
+    width: 75%;
+     label{
       color: $cloud-white-color;
+     }
 
-      .header-small{
-        display: block;
-        margin-bottom: 3rem;
-        font-size: 3.2rem;
-        font-weight: 400;
-      }
-
-      .header-big{
-        font-size: 3em;
-        display: block;
-        margin-bottom: 3rem;
-        .purple{
-
-          color: $purple-color;
-          border-bottom: 5px solid;
-
-        }
-      }
-
-      .form-text{
-          font-weight: 300;
-      }
+    .input-field {
+      background: $white-transparent-color;
     }
 
-    .dashboard-forms {
-      margin-left: 3rem;
-      width: 75%;
-       label{
-        color: $cloud-white-color;
-       }
-
-      .input-field {
-        background: $white-transparent-color;
-      }
-
-      .button {
-        width: 35%;
-        padding: 1rem;
-        border-radius: 100px;
-        margin-top: 1rem;
-   
-      }
-
-      .alert{
-        font-size: 0.8rem;
-        color: $cloud-white-color;
-      }
-
+    .button {
+      width: 35%;
+      padding: 1rem;
+      border-radius: 100px;
+      margin-top: 1rem;
+ 
     }
 
-    img{
-      position: absolute;
-      top: 35%;
-      right: 2rem;
+    .alert{
+      font-size: 0.8rem;
+      color: $cloud-white-color;
+    }
 
-      &.business-rules{
-        top: 90%;
-        left: 8rem;
-      }
+  }
+
+  img{
+    position: absolute;
+    top: 35%;
+    right: 2rem;
+
+    &.business-rules{
+      top: 90%;
+      left: 8rem;
+    }
+  }
+}
+
+.our-offering {
+  height: 70vh;
+  padding: 10%;
+
+  .heading{
+    color: $primary-color;    
+    display: block; 
+    font-size: 2rem;
+    
+    &.about{
+      font-weight: bold;
+      font-size: 3rem;
+    }
+  }
+  .caption {
+    font-weight: 200;
+    font-size: 1rem;
+    &.about{
+      font-weight: 300;
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 1rem;
     }
   }
 
+  .paragraph{      
+    font-size: 1rem;
+    font-weight: 200;
+  }
+  
+  img.learn-more{
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+}
+
+.our-mvp{
+  height: 80vh;
+  padding: 10%;
+  text-align: center;
+
+  h1{
+    margin-bottom: 3rem;
+  }
+
+  .header{
+    font-weight: 900;
+    color: $primary-color;
+    font-size: 4rem;
+  }
+
+  .col-1-of-3{
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 0rem;
+    padding: 6rem;
+    padding-top: 0;
+    padding-left: 10rem;
+  }
 }
