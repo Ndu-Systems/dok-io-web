@@ -15,6 +15,7 @@ export class PatientPrescriptionComponent implements OnInit {
   patientId: string;
   prescriptions$: Observable<Array<any>>;
   patient: Patient;
+  showAddPrescriptionModal = true;
   constructor(
     private activatedRoute: ActivatedRoute,
     private prescriptionService: PrescriptionService,
@@ -57,5 +58,13 @@ export class PatientPrescriptionComponent implements OnInit {
 
   viewPrescription(prescription) {
     this.router.navigate([`/dashboard/view-prescription/${prescription.prescriptionId}`]);
+  }
+  openModal(){
+    this.showAddPrescriptionModal = true;
+  }
+  closeModal(e){
+    if(e){
+      this.showAddPrescriptionModal = false;
+    }
   }
 }

@@ -20,3 +20,13 @@ thead{
         grid-template-columns: 30% 50% auto;
     }
 }
+.table-header{
+    width: 96%;
+    margin: 0 auto;
+    grid-template-columns: 80% auto;
+
+    // .btn{
+    //     margin-right: 6rem;
+    //     background: red;
+    // }
+}

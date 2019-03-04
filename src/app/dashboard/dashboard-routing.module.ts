@@ -1,3 +1,4 @@
+import { AddPrescriptionComponent } from './prescription/add-prescription/add-prescription.component';
 import { AddEmergencyContactComponent } from './Contact-Person/add-emergency-contact/add-emergency-contact.component';
 import { AddMedicalAidComponent } from './Medical-aid/add-medical-aid/add-medical-aid.component';
 import { PatientPrescriptionComponent } from './prescription/patient-prescription/patient-prescription.component';
@@ -36,7 +37,8 @@ export const declarations: Array<any> = [
   AddMedicalAidComponent,
   AddEmergencyContactComponent,
   PrintPrescriptionComponent,
-  ViewPrescriptionComponent
+  ViewPrescriptionComponent,
+  AddPrescriptionComponent
 ];
 
 @NgModule({

@@ -5,6 +5,7 @@
       <div class="panel col-1-of-3" *ngIf="patient">
         <div>
           <h1> {{patient.FirstName}} {{patient.Surname}} </h1>
+        
         </div>
         <div *ngIf="patient.MemberShipNumber; else nomembership">
           <h1>Membership # {{patient.MemberShipNumber}}</h1>
@@ -20,6 +21,14 @@
       </div>
     </section>
     <section class="section-user-details">
+      <div class="table-header col-1-of-2">
+        <h1>
+            Prescriptions
+        </h1>
+        <div class="btn">
+        <img src="assets/images/dashboard/btn-add-prescription.svg" (click)="openModal()" class="img-btn" alt="">
+        </div>
+      </div>
       <div class="table">
         <table *ngIf=" prescriptions$ | async as  prescriptions">
           <thead>
@@ -70,3 +79,8 @@
     </section>
   </section>
 </section>
+
+
+<div class="overlay" *ngIf="showAddPrescriptionModal">
+    <app-add-prescription  (closeModalAction)="closeModal($event)"></app-add-prescription>
+</div>
