@@ -15,7 +15,7 @@ export class PatientPrescriptionComponent implements OnInit {
   patientId: string;
   prescriptions$: Observable<Array<any>>;
   patient: Patient;
-  showAddPrescriptionModal = true;
+  showAddPrescriptionModal ;
   constructor(
     private activatedRoute: ActivatedRoute,
     private prescriptionService: PrescriptionService,

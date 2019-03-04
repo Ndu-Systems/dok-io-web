@@ -8,7 +8,8 @@ import { getCurrentUser } from "src/app/shared";
   templateUrl: "./add-prescription.component.html",
   styleUrls: ["./add-prescription.component.scss"]
 })
-export class AddPrescriptionComponent {
+export class AddPrescriptionComponent implements OnInit {
+  
   @Output() closeModalAction: EventEmitter<boolean> = new EventEmitter();
   @Input() patientId;
   UserId: string = getCurrentUser();
@@ -16,6 +17,9 @@ export class AddPrescriptionComponent {
   rForm: FormGroup;
   data: AddPrescriptionModel;
   constructor(private fb: FormBuilder) {
+   
+  }
+  ngOnInit() {
     this.rForm = this.fb.group({
       patientId: this.patientId,
       symptoms: "",
@@ -29,8 +33,7 @@ export class AddPrescriptionComponent {
     });
     this.rForm.valueChanges.subscribe(data => {
       console.log(data);
-    });
-  }
+    });  }
   closeModal() {
     this.closeModalAction.emit(true);
   }
