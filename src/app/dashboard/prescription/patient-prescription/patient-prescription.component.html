@@ -82,5 +82,5 @@
 
 
 <div class="overlay" *ngIf="showAddPrescriptionModal">
-    <app-add-prescription  (closeModalAction)="closeModal($event)"></app-add-prescription>
+    <app-add-prescription [patientId] ="patient.patientId"  (closeModalAction)="closeModal($event)"></app-add-prescription>
 </div>
