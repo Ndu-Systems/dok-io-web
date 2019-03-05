@@ -57,12 +57,16 @@ export class DashboardComponent implements OnInit {
           audio.src = "../../assets/sounds/beep.wav";
           audio.load();
           audio.play();
-       
-
-        // say it 
+          setTimeout(function(){
+               // say it 
         var base = `Now calling patient number, ${nextId}`;
         var msg = new SpeechSynthesisUtterance(base);
         window.speechSynthesis.speak(msg);
+
+          }, 1000);
+       
+
+     
        console.log(nextId)
        // update db
        console.log(nextId)
