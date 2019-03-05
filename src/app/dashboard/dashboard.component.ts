@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
     this.quees$ = this.queeService.getQuees();
     setInterval(data=>{
       this.quees$ = this.queeService.getQuees();
-    }, 10000)
+    }, 3000)
   }
 
   ngOnInit() {}
@@ -43,6 +43,35 @@ export class DashboardComponent implements OnInit {
     }
   }
   nextQuee(){
-    alert("next")
+    this.quees$.subscribe(data=>{
+      let queeList:Array<any> = data;
+      if(queeList.length){
+        let ids = queeList.map(x=>Number(x.QuiID));
+        let nextId =Math.min(...ids);
+
+        //beep
+        // let beep = document.getElementById("myAudio"); 
+        // beep.play(); 
+
+          let audio = new Audio();
+          audio.src = "../../assets/sounds/beep.wav";
+          audio.load();
+          audio.play();
+       
+
+        // say it 
+        var base = `Now calling patient number, ${nextId}`;
+        var msg = new SpeechSynthesisUtterance(base);
+        window.speechSynthesis.speak(msg);
+       console.log(nextId)
+       // update db
+       console.log(nextId)
+       this.queeService.updateQuee({QuiID:nextId}).subscribe(r=>{
+        //  alert(r);
+        this.quees$ = this.queeService.getQuees();
+
+       })
+      }
+    })
   }
 }
