@@ -6,6 +6,7 @@ import {
 } from './dashboard-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination'; 
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     DashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    AutoCompleteModule
   ],
   declarations: [...declarations]
 })
