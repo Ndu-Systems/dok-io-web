@@ -63,7 +63,10 @@
           <div class="col-1-of-3">
             <div class="controls">
               <label for="">DRUG</label> <br />
-              <input type="text" class="input-field" formControlName="medicationId" />
+              <!-- <input type="text" class="input-field" formControlName="medicationId" /> -->
+              <p-autoComplete formControlName="medicationId"  [suggestions]="results"
+                (completeMethod)="search($event)"></p-autoComplete>
+
             </div>
 
             <div class="controls">

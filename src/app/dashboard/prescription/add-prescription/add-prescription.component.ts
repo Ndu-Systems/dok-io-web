@@ -14,6 +14,10 @@ export class AddPrescriptionComponent implements OnInit {
   @Input() patientId;
   UserId: string = getCurrentUser();
 
+  results:any[];
+  drugsList: any[]=['ndu','bahle'];
+
+
   rForm: FormGroup;
   data: AddPrescriptionModel;
   constructor(private fb: FormBuilder) {
@@ -58,6 +62,13 @@ export class AddPrescriptionComponent implements OnInit {
     console.log(data);
     
   }
+  search(event) {
+    // this.results = this.drugsList.map(x => x);
+    this.results =this.drugsList;
+    this.results = this.results.filter(x =>
+        x.toLowerCase().includes(event.query.toLowerCase())
+    );
+}
 }
 
 /*
