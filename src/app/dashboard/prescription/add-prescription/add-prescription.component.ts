@@ -43,7 +43,7 @@ export class AddPrescriptionComponent implements OnInit {
   }
   addDrug(){
     const drug = this.fb.group({
-      medicationId: '',
+      medicationId: '',   // this will be name, then change it ti Id on send
       unit: '',
       dosage: '',
     });
@@ -52,6 +52,11 @@ export class AddPrescriptionComponent implements OnInit {
   }
   deleteDrug(i){
     this.formDrugs.removeAt(i);
+  }
+  sendToDb(data){
+    data.myId = "5555555";
+    console.log(data);
+    
   }
 }
 

@@ -62,7 +62,7 @@
               </span>
             </td>
             <td>
-              <div class="btn-group">
+              <div class="btn-group btn-group-4">
                 <div class="btns">
                   <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/btn-search.svg" class="img-btn"
                       alt=""></a>
@@ -72,6 +72,9 @@
                 </div>
                 <div class="btns">
                   <img src="assets/images/dashboard/btn-delete.svg" class="img-btn" alt="">
+                </div>
+                <div class="btns">
+                  <img src="assets/images/dashboard/btn-delete.svg" (click)="quue(data)" class="img-btn" alt="">
                 </div>
               </div>
             </td>

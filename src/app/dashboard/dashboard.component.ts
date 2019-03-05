@@ -1,5 +1,7 @@
+import { QueeService } from './../services/quee.service';
 import { Component, OnInit } from "@angular/core";
 import { CloseModalEventEmmiter } from "../models/modal.eventemitter.model";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: "app-dashboard",
@@ -11,7 +13,13 @@ export class DashboardComponent implements OnInit {
   openAddPatient:boolean;
   openAddMedicalAid:boolean;
   openAddEmengencyContact:boolean;
-  constructor() { }
+  quees$:Observable<Array<any>>;
+  constructor(private queeService:QueeService) { 
+    this.quees$ = this.queeService.getQuees();
+    setInterval(data=>{
+      this.quees$ = this.queeService.getQuees();
+    }, 10000)
+  }
 
   ngOnInit() {}
   showAddPatientModal() {
@@ -33,5 +41,8 @@ export class DashboardComponent implements OnInit {
       this.openAddMedicalAid = false;
       this.openAddEmengencyContact = true;
     }
+  }
+  nextQuee(){
+    alert("next")
   }
 }

@@ -42,23 +42,38 @@
   </div>
   <section class="main-outlet">
     <section class="outlet">
-        <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </section>
     <section class="section-feed">
       <div class="add-patient">
         <img src="assets/images/dashboard/btn-add-patient.svg" (click)="showAddPatientModal()" class="img-btn" alt="">
       </div>
-      <div class="feed">
+      <!-- <div class="feed">
         <h1>
             Notification feed
         </h1>
+      </div> -->
+      <div class="feed">
+        <h1>
+          Quee
+        </h1>
+        <ul>
+          <li *ngFor="let quee of quees$|async as quees">
+           <span>
+            {{quee.QuiID}}
+           </span> {{quee.PatientName}}
+      
+          </li>
+        </ul>
+        <img src="assets/images/dashboard/btn-add-patient.svg" (click)="nextQuee()" class="img-btn" alt="">
+
       </div>
     </section>
-  
+
   </section>
 </section>
 <div class="overlay" *ngIf="showPopup">
-    <app-add-patient  *ngIf="openAddPatient" (closeModalAction)="closeModal($event)"></app-add-patient>
-    <app-add-medical-aid  *ngIf="openAddMedicalAid" (closeModalAction)="closeModal($event)"></app-add-medical-aid> 
-   <app-add-emergency-contact  *ngIf="openAddEmengencyContact"  (closeModalAction)="closeModal($event)"></app-add-emergency-contact> 
+  <app-add-patient *ngIf="openAddPatient" (closeModalAction)="closeModal($event)"></app-add-patient>
+  <app-add-medical-aid *ngIf="openAddMedicalAid" (closeModalAction)="closeModal($event)"></app-add-medical-aid>
+  <app-add-emergency-contact *ngIf="openAddEmengencyContact" (closeModalAction)="closeModal($event)"></app-add-emergency-contact>
 </div>
