@@ -16,9 +16,9 @@ export class DashboardComponent implements OnInit {
   quees$:Observable<Array<any>>;
   constructor(private queeService:QueeService) { 
     this.quees$ = this.queeService.getQuees();
-    setInterval(data=>{
-      this.quees$ = this.queeService.getQuees();
-    }, 3000)
+    // setInterval(data=>{
+    //   this.quees$ = this.queeService.getQuees();
+    // }, 3000)
   }
 
   ngOnInit() {}

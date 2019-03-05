@@ -15,5 +15,13 @@ export class PrescriptionService {
   getPrescriptionById(id: string): Observable<any> {
     return this.http.get<any>(`${API_URL}/api/prescription/get-prescription-byId.php?PrescriptionId=${id}`);
   }
-
+  getMedications(): Observable<any> {
+    return this.http.get<any>(`${API_URL}/api/medication/get-medications.php`);
+  }
+  addMedication(data): Observable<any> {
+    return this.http.post<any>(`${API_URL}/api/medication/add-medication.php`,data);
+  }
+  addPrescription(data): Observable<any> {
+    return this.http.post<any>(`${API_URL}/api/prescription/add-prescription-for-patient.php`,data);
+  }
 } 
