@@ -7,6 +7,7 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    Ng2SearchPipeModule
   ],
   declarations: [...declarations]
 })

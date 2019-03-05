@@ -2,17 +2,33 @@
 
 
   .section-main {
-    
+
     padding: 3%;
 
     .table-heading {
       display: grid;
-      grid-template-columns: 60% 40%;
+      grid-template-columns: 40% 40% auto;
       padding-left: 2rem;
       padding-right: 3rem;
 
       h1 {
         text-transform: uppercase;
+      }
+
+      .dashboard-forms {
+        padding: 0;
+
+        .input-field {
+          border: none;
+          background: rgba(120, 144, 156, 0.151);
+          border-radius: 5rem;
+          padding: .7rem 2rem;
+          margin: 0 1rem;
+          width: 70%;
+          color: #78909C;
+          font-weight: 600;
+        }       
+
       }
 
       .filters {
@@ -22,6 +38,8 @@
           font-weight: 700;
           font-size: .8rem;
         }
+
+
 
         select {
           background: none;
@@ -33,7 +51,7 @@
       }
     }
 
-  
+
   }
 
 
