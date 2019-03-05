@@ -13,6 +13,7 @@ import { getCurrentUser } from "src/app/shared";
 })
 export class PatientsComponent implements OnInit {
   UserId: string = getCurrentUser();
+  searchText: any;
 
   p: number = 1;
   items: Array<BreadCrumb> = [

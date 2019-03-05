@@ -1,18 +1,22 @@
 <section class="main">
   <app-bread-crumb [items]="items"></app-bread-crumb>
   <section class="section-main">
-    <div class="table-heading">
+    <div class="table-heading col-1-of-3">
       <h1>
         Active patients
       </h1>
-      <div class="filters">
-        <label> Sort By :</label>
-        <select name="" id="">
-          <option value="">
-            Create Date
-          </option>
-        </select>
+      <div class="filters dashboard-forms">
+        <label> Search by :</label>
+        <input type="text" placeholder="Email, Firstname, Patient number" class ="input-field" [(ngModel)]="searchText"  [ngModelOptions]="{standalone: true}"/>
       </div>
+      <div class="filters">
+          <label> Sort By :</label>
+          <select name="" id="">
+            <option value="">
+              Create Date
+            </option>
+          </select>
+        </div>
     </div>
 
     <div class="table">
@@ -41,7 +45,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let data of patients.patients | paginate: { itemsPerPage: 10, currentPage: p }">
+          <tr *ngFor="let data of patients.patients | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
             <td class="full-name">
               {{data.FirstName}} {{data.Surname}}
               <span>{{data.CreateDate}}</span>
@@ -55,7 +59,6 @@
             <td>
               {{data.Cellphone}}
             </td>
-
             <td class="aling-center">
               <span class="number-dadge  number-{{data.NumAppointments}}">
                 {{data.NumAppointments}}
