@@ -1,4 +1,4 @@
-import { element } from 'protractor';
+import { element } from "protractor";
 import {
   AddPrescriptionModel,
   Drug
@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { FormGroup, FormBuilder, FormArray } from "@angular/forms";
 import { getCurrentUser } from "src/app/shared";
 import { PrescriptionService } from "src/app/services";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-add-prescription",
@@ -25,7 +26,8 @@ export class AddPrescriptionComponent implements OnInit {
   data: AddPrescriptionModel;
   constructor(
     private fb: FormBuilder,
-    private prescriptionService: PrescriptionService
+    private prescriptionService: PrescriptionService,
+    private router: Router
   ) {
     this.prescriptionService.getMedications().subscribe(r => {
       this.drugsList = r;
@@ -64,21 +66,21 @@ export class AddPrescriptionComponent implements OnInit {
     this.formDrugs.push(drug);
 
     // add new drug into db
-
   }
   deleteDrug(i) {
     this.formDrugs.removeAt(i);
   }
   proccessdata(data: AddPrescriptionModel) {
-
     let drugsListProccessed: Array<Drug> = [];
     let newDrugsList = [];
 
     if (data.drugs.length > 0) {
       data.drugs.forEach(element => {
-
         let drugId = this.drugsList.filter(
-          x => x.name.toLowerCase() == element.medicationId.toLocaleLowerCase() ||  x.medicationId.toLowerCase() == element.medicationId.toLocaleLowerCase()
+          x =>
+            x.name.toLowerCase() == element.medicationId.toLocaleLowerCase() ||
+            x.medicationId.toLowerCase() ==
+              element.medicationId.toLocaleLowerCase()
         );
 
         if (drugId.length > 0) {
@@ -86,13 +88,12 @@ export class AddPrescriptionComponent implements OnInit {
           drugsListProccessed.push(element);
         } else {
           let newDrug = {
-            name:element.medicationId,
+            name: element.medicationId,
             description: element.medicationId,
             CreateUserId: this.UserId,
             StatusId: 1,
             dosage: element.dosage,
             unit: element.unit
-            
           };
           newDrugsList.push(newDrug);
         }
@@ -100,33 +101,22 @@ export class AddPrescriptionComponent implements OnInit {
     }
 
     // inser new drugs firt and get new ids
-    this.prescriptionService.addMedicationRange({drugs:newDrugsList}).subscribe(r=>{
-      console.log("new drugs",r);
-      let all_drugs = [...r, ...drugsListProccessed];
-      console.log("all_drugs",all_drugs);
-      // save prescription
-      let data_copy = {...data};
-      data_copy.drugs = all_drugs;
-      console.log("data_copy",data_copy);
+    this.prescriptionService
+      .addMedicationRange({ drugs: newDrugsList })
+      .subscribe(r => {
+        console.log("new drugs", r);
+        let all_drugs = [...r, ...drugsListProccessed];
+        console.log("all_drugs", all_drugs);
+        // save prescription
+        let data_copy = { ...data };
+        data_copy.drugs = all_drugs;
+        console.log("data_copy", data_copy);
 
-       
-    this.prescriptionService.addPrescription(data_copy).subscribe(r=>{
-     this.closeModalAction.emit(true);
-    })
-
-      
-      
-    })
-    // console.log(drugsListProccessed);
-    // data.drugs = drugsListProccessed;
-    // let data_copy = {...data};
-    // data_copy.drugs = drugsListProccessed;
-    // console.log("data_copy",data_copy);
-  
-    // this.prescriptionService.addPrescription(data).subscribe(r=>{
-    //   alert(r);
-    // })
-
+        this.prescriptionService.addPrescription(data_copy).subscribe(r => {
+          this.closeModalAction.emit(true);
+          this.router.navigate([`/dashboard/view-prescription/${r}`])
+        });
+      });
   }
   search(event) {
     this.results = this.drugsList.map(x => x.name);

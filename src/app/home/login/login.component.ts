@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   rForm: FormGroup;
   @Output() closeModalAction: EventEmitter<
   ExitModalEventEmmiter> = new EventEmitter();
-  email = '';
-  password = '';
+  email = 'admin@dok-io.net';
+  password = 'Password0132';
 
   constructor(private fb: FormBuilder,
         private loginService: LoginService,

@@ -48,7 +48,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let data of prescriptions.PatientPrescriptions">
+            <tr *ngFor="let data of prescriptions.PatientPrescriptions | paginate: { itemsPerPage: 5, currentPage: p }">
               <td class="full-name">
                 {{data.symptoms}}
               </td>
@@ -75,6 +75,9 @@
             </tr>
           </tbody>
         </table>
+        <div class="paging">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
       </div>
     </section>
   </section>
