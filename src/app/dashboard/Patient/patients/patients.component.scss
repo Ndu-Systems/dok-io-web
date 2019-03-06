@@ -50,7 +50,15 @@
         }
       }
     }
-
+table{
+  td{
+    .warning{
+      background: #f39c12;
+      color: #fff;
+      padding: .6rem;
+    }
+  }
+}
 
   }
 

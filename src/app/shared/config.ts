@@ -1,5 +1,5 @@
-export const IS_LOCAL = true;
-let api = 'http://dok.ndu-systems.net/api/api';
+export const IS_LOCAL = false;
+let api = 'http://dok.ndu-systems.net/api';
 let web = 'http://dok.ndu-systems.net';
 if (IS_LOCAL) {
     api = 'http://localhost:8080/dok-io-api';

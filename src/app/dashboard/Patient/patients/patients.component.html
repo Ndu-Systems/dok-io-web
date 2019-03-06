@@ -51,7 +51,14 @@
               <span>{{data.CreateDate}}</span>
             </td>
             <td>
-              {{data.MedicalaidName}}
+
+              <span *ngIf ="data.MedicalaidName">
+                  {{data.MedicalaidName}}
+              </span>
+              <span class="warning" *ngIf ="!data.MedicalaidName">
+                  No Medical Aid
+              </span>
+              
             </td>
             <td>
               {{data.Email}}
