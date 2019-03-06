@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import {
   AddPrescriptionModel,
   Drug
@@ -61,13 +62,17 @@ export class AddPrescriptionComponent implements OnInit {
     });
 
     this.formDrugs.push(drug);
+
+    // add new drug into db
+
   }
   deleteDrug(i) {
     this.formDrugs.removeAt(i);
   }
   proccessdata(data: AddPrescriptionModel) {
 
-    let drugs: Array<Drug> = [];
+    let drugsListProccessed: Array<Drug> = [];
+    let newDrugsList = [];
 
     if (data.drugs.length > 0) {
       data.drugs.forEach(element => {
@@ -78,30 +83,50 @@ export class AddPrescriptionComponent implements OnInit {
 
         if (drugId.length > 0) {
           element.medicationId = drugId[0].medicationId;
-          drugs.push(element);
+          drugsListProccessed.push(element);
         } else {
           let newDrug = {
             name:element.medicationId,
             description: element.medicationId,
             CreateUserId: this.UserId,
-            StatusId: 1
+            StatusId: 1,
+            dosage: element.dosage,
+            unit: element.unit
+            
           };
-         
-            this.prescriptionService.addMedication(newDrug).subscribe(res => {
-              element.medicationId = res;
-              drugs.push(element);
-            });
-         
+          newDrugsList.push(newDrug);
         }
       });
     }
-    console.log(drugs);
 
-    // create prescription
-    data.drugs = drugs;
-    this.prescriptionService.addPrescription(data).subscribe(r=>{
-      alert(r);
+    // inser new drugs firt and get new ids
+    this.prescriptionService.addMedicationRange({drugs:newDrugsList}).subscribe(r=>{
+      console.log("new drugs",r);
+      let all_drugs = [...r, ...drugsListProccessed];
+      console.log("all_drugs",all_drugs);
+      // save prescription
+      let data_copy = {...data};
+      data_copy.drugs = all_drugs;
+      console.log("data_copy",data_copy);
+
+       
+    this.prescriptionService.addPrescription(data_copy).subscribe(r=>{
+     this.closeModalAction.emit(true);
     })
+
+      
+      
+    })
+    // console.log(drugsListProccessed);
+    // data.drugs = drugsListProccessed;
+    // let data_copy = {...data};
+    // data_copy.drugs = drugsListProccessed;
+    // console.log("data_copy",data_copy);
+  
+    // this.prescriptionService.addPrescription(data).subscribe(r=>{
+    //   alert(r);
+    // })
+
   }
   search(event) {
     this.results = this.drugsList.map(x => x.name);

@@ -21,6 +21,9 @@ export class PrescriptionService {
   addMedication(data): Observable<any> {
     return this.http.post<any>(`${API_URL}/api/medication/add-medication.php`,data);
   }
+  addMedicationRange(data): Observable<any> {
+    return this.http.post<any>(`${API_URL}/api/medication/add-medication-range.php`,data);
+  }
   addPrescription(data): Observable<any> {
     return this.http.post<any>(`${API_URL}/api/prescription/add-prescription-for-patient.php`,data);
   }

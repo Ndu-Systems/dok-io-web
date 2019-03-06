@@ -65,6 +65,7 @@ export class PatientPrescriptionComponent implements OnInit {
   closeModal(e){
     if(e){
       this.showAddPrescriptionModal = false;
+      this.prescriptions$ = this.prescriptionService.getPatientPrescriptions(this.patientId);
     }
   }
 }
