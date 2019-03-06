@@ -9,13 +9,13 @@
   
 
     ::ng-deep  .ui-inputtext{
-        border: none;
-        background: rgba(120, 144, 156, 0.151);
-        border-radius: 5rem;
-        padding: .7rem 2rem;
-        margin: 1rem 0;
-        width: 100%;
-        color: #78909C;
-        font-weight: 600;
+        border: none !important;
+        background: rgba(120, 144, 156, 0.151) !important;
+        border-radius: 5rem !important;
+        padding: .7rem 2rem !important;
+        margin: 1rem 0 !important;
+        width: 100% !important;
+        color: #78909C !important;
+        font-weight: 600 !important;
     }
   
