@@ -57,8 +57,8 @@
         <h1>
           Quee
         </h1>
-        <ul>
-          <li *ngFor="let quee of quees$|async as quees">
+        <ul *ngIf="quees$|async as quees">
+          <li *ngFor="let quee of quees">
            <span>
             {{quee.QuiID}}
            </span> {{quee.PatientName}}

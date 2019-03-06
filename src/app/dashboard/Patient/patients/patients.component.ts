@@ -46,7 +46,7 @@ export class PatientsComponent implements OnInit {
       CreateUserId:this.UserId
     }
     this.queeService.addQuee(data).subscribe(r=>{
-      alert(r)
+      alert(`Your ticket number: ${r}`);
     })
   }
 }

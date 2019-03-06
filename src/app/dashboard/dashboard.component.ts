@@ -2,6 +2,7 @@ import { QueeService } from './../services/quee.service';
 import { Component, OnInit } from "@angular/core";
 import { CloseModalEventEmmiter } from "../models/modal.eventemitter.model";
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-dashboard",
@@ -14,11 +15,12 @@ export class DashboardComponent implements OnInit {
   openAddMedicalAid:boolean;
   openAddEmengencyContact:boolean;
   quees$:Observable<Array<any>>;
-  constructor(private queeService:QueeService) { 
+  constructor(private queeService:QueeService,private router: Router
+    ) { 
     this.quees$ = this.queeService.getQuees();
-    // setInterval(data=>{
-    //   this.quees$ = this.queeService.getQuees();
-    // }, 3000)
+    setInterval(data=>{
+      this.quees$ = this.queeService.getQuees();
+    }, 10000)
   }
 
   ngOnInit() {}
@@ -64,6 +66,9 @@ export class DashboardComponent implements OnInit {
         window.speechSynthesis.speak(msg);
 
           }, 1000);
+
+         
+          
        
 
      
@@ -73,6 +78,11 @@ export class DashboardComponent implements OnInit {
        this.queeService.updateQuee({QuiID:nextId}).subscribe(r=>{
         //  alert(r);
         this.quees$ = this.queeService.getQuees();
+         // navigate          
+         let pid = queeList.filter(x=>Number(x.QuiID) ===Number(nextId));
+        if(pid.length>0){
+          this.router.navigate([`/dashboard/patient/${pid[0].PatientId}`]);
+        }
 
        })
       }
