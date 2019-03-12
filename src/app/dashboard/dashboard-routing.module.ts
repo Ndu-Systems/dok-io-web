@@ -12,6 +12,7 @@ import { PatientComponent } from './Patient/patient-details/patient.component';
 import { AddPatientComponent } from './Patient/add-patient/add-patient.component';
 import { PrintPrescriptionComponent } from './prescription/print-prescription';
 import { ViewPrescriptionComponent } from './prescription/view-prescription';
+import { AccountOptionsComponent } from './account-options';
 
 
 const routes: Routes = [
@@ -39,7 +40,8 @@ export const declarations: Array<any> = [
   AddEmergencyContactComponent,
   PrintPrescriptionComponent,
   ViewPrescriptionComponent,
-  AddPrescriptionComponent
+  AddPrescriptionComponent,
+  AccountOptionsComponent
 ];
 
 @NgModule({

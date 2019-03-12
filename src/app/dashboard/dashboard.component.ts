@@ -1,6 +1,6 @@
 import { QueeService } from './../services/quee.service';
 import { Component, OnInit } from "@angular/core";
-import { CloseModalEventEmmiter } from "../models/modal.eventemitter.model";
+import { CloseModalEventEmmiter, ExitModalEventEmmiter } from "../models/modal.eventemitter.model";
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   openAddMedicalAid:boolean;
   openAddEmengencyContact:boolean;
   quees$:Observable<Array<any>>;
+  showOptions: boolean;
   constructor(private queeService:QueeService,private router: Router
     ) { 
     this.quees$ = this.queeService.getQuees();
@@ -42,6 +43,15 @@ export class DashboardComponent implements OnInit {
       this.openAddPatient = false;
       this.openAddMedicalAid = false;
       this.openAddEmengencyContact = true;
+    }
+  }
+
+  openOptions() {
+    this.showOptions = true;
+  }
+  closeOptions(e: ExitModalEventEmmiter){
+    if(e.close){
+      this.showOptions = false;
     }
   }
   nextQuee(){
