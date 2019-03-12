@@ -13,12 +13,13 @@ import { AddPatientComponent } from './Patient/add-patient/add-patient.component
 import { PrintPrescriptionComponent } from './prescription/print-prescription';
 import { ViewPrescriptionComponent } from './prescription/view-prescription';
 
+
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
     children: [
-      { path: 'dashboard', component: PatientsComponent },
+      { path: 'dashboard', component: PatientsComponent  },
       { path: '', component: PatientsComponent },
       { path: 'patient/:id', component: PatientComponent },
       { path: 'patient-prescription/:id', component: PatientPrescriptionComponent },

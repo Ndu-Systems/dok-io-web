@@ -5,7 +5,6 @@
       <div class="panel col-1-of-3" *ngIf="patient">
         <div>
           <h1> {{patient.FirstName}} {{patient.Surname}} </h1>
-        
         </div>
         <div *ngIf="patient.MemberShipNumber; else nomembership">
           <h1>Membership # {{patient.MemberShipNumber}}</h1>
@@ -16,74 +15,82 @@
           </div>
         </ng-template>
         <div>
-            <img src="assets/images/dashboard/user-more.svg" alt="user icon">
+          <img src="assets/images/dashboard/user-more.svg" alt="user icon">
         </div>
       </div>
     </section>
     <section class="section-user-details">
       <div class="table-header col-1-of-2">
         <h1>
-            Prescriptions
+          Prescriptions
         </h1>
         <div class="btn">
-        <img src="assets/images/dashboard/btn-add-prescription.svg" (click)="openModal()" class="img-btn" alt="">
+          <img src="assets/images/dashboard/btn-add-prescription.svg" (click)="openModal()" class="img-btn" alt="">
         </div>
       </div>
-      <div class="table">
-        <table *ngIf=" prescriptions$ | async as  prescriptions">
-          <thead>
-            <tr>
-              <td>
-                SYSMPTOMS
-              </td>
-              <td>
-                DIAGNOSIS
-              </td>
-              <td>
-                PRESCRIPTION GIVEN
-              </td>                       
-              <td>
-                ACTIONS
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let data of prescriptions.PatientPrescriptions | paginate: { itemsPerPage: 5, currentPage: p }">
-              <td class="full-name">
-                {{data.symptoms}}
-              </td>
-              <td>
-                {{data.diagnosis}}
-              </td>
-              <td>
-                Yes
-              </td>                          
-              <td>
-                <div class="btn-group">
-                  <div class="btns">
-                    <a  (click)="viewPrescription(data)"><img src="assets/images/dashboard/btn-search.svg"
-                        class="img-btn" alt=""></a>
+      <!-- <div *ngIf="prescriptions$ | async as  prescriptions"> -->
+        <div class="table" *ngIf="prescriptions; else noprescriptions">
+          <table>
+            <thead>
+              <tr>
+                <td>
+                  SYSMPTOMS
+                </td>
+                <td>
+                  DIAGNOSIS
+                </td>
+                <td>
+                  PRESCRIPTION GIVEN
+                </td>
+                <td>
+                  ACTIONS
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of prescriptions.PatientPrescriptions | paginate: { itemsPerPage: 5, currentPage: p }">
+                <td class="full-name">
+                  {{data.symptoms}}
+                </td>
+                <td>
+                  {{data.diagnosis}}
+                </td>
+                <td>
+                  Yes
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <div class="btns">
+                      <a (click)="viewPrescription(data)"><img src="assets/images/dashboard/btn-search.svg" class="img-btn"
+                          alt=""></a>
+                    </div>
+                    <div class="btns">
+                      <img src="assets/images/dashboard/btn-edit.svg" class="img-btn" alt="">
+                    </div>
+                    <div class="btns">
+                      <img src="assets/images/dashboard/btn-delete.svg" class="img-btn" alt="">
+                    </div>
                   </div>
-                  <div class="btns">
-                    <img src="assets/images/dashboard/btn-edit.svg" class="img-btn" alt="">
-                  </div>
-                  <div class="btns">
-                    <img src="assets/images/dashboard/btn-delete.svg" class="img-btn" alt="">
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="paging">
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="paging">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
         </div>
-      </div>
+        <ng-template #noprescriptions>
+          <div>
+            <h1 class="no-prescription">No Prescriptions available for Patient </h1>
+          </div>
+        </ng-template>
+      <!-- </div> -->
+
     </section>
   </section>
 </section>
 
 
 <div class="overlay" *ngIf="showAddPrescriptionModal">
-    <app-add-prescription [patientId] ="patientId"  (closeModalAction)="closeModal($event)"></app-add-prescription>
+  <app-add-prescription [patientId]="patientId" (closeModalAction)="closeModal($event)"></app-add-prescription>
 </div>

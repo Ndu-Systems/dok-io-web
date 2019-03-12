@@ -13,9 +13,9 @@ import { Patient } from "src/app/models/patient.model";
 export class PatientPrescriptionComponent implements OnInit {
   items: Array<BreadCrumb> = [];
   patientId: string;
-  prescriptions$: Observable<Array<any>>;
+  prescriptions: Array<any>;
   patient: Patient;
-  showAddPrescriptionModal ;
+  showAddPrescriptionModal;
   p:number=1;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,9 +27,9 @@ export class PatientPrescriptionComponent implements OnInit {
       this.patientId = r["id"];       
       this.getPatientDetails(this.patientId);
     });
-    this.prescriptions$ = this.prescriptionService.getPatientPrescriptions(
-      this.patientId
-    );
+    // this.prescriptions$ = this.prescriptionService.getPatientPrescriptions(
+    //   this.patientId
+    // );
     this.items = [
       {
         name: "PERSONAL DETAILS",
@@ -50,9 +50,19 @@ export class PatientPrescriptionComponent implements OnInit {
   }
 
   ngOnInit() { }
- 
+
+  getPatientPrescriptions(patientId: string){
+    this.prescriptionService.getPatientPrescriptions(patientId)
+    .subscribe(response => {      
+      if(response.PatientPrescriptions.length > 1){
+        this.prescriptions = response;
+      }
+    })
+  }
+  
   getPatientDetails(patientId: string) {
     this.patientService.getPatient(patientId).subscribe(r => {
+      this.getPatientPrescriptions(patientId);
       this.patient = r;
     });
   }
@@ -66,7 +76,7 @@ export class PatientPrescriptionComponent implements OnInit {
   closeModal(e){
     if(e){
       this.showAddPrescriptionModal = false;
-      this.prescriptions$ = this.prescriptionService.getPatientPrescriptions(this.patientId);
+      // this.prescriptions$ = this.prescriptionService.getPatientPrescriptions(this.patientId);
     }
   }
 }

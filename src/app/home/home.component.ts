@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
       Validators.compose([Validators.required,  Validators.minLength(10)])],
       email : [null, Validators.required]
     });
+
+    localStorage.clear();
   }
 
   ngOnInit() {}
