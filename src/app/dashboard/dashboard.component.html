@@ -14,11 +14,11 @@
           <a routerLink="/dashboard">PATIENTS</a>
         </li>
         <li>
-          <a routerLink="">PRESCRIPTIONS</a>
+          <a routerLink="/dashboard">PRESCRIPTIONS</a>
         </li>
-        <li>
-          <a routerLink="">APPOINTMENTS</a>
-        </li>
+        <!-- <li>
+          <a routerLink="/dashboard">APPOINTMENTS</a>
+        </li> -->
       </ul>
     </div>
 
@@ -35,8 +35,7 @@
         </p>
       </div>
       <div class="option-btn">
-        <img src="assets/images/dashboard/btn-3-dots.svg" alt="">
-
+        <img src="assets/images/dashboard/btn-3-dots.svg" alt="potions-tab" (click)=" openOptions()">
       </div>
     </div>
   </div>
@@ -65,7 +64,7 @@
       
           </li>
         </ul>
-        <img src="../../assets/images/dashboard/request-btn.svg" (click)="nextQuee()" class="img-btn" alt="">
+        <img src="assets/images/dashboard/request-btn.svg" (click)="nextQuee()" class="img-btn" alt="">
 
       </div>
     </section>
@@ -78,5 +77,8 @@
   <app-add-emergency-contact *ngIf="openAddEmengencyContact" (closeModalAction)="closeModal($event)"></app-add-emergency-contact>
 </div>
 <audio id="myAudio">
-  <source src="../../assets/sounds/beep.wav" type="audio/ogg">
+  <source src="assets/sounds/beep.wav" type="audio/ogg">
 </audio>
+<div class="overlay" *ngIf="showOptions">
+<app-account-options (closeModalAction)="closeOptions($event)"></app-account-options>
+</div>

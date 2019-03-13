@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 @import "mixins";
+@import "variables";
 
 * {
   margin: 0;
@@ -119,6 +120,12 @@ img {
   }
 }
 
+.alert {
+  color: $pink-color;     
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
 .no-membership{
   padding: 20px;
   background-color:  #ff8f00 ;
@@ -128,6 +135,17 @@ img {
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
+}
+.no-prescription{
+  padding: 20px;
+  background-color:  #ff8f00 ;
+  color: white;
+  width: 50%;
+  opacity: .7;  
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .paging{

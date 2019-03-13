@@ -16,8 +16,9 @@ export class LoginComponent implements OnInit {
   rForm: FormGroup;
   @Output() closeModalAction: EventEmitter<
   ExitModalEventEmmiter> = new EventEmitter();
-  email = 'admin@dok-io.net';
-  password = 'Password0132';
+  email = 'doc@mail.com';
+  password = 'pass';
+  error;
 
   constructor(private fb: FormBuilder,
         private loginService: LoginService,
@@ -30,6 +31,8 @@ export class LoginComponent implements OnInit {
       password: [null, Validators.required],
 
     });
+
+    localStorage.clear();
   }
 
   ngOnInit() {
@@ -41,12 +44,14 @@ export class LoginComponent implements OnInit {
   Login(){
     this.loginService.loginUser(this.formValues.email.value, this.formValues.password.value)
         .subscribe(response => {
-          if(response){
+          if(response.UserId){
+            localStorage.setItem(CURRENT_USER, response.UserId);
             this.router.navigate(['/dashboard']);
-            localStorage.setItem(CURRENT_USER, 'fe47252d-34cc-11e9-8a5d-f48e38e878a3')
+          }
+          else{
+            this.error = response;
           }
         });
-
 
   }
 
