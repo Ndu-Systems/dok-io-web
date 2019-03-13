@@ -52,20 +52,22 @@
             Notification feed
         </h1>
       </div> -->
-      <div class="feed">
+      <div class="feed quee-list">
         <h1>
           Quee
         </h1>
         <ul *ngIf="quees$|async as quees">
           <li *ngFor="let quee of quees">
-           <span>
-            {{quee.QuiID}}
-           </span> {{quee.PatientName}}
-      
+            <span>
+              {{quee.QuiID}}
+            </span> {{quee.PatientName}}
+
           </li>
         </ul>
-        <img src="assets/images/dashboard/request-btn.svg" (click)="nextQuee()" class="img-btn" alt="">
 
+      </div>
+      <div class="feed">
+        <img src="assets/images/dashboard/request-btn.svg" (click)="nextQuee()" class="img-btn" alt="">
       </div>
     </section>
 
@@ -80,5 +82,5 @@
   <source src="assets/sounds/beep.wav" type="audio/ogg">
 </audio>
 <div class="overlay" *ngIf="showOptions">
-<app-account-options (closeModalAction)="closeOptions($event)"></app-account-options>
+  <app-account-options (closeModalAction)="closeOptions($event)"></app-account-options>
 </div>
