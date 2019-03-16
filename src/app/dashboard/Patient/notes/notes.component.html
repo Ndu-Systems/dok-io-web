@@ -1,0 +1,63 @@
+<div class="main-notes">
+  <div class="head">
+      <h1>Patient Notes</h1>
+      <div class="btn-add">
+        <img src="assets/images/dashboard/add-note.svg" class="img-btn" (click)="showModal()" alt="">
+      </div>
+  </div>
+ 
+
+  <div class="table">
+    <table *ngIf=" notes$ | async as  notes">
+      <thead>
+        <tr>
+          <td>
+            NOTE
+          </td>
+          <td>
+            PRESCRIPTION GIVEN
+          </td>
+          <td>
+            DATE
+          </td>
+
+
+          <td>
+            ACTIONS
+          </td>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of notes | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+          <td>
+            {{data.Note}}
+          </td>
+
+          <td>
+            {{data.prescriptionGiven}}
+          </td>
+          <td>
+            {{data.CreateDate}}
+
+          <td>
+            <div class="btn-group btn-group-4">
+              <div class="btns">
+                <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/btn-search.svg" class="img-btn"
+                    alt=""></a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="paging">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+
+  </div>
+  <div class="overlay" *ngIf="showAddNotes">
+      <app-add-note (closeModalAction)="closeModal($event)"></app-add-note>
+    </div>
+  
+</div>

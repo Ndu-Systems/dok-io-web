@@ -1,3 +1,4 @@
+import { AddNoteComponent } from './Patient/add-note/add-note.component';
 import { AddPrescriptionComponent } from './prescription/add-prescription/add-prescription.component';
 import { AddEmergencyContactComponent } from './Contact-Person/add-emergency-contact/add-emergency-contact.component';
 import { AddMedicalAidComponent } from './Medical-aid/add-medical-aid/add-medical-aid.component';
@@ -13,6 +14,7 @@ import { AddPatientComponent } from './Patient/add-patient/add-patient.component
 import { PrintPrescriptionComponent } from './prescription/print-prescription';
 import { ViewPrescriptionComponent } from './prescription/view-prescription';
 import { AccountOptionsComponent } from './account-options';
+import { NotesComponent } from './Patient/notes/notes.component';
 
 
 const routes: Routes = [
@@ -41,7 +43,9 @@ export const declarations: Array<any> = [
   PrintPrescriptionComponent,
   ViewPrescriptionComponent,
   AddPrescriptionComponent,
-  AccountOptionsComponent
+  AccountOptionsComponent,
+  NotesComponent,
+  AddNoteComponent
 ];
 
 @NgModule({
