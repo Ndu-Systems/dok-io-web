@@ -17,6 +17,7 @@ export class NotesComponent implements OnInit {
     this.notes$  =  this.patientService.getPatientNotes(this.PatientId);
   }
   closeModal(e: boolean) {
+    this.notes$  =  this.patientService.getPatientNotes(this.PatientId);
     this.showAddNotes = e;
   }
   showModal(){

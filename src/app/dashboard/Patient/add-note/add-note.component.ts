@@ -26,7 +26,7 @@ export class AddNoteComponent implements OnInit {
     this.rForm = this.fb.group({
       Name: [this.Name, Validators.required],
       Notes: [null, Validators.required],
-      prescriptionGiven: [null, Validators.required],
+      prescriptionGiven: [false, Validators.required],
       CreateUserId: [this.UserId],
       PatientId: [this.PatientId],
       StatusId: [1]

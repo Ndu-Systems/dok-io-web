@@ -31,11 +31,13 @@
       <tbody>
         <tr *ngFor="let data of notes | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
           <td>
-            {{data.Note}}
+            {{data.Notes}}
           </td>
 
           <td>
-            {{data.prescriptionGiven}}
+           
+            <span *ngIf="data.prescriptionGiven == 1">Yes</span>
+            <span *ngIf="data.prescriptionGiven == 0">No</span>
           </td>
           <td>
             {{data.CreateDate}}
