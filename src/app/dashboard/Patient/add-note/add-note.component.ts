@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"; //l-f
 import { PatientService } from "src/app/services";
 import { getCurrentUser } from "src/app/shared";
@@ -10,6 +10,7 @@ import { getCurrentUser } from "src/app/shared";
 })
 export class AddNoteComponent implements OnInit {
   @Output() closeModalAction: EventEmitter<boolean> = new EventEmitter();
+  @Input() PatientId;
   rForm: FormGroup;
 
   Name: string = "Ndu";
@@ -18,11 +19,16 @@ export class AddNoteComponent implements OnInit {
   UserId: string = getCurrentUser();
 
   constructor(private fb: FormBuilder, private patientService: PatientService) {
-    this.rForm = fb.group({
+
+  }
+
+  ngOnInit() {
+    this.rForm = this.fb.group({
       Name: [this.Name, Validators.required],
       Notes: [null, Validators.required],
       prescriptionGiven: [null, Validators.required],
       CreateUserId: [this.UserId],
+      PatientId: [this.PatientId],
       StatusId: [1]
     });
 
@@ -30,8 +36,6 @@ export class AddNoteComponent implements OnInit {
       console.log(data);
     });
   }
-
-  ngOnInit() {}
   closeModal() {
     this.closeModalAction.emit(false);
   }

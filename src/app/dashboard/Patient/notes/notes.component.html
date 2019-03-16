@@ -57,7 +57,7 @@
 
   </div>
   <div class="overlay" *ngIf="showAddNotes">
-      <app-add-note (closeModalAction)="closeModal($event)"></app-add-note>
+      <app-add-note [PatientId]="PatientId" (closeModalAction)="closeModal($event)"></app-add-note>
     </div>
   
 </div>

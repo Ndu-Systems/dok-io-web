@@ -1,4 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { PatientService } from 'src/app/services';
+import { Component, OnInit, Input } from "@angular/core";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-notes",
@@ -6,10 +8,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./notes.component.scss"]
 })
 export class NotesComponent implements OnInit {
-  showAddNotes: boolean = true;
-  constructor() {}
+  @Input() PatientId;
+  showAddNotes: boolean;
+  notes$:Observable<Array<any>>;
+  constructor(private patientService:PatientService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.notes$  =  this.patientService.getPatientNotes(this.PatientId);
+  }
   closeModal(e: boolean) {
     this.showAddNotes = e;
   }
