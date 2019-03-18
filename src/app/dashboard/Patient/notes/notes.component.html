@@ -6,60 +6,68 @@
       </div>
   </div>
  
+<div *ngIf="notes$ | async as  notes; else nonotes">
+    <div class="table" *ngIf="notes.length > 0; else nonotes">
+        <table >
+          <thead>
+            <tr>
+              <td>
+                NOTE
+              </td>
+              <td>
+                PRESCRIPTION GIVEN
+              </td>
+              <td>
+                DATE
+              </td>
+    
+    
+              <td>
+                ACTIONS
+              </td>
+    
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of notes | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+              <td>
+                {{data.Notes}}
+              </td>
+    
+              <td>
+               
+                <span *ngIf="data.prescriptionGiven == 1">Yes</span>
+                <span *ngIf="data.prescriptionGiven == 0">No</span>
+              </td>
+              <td>
+                {{data.CreateDate}}
+    
+              <td>
+                <div class="btn-group btn-group-4">
+                  <div class="btns">
+                    <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/btn-search.svg" class="img-btn"
+                        alt=""></a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="paging">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    
+      </div>
+</div>
 
-  <div class="table">
-    <table *ngIf=" notes$ | async as  notes">
-      <thead>
-        <tr>
-          <td>
-            NOTE
-          </td>
-          <td>
-            PRESCRIPTION GIVEN
-          </td>
-          <td>
-            DATE
-          </td>
-
-
-          <td>
-            ACTIONS
-          </td>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of notes | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
-          <td>
-            {{data.Notes}}
-          </td>
-
-          <td>
-           
-            <span *ngIf="data.prescriptionGiven == 1">Yes</span>
-            <span *ngIf="data.prescriptionGiven == 0">No</span>
-          </td>
-          <td>
-            {{data.CreateDate}}
-
-          <td>
-            <div class="btn-group btn-group-4">
-              <div class="btns">
-                <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/btn-search.svg" class="img-btn"
-                    alt=""></a>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="paging">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div>
-
+  
+ <ng-template #nonotes>
+  <div>
+    <h1 class="no-prescription">No Patient Notes Available </h1>
   </div>
+</ng-template>
   <div class="overlay" *ngIf="showAddNotes">
-      <app-add-note [PatientId]="PatientId" (closeModalAction)="closeModal($event)"></app-add-note>
+      <app-add-note [PatientId]="PatientId" [Name]="Name" (closeModalAction)="closeModal($event)"></app-add-note>
     </div>
   
 </div>

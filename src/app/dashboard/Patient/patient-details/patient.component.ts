@@ -13,6 +13,7 @@ export class PatientComponent implements OnInit {
   patientData;
   items: Array<BreadCrumb> = [];
   patientId: any;
+  Name: string;
   constructor(
     private activatedRoute: ActivatedRoute,
     private patientService: PatientService
@@ -20,6 +21,7 @@ export class PatientComponent implements OnInit {
      this.activatedRoute.params.subscribe(r => {
       this.patientId = r["id"];
       this.getPatientDetails(this.patientId);
+     
     });
 
     this.items = [
@@ -45,6 +47,8 @@ export class PatientComponent implements OnInit {
   getPatientDetails(patientId: string) {
     this.patientService.getPatient(patientId).subscribe(r => {
       this.patientData = r;
+      this.Name = ` ${this.patientData.FirstName} ${this.patientData.Surname}`;
     });
+   
   }
 }

@@ -9,6 +9,7 @@ import { Observable } from "rxjs";
 })
 export class NotesComponent implements OnInit {
   @Input() PatientId;
+  @Input() Name;
   showAddNotes: boolean;
   notes$:Observable<Array<any>>;
   constructor(private patientService:PatientService) {}

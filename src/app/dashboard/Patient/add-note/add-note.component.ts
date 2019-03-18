@@ -11,9 +11,9 @@ import { getCurrentUser } from "src/app/shared";
 export class AddNoteComponent implements OnInit {
   @Output() closeModalAction: EventEmitter<boolean> = new EventEmitter();
   @Input() PatientId;
+  @Input() Name;
   rForm: FormGroup;
 
-  Name: string = "Ndu";
   Notes: string;
   prescriptionGiven: string;
   UserId: string = getCurrentUser();

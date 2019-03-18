@@ -1,4 +1,4 @@
-import { QueeService } from './../../../services/quee.service';
+import { QueeService } from "./../../../services/quee.service";
 import { Patient } from "./../../../models/patient.model";
 import { Component, OnInit } from "@angular/core";
 import { PatientService } from "src/app/services";
@@ -14,6 +14,11 @@ import { getCurrentUser } from "src/app/shared";
 export class PatientsComponent implements OnInit {
   UserId: string = getCurrentUser();
   searchText: any;
+  showUpdatePopup: boolean;
+  openUpdatePatient: boolean;
+  openUpdateMedicalAid: boolean;
+  openUpdateEmengencyContact: boolean;
+  patient: Patient;
 
   p: number = 1;
   items: Array<BreadCrumb> = [
@@ -35,20 +40,25 @@ export class PatientsComponent implements OnInit {
   ];
 
   patients$: Observable<Array<any>> = this.patientService.getPatients();
-  constructor(private patientService: PatientService, private queeService:QueeService) {}
+  constructor(
+    private patientService: PatientService,
+    private queeService: QueeService
+  ) {}
 
   ngOnInit() {}
   quue(patient: Patient) {
-    let data={
-      PatientName:`${patient.FirstName} ${patient.Surname}`,
+    let data = {
+      PatientName: `${patient.FirstName} ${patient.Surname}`,
       PatientId: patient.PatientId,
-      Status:1,
-      CreateUserId:this.UserId
-    }
-    this.queeService.addQuee(data).subscribe(r=>{
+      Status: 1,
+      CreateUserId: this.UserId
+    };
+    this.queeService.addQuee(data).subscribe(r => {
       alert(`Your ticket number: ${r}`);
-    })
+    });
+  }
+  showEdit(patient: Patient) {
+    this.patient = patient;
+    this.showUpdatePopup = this.openUpdatePatient = true;
   }
 }
-
-

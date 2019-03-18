@@ -7,16 +7,17 @@
       </h1>
       <div class="filters dashboard-forms">
         <label> Search by :</label>
-        <input type="text" placeholder="Email, Firstname, Patient number" class ="input-field" [(ngModel)]="searchText"  [ngModelOptions]="{standalone: true}"/>
+        <input type="text" placeholder="Email, Firstname, Patient number" class="input-field" [(ngModel)]="searchText"
+          [ngModelOptions]="{standalone: true}" />
       </div>
       <div class="filters">
-          <label> Sort By :</label>
-          <select name="" id="">
-            <option value="">
-              Create Date
-            </option>
-          </select>
-        </div>
+        <label> Sort By :</label>
+        <select name="" id="">
+          <option value="">
+            Create Date
+          </option>
+        </select>
+      </div>
     </div>
 
     <div class="table">
@@ -52,13 +53,13 @@
             </td>
             <td>
 
-              <span *ngIf ="data.MedicalaidName">
-                  {{data.MedicalaidName}}
+              <span *ngIf="data.MedicalaidName">
+                {{data.MedicalaidName}}
               </span>
-              <span class="warning" *ngIf ="!data.MedicalaidName">
-                  No Medical Aid
+              <span class="warning" *ngIf="!data.MedicalaidName">
+                No Medical Aid
               </span>
-              
+
             </td>
             <td>
               {{data.Email}}
@@ -78,7 +79,7 @@
                       alt=""></a>
                 </div>
                 <div class="btns">
-                  <img src="assets/images/dashboard/btn-edit.svg" class="img-btn" alt="">
+                  <img src="assets/images/dashboard/btn-edit.svg" (click)="showEdit(data)" class="img-btn" alt="">
                 </div>
                 <div class="btns">
                   <img src="assets/images/dashboard/btn-delete.svg" class="img-btn" alt="">
@@ -97,4 +98,11 @@
 
     </div>
   </section>
+
 </section>
+
+<div class="overlay" *ngIf="showUpdatePopup">
+  <app-update-patient [patient]="patient" *ngIf="openUpdatePatient" (closeModalAction)="closeModal($event)"></app-update-patient>
+  <app-update-medical-aid *ngIf="openUpdateMedicalAid" (closeModalAction)="closeModal($event)"></app-update-medical-aid>
+  <app-update-emergency-contact *ngIf="openUpdateEmengencyContact" (closeModalAction)="closeModal($event)"></app-update-emergency-contact>
+</div>
