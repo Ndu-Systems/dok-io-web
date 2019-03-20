@@ -15,4 +15,5 @@ export interface Patient {
     CreateUserId: string;
     ModifyUserId: string;
     StatusId: number;
+    Province?:string;
 }

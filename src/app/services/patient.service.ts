@@ -17,6 +17,9 @@ export class PatientService {
   addPatient(data): Observable<any> {
     return this.http.post<any>(`${API_URL}/api/patient/add-patient.php`,data);
   }
+  updatePatient(data): Observable<any> {
+    return this.http.post<any>(`${API_URL}/api/patient/update-patient.php`,data);
+  }
   addPatientNotes(data): Observable<any> {
     return this.http.post<any>(`${API_URL}/api/notes/add-notes.php`,data);
   }

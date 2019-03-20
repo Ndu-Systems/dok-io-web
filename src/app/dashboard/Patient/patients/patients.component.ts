@@ -5,6 +5,7 @@ import { PatientService } from "src/app/services";
 import { Observable } from "rxjs";
 import { BreadCrumb } from "../../bread-crumb/bread-crumb.model";
 import { getCurrentUser } from "src/app/shared";
+import { CloseModalEventEmmiter } from "src/app/models/modal.eventemitter.model";
 
 @Component({
   selector: "app-patients",
@@ -60,5 +61,21 @@ export class PatientsComponent implements OnInit {
   showEdit(patient: Patient) {
     this.patient = patient;
     this.showUpdatePopup = this.openUpdatePatient = true;
+  }
+    closeModal(e:CloseModalEventEmmiter){
+    console.log(e);
+
+    if(e.closeAll){
+      this.showUpdatePopup = false;
+    }
+    else if(e.openAddMedicalAid){
+      this.openUpdatePatient = false;
+      this.openUpdateMedicalAid = true;
+    }
+    else if(e.openAddEmengencyContact){
+      this.openUpdatePatient = false;
+      this.openUpdateMedicalAid = false;
+      this.openUpdateEmengencyContact = true;
+    }
   }
 }
