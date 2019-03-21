@@ -20,7 +20,7 @@
     </div>
   </section>
   <section class="popup-body">
-      <form [formGroup]="rForm"   class="box form-group" class="dashboard-forms">
+      <form [formGroup]="rForm"  (ngSubmit)="Login(rForm.value)" action="" class="box form-group" class="dashboard-forms">
           <div class="controls">
               <label for="mail">Email:</label>
               <input type="email"  class ="input-field" id="mail" formControlName="email" >
@@ -35,11 +35,10 @@
                 Passowrd is requried
               </div>
           </div>      
+          
             <div class="controls">
-              <!-- <input type="submit" value="Login" class="button" (click) ="Login()" [disabled]="!rForm.valid"  /> -->
-              <!-- <input type="submit" value="Login" class="button" /> -->
-              <img src="assets/images/home/login-btn.svg"  (click) ="Login()" alt="Login button" class="login">
-            </div>
+                <input type="submit" value="Login" class="button" [disabled]="!rForm.valid" />
+              </div>
             <div class="error">
               {{error}}
             </div>

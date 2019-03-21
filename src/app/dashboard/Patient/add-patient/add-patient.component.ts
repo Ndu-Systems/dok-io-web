@@ -46,19 +46,19 @@ Form ends here
 
   constructor(private fb: FormBuilder, private patientService: PatientService) {
     this.rForm = fb.group({
+      Title: [null, Validators.required],
       FirstName: [null, Validators.required],
       Surname: [null, Validators.required],
       IdNumber: [null, Validators.required],
       DOB: [null, Validators.required],
       Gender: [null, Validators.required],
-      Email: [null, Validators.required],
+      Email: [null],
       Cellphone: [null, Validators.required],
-      AddressLine1: [null, Validators.required],
-      City: [null, Validators.required],
-      PostCode: [null, Validators.required],
+      AddressLine1: [null],
+      City: [null],
+      PostCode: [null],
       CreateUserId: [this.UserId],
       StatusId: [1],
-      Age: [this.Age],
       Province: [null]
     });
 
@@ -79,7 +79,7 @@ Form ends here
   }
   register(data) {
     this.patientService.addPatient(data).subscribe(response => {
-      if (response.PatientId !== null) {
+      if (response.PatientId) {
       localStorage.setItem(LAST_INSERT_ID, response.PatientId)
         this.closeModalAction.emit({
           closeAll: false,

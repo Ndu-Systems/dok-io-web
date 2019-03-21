@@ -16,19 +16,32 @@
    </ul>
  </section>
  <section class="popup-body">
-    <form [formGroup]="rForm" (ngSubmit)="register(rForm.value)" class="box form-group" class="dashboard-forms">
-      <div class="col-1-of-3">
+    <form [formGroup]="rForm" (ngSubmit)="register(rForm.value)" class="box form-group" class="dashboard-forms" action="">
+      <div class="col-1-of-4">
+          <div class="controls">
+              <label for="">Title</label> <br />
+              <select  class ="input-field" formControlName="Title">
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Ms">Ms</option>
+                <option value="Dr">Dr</option>
+                <option value="Prof">Prof</option>
+              </select>
+              <div class="alert" *ngIf="!rForm.controls['Title'].valid">
+                  Title is requried
+              </div>
+            </div>
         <div class="controls">
           <label for="">First Name</label> <br />
           <input type="text" class ="input-field" formControlName="FirstName" />
-          <div class="alert" *ngIf="!rForm.controls['FirstName'].valid && rForm.controls['FirstName'].touched">
-            Name is requried
+          <div class="alert" *ngIf="!rForm.controls['FirstName'].valid">
+            First Name is requried
           </div>
         </div>
         <div class="controls">
           <label for="">Surname</label> <br />
           <input type="text" class ="input-field" formControlName="Surname" />
-          <div class="alert" *ngIf="!rForm.controls['Surname'].valid && rForm.controls['Surname'].touched">
+          <div class="alert" *ngIf="!rForm.controls['Surname'].valid">
               Surname is requried
           </div>
         </div>
@@ -41,7 +54,7 @@
         <div class="controls">
           <label for="">Cellphone</label> <br />
           <input type="text" class ="input-field" formControlName="Cellphone" />
-          <div class="alert" *ngIf="!rForm.controls['Cellphone'].valid && rForm.controls['Cellphone'].touched">
+          <div class="alert" *ngIf="!rForm.controls['Cellphone'].valid">
               Cellphone is requried
           </div>
         </div>
@@ -58,7 +71,7 @@
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
-          <div class="alert" *ngIf="!rForm.controls['Gender'].valid && rForm.controls['Gender'].touched">
+          <div class="alert" *ngIf="!rForm.controls['Gender'].valid">
               Gender is requried
           </div>
         </div>
@@ -70,21 +83,18 @@
         <div class="controls">
           <label for="">Identification number</label> <br />
           <input type="text" class ="input-field" formControlName="IdNumber" />
-          <div class="alert" *ngIf="!rForm.controls['IdNumber'].valid && rForm.controls['IdNumber'].touched">
+          <div class="alert" *ngIf="!rForm.controls['IdNumber'].valid">
               Id Number is requried
           </div>
         </div>
         <div class="controls">
           <label for="">Date of birth</label> <br />
           <input type="date" class ="input-field" formControlName="DOB" />
-          <div class="alert" *ngIf="!rForm.controls['DOB'].valid && rForm.controls['DOB'].touched">
+          <div class="alert" *ngIf="!rForm.controls['DOB'].valid">
               Date of birth is requried
           </div>
         </div>
-        <div class="controls">
-          <label for="">Age</label> <br />
-          <input type="text" class ="input-field" formControlName="Age"  readonly/>
-        </div>
+       
       </div>
 
       <div class="col-1-of-3 col-1-of-2">
