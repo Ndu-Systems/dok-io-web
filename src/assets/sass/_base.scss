@@ -80,6 +80,8 @@ img {
   width: 100%;
   height: 100%;
   background: rgba(75, 63, 63, 0.712);
+    animation: animationFadeIn 1s ease-out 0s;
+  animation-fill-mode: backwards;
   // filter: blur(50px);
   // opacity: 0.6;
   top: 0;
@@ -124,6 +126,8 @@ img {
   color: $pink-color;     
   font-size: 0.8rem;
   font-weight: 400;
+  animation: moveInLeft 1s ease-out .5s;
+  animation-fill-mode: backwards;
 }
 
 .no-membership{

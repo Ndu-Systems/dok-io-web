@@ -1,50 +1,52 @@
-.modal{
-    position: absolute;
-    left: 15%;
-    top: 15%;
-    width: 70%;
-    height:auto;
-    z-index: 100;
-    background: #FFFFFF;
-  
-  
-    .modal-header {
-      background: #29B6F6;
-      padding-top: .3rem;
-  
-      ul {
-        list-style: none;
-        width: 100%;
-  
-        li {
-          display: inline-block;
-          width: 25%;
-          text-align: center;
-          padding: .7rem;
-  
-          a {
-            color: rgb(209, 214, 214);
-            cursor: pointer;
-  
-          }
+.modal {
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  width: 70%;
+  height: auto;
+  z-index: 100;
+  background: #FFFFFF;
+  animation: animationFadeIn 1s ease-out 0s;
+  animation-fill-mode: backwards;
+
+  .modal-header {
+    background: #29B6F6;
+    padding-top: .3rem;
+
+    ul {
+      list-style: none;
+      width: 100%;
+
+      li {
+        display: inline-block;
+        width: 25%;
+        text-align: center;
+        padding: .7rem;
+
+        a {
+          color: rgb(209, 214, 214);
+          cursor: pointer;
+
         }
-  
-        .active {
-          border-bottom: .3rem solid rgb(248, 248, 248);
-  
-          a {
-            color: #fff;
-          }
-        }
-        .exit {
-          text-align: right;
-            img{
-                width: 5rem;
-                cursor: pointer;
-            }
-        }
-  
       }
+
+      .active {
+        border-bottom: .3rem solid rgb(248, 248, 248);
+
+        a {
+          color: #fff;
+        }
+      }
+
+      .exit {
+        text-align: right;
+
+        img {
+          width: 5rem;
+          cursor: pointer;
+        }
+      }
+
     }
   }
-  
+}
