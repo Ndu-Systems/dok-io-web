@@ -116,13 +116,14 @@
                 City is requried
             </div>
           </div>
+         
           <div class="controls">
-            <label for="">Province</label> <br />
-            <input type="text" class ="input-field" formControlName="Province" />
-            <div class="alert" *ngIf="!rForm.controls['Province'].valid && rForm.controls['Province'].touched">
-                Province is requried
+              <label for="">Province</label> <br />
+              <select  class ="input-field" formControlName="Province">
+                <option *ngFor="let province of provinces" [ngValue]="province">{{province}}</option>
+              </select>
+           
             </div>
-          </div>
           <div class="controls">
             <label for="">Post Code</label> <br />
             <input type="text" class ="input-field" formControlName="PostCode" />

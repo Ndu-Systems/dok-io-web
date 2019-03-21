@@ -2,7 +2,7 @@ import { CloseModalEventEmmiter } from "./../../../models/modal.eventemitter.mod
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"; //l-f
 import { PatientService } from "src/app/services";
-import { LAST_INSERT_ID ,getCurrentUser} from "src/app/shared";
+import { LAST_INSERT_ID, getCurrentUser } from "src/app/shared";
 
 @Component({
   selector: "app-add-patient",
@@ -13,6 +13,18 @@ export class AddPatientComponent implements OnInit {
   @Output() closeModalAction: EventEmitter<
     CloseModalEventEmmiter
   > = new EventEmitter();
+
+  provinces: Array<string> = [
+    "Eastern Cape",
+    "Free State",
+    "Gauteng",
+    "KwaZulu-Natal",
+    "Limpopo",
+    "Mpumalanga",
+    "North West",
+    "Northern Cape",
+    "Western Cape"
+  ];
 
   /*
 Form begin here
@@ -80,7 +92,7 @@ Form ends here
   register(data) {
     this.patientService.addPatient(data).subscribe(response => {
       if (response.PatientId) {
-      localStorage.setItem(LAST_INSERT_ID, response.PatientId)
+        localStorage.setItem(LAST_INSERT_ID, response.PatientId);
         this.closeModalAction.emit({
           closeAll: false,
           openAddEmengencyContact: false,
