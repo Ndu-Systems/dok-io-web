@@ -1,4 +1,3 @@
-import { UpdateMedicalAidComponent } from "./Patient/update-medical-aid/update-medical-aid.component";
 import { UpdatePatientComponent } from "./Patient/update-patient/update-patient.component";
 import { AddNoteComponent } from "./Patient/add-note/add-note.component";
 import { AddPrescriptionComponent } from "./prescription/add-prescription/add-prescription.component";
@@ -17,7 +16,8 @@ import { PrintPrescriptionComponent } from "./prescription/print-prescription";
 import { ViewPrescriptionComponent } from "./prescription/view-prescription";
 import { AccountOptionsComponent } from "./account-options";
 import { NotesComponent } from "./Patient/notes/notes.component";
-import { UpdateEmergencyContactComponent } from "./Patient/update-emergency-contact/update-emergency-contact.component";
+import { UpdateMedicalAidComponent } from "./Medical-aid/update-medical-aid/update-medical-aid.component";
+import { UpdateEmergencyContactComponent } from "./Contact-Person/update-emergency-contact/update-emergency-contact.component";
 
 const routes: Routes = [
   {

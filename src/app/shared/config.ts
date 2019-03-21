@@ -10,6 +10,7 @@ export const   API_URL = api;
 export const WEB_HOST = web;
 export const LAST_INSERT_ID = "LAST_INSERT_ID";
 export const CURRENT_USER = "CURRENT_USER";
+export const SELECT_PATIENT = "SELECT_PATIENT";
 export function getCurrentUser(){
     return localStorage.getItem(CURRENT_USER);
 }

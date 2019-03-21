@@ -2,8 +2,9 @@ import { Patient } from "src/app/models/patient.model";
 import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"; //l-f
 import { PatientService } from "src/app/services";
-import { getCurrentUser } from "src/app/shared";
+import { getCurrentUser, SELECT_PATIENT } from "src/app/shared";
 import { CloseModalEventEmmiter } from "src/app/models/modal.eventemitter.model";
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 
 @Component({
   selector: "app-update-patient",
@@ -57,6 +58,7 @@ export class UpdatePatientComponent implements OnInit {
     this.rForm.valueChanges.subscribe(data => {
       console.log(data);
     });
+    localStorage.setItem(SELECT_PATIENT, this.patient.PatientId)
   }
   closeModal(): void {
     this.closeModalAction.emit({
