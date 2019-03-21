@@ -16,7 +16,7 @@
       </ul>
     </section>
     <section class="popup-body">
-       <form [formGroup]="rForm" (ngSubmit)="addNotes(rForm.value)" class="box form-group" class="dashboard-forms">
+       <form [formGroup]="rForm" (ngSubmit)="addNotes(rForm.value)" class="box form-group" action="" class="dashboard-forms">
          <div class="col-1-of-3">
            <div class="controls">
              <label for="">Note For:</label> <br />
@@ -42,7 +42,7 @@
              <div class="controls">
                <label for="">Notes:</label> <br />
                <textarea name=""   class ="input-field textarea" formControlName="Notes" id="" cols="30" rows="10"></textarea>
-               <div class="alert" *ngIf="!rForm.controls['Notes'].valid && rForm.controls['Notes'].touched">
+               <div class="alert" *ngIf="!rForm.controls['Notes'].valid">
                   Note is requried
                </div>
              </div>

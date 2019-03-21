@@ -51,6 +51,9 @@ constructor(private fb: FormBuilder, private medicalaidService: MedicalaidServic
 
   this.rForm.valueChanges.subscribe(data => {
     console.log(data);
+    if(!data.HasMedicalAid){
+      this.openNextScreen()
+    }
   });
 }
 
@@ -67,16 +70,18 @@ addmedicalaid(data) {
   this.medicalaidService.addMedicalaid(data).subscribe(response => {    
     if (response) {
       alert(response);
-      this.closeModalAction.emit({
-        closeAll: false,
-        openAddEmengencyContact: true,
-        openAddMedicalAid: false,
-        openAddPatient: false
-      });
+      this.openNextScreen()
     } else {
       alert(`Error: ${response}`);
     }
   });
 }
-
+openNextScreen(){
+  this.closeModalAction.emit({
+    closeAll: false,
+    openAddEmengencyContact: true,
+    openAddMedicalAid: false,
+    openAddPatient: false
+  });
+}
 }

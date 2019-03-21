@@ -7,8 +7,8 @@
         <li   class="active">
           <a>MEDICAL INFO</a>
         </li>
-        <li>
-          <a>EMERGENCY CONTACTS</a>
+        <li   class="anabled">
+          <a (click)="openNextScreen()">EMERGENCY CONTACTS</a>
         </li>
         <li class="exit">
           <img src="../../../assets/images/dashboard/btn-exit.png" (click)="closeModal()" class="img-btn" alt="">
@@ -30,7 +30,7 @@
            <div class="controls">
              <label for="">Medical Aid Name</label> <br />
              <input type="text" class ="input-field" formControlName="MedicalaidName" />
-             <div class="alert" *ngIf="!rForm.controls['MedicalaidName'].valid && rForm.controls['MedicalaidName'].touched">
+             <div class="alert" *ngIf="!rForm.controls['MedicalaidName'].valid">
                 Medical Aid Name is requried
              </div>
            </div>
@@ -43,14 +43,14 @@
            <div class="controls">
              <label for="">Plan Type</label> <br />
              <input type="text" class ="input-field" formControlName="MedicalaidType" />
-             <div class="alert" *ngIf="!rForm.controls['MedicalaidType'].valid && rForm.controls['MedicalaidType'].touched">
+             <div class="alert" *ngIf="!rForm.controls['MedicalaidType'].valid">
                 Plan Type is requried
              </div>
            </div>
            <div class="controls">
              <label for="">Membership Number</label> <br />
              <input type="email" class ="input-field" formControlName="MemberShipNumber" />
-             <div class="alert" *ngIf="!rForm.controls['MemberShipNumber'].valid && rForm.controls['MemberShipNumber'].touched">
+             <div class="alert" *ngIf="!rForm.controls['MemberShipNumber'].valid ">
                 Membership Number is requried
              </div>
            </div>
@@ -60,14 +60,14 @@
             <div class="controls">
                 <label for="">Primary Member</label> <br />
                 <input type="email" class ="input-field" formControlName="PrimaryMember" />
-                <div class="alert" *ngIf="!rForm.controls['PrimaryMember'].valid && rForm.controls['PrimaryMember'].touched">
+                <div class="alert" *ngIf="!rForm.controls['PrimaryMember'].valid">
                    Primary Member is requried
                 </div>
               </div>
            <div class="controls">
              <label for="">Primary Member Id</label> <br />
              <input type="email" class ="input-field" formControlName="PrimaryMemberId" />
-             <div class="alert" *ngIf="!rForm.controls['PrimaryMemberId'].valid && rForm.controls['PrimaryMemberId'].touched">
+             <div class="alert" *ngIf="!rForm.controls['PrimaryMemberId'].valid ">
                 Primary Member Id is requried
              </div>
            </div>
@@ -77,6 +77,11 @@
            <div class="controls">
              <input type="submit" value="SUBMIT" class="button" [disabled]="!rForm.valid" />
            </div>
+           
+           <div class="controls skip">
+             <a (click)="openNextScreen()">Skip this step</a>
+           </div>
+
          </form>
     </section>
    </section>

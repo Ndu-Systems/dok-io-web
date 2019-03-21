@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
     this.openAddPatient = true;
   }
   closeModal(e:CloseModalEventEmmiter){
+    this.cloaseAll()
     console.log(e);
 
     if(e.closeAll){
@@ -45,7 +46,12 @@ export class DashboardComponent implements OnInit {
       this.openAddEmengencyContact = true;
     }
   }
-
+cloaseAll(){
+  this.openAddPatient = false;
+  this.openAddEmengencyContact = false;
+  this.openAddMedicalAid = false;
+  this.openAddEmengencyContact = false;
+}
   openOptions() {
     this.showOptions = true;
   }

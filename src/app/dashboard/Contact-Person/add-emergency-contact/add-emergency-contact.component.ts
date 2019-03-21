@@ -73,4 +73,12 @@ addcontact(data) {
   });
 }
 
+goBanckOnce(){
+  this.closeModalAction.emit({
+    closeAll: false,
+    openAddEmengencyContact: false,
+    openAddMedicalAid: true,
+    openAddPatient: false
+  });
+}
 }
