@@ -8,14 +8,17 @@ import { Observable } from "rxjs";
   styleUrls: ["./notes.component.scss"]
 })
 export class NotesComponent implements OnInit {
-  @Input() PatientId;
   @Input() Name;
   showAddNotes: boolean;
   notes$:Observable<Array<any>>;
+  PatientId: string;
   constructor(private patientService:PatientService) {}
 
   ngOnInit() {
-    this.notes$  =  this.patientService.getPatientNotes(this.PatientId);
+    this.patientService.castNotes.subscribe(r=>{
+      this.PatientId = r;
+      this.notes$  =  this.patientService.getPatientNotes(this.PatientId);
+    })
   }
   closeModal(e: boolean) {
     this.notes$  =  this.patientService.getPatientNotes(this.PatientId);

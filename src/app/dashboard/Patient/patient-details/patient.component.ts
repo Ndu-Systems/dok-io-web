@@ -21,6 +21,7 @@ export class PatientComponent implements OnInit {
      this.activatedRoute.params.subscribe(r => {
       this.patientId = r["id"];
       this.getPatientDetails(this.patientId);
+      this.patientService.castNextNotePatientId(this.patientId);
      
     });
 
@@ -43,7 +44,8 @@ export class PatientComponent implements OnInit {
     ];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
   getPatientDetails(patientId: string) {
     this.patientService.getPatient(patientId).subscribe(r => {
       this.patientData = r;
