@@ -17,113 +17,123 @@
   </section>
   <section class="popup-body">
      <form [formGroup]="rForm" (ngSubmit)="update(rForm.value)" class="box form-group" class="dashboard-forms">
-       <div class="col-1-of-3">
-         <div class="controls">
-           <label for="">First Name</label> <br />
-           <input type="text" class ="input-field" formControlName="FirstName" />
-           <div class="alert" *ngIf="!rForm.controls['FirstName'].valid && rForm.controls['FirstName'].touched">
-             Name is requried
-           </div>
-         </div>
-         <div class="controls">
-           <label for="">Surname</label> <br />
-           <input type="text" class ="input-field" formControlName="Surname" />
-           <div class="alert" *ngIf="!rForm.controls['Surname'].valid && rForm.controls['Surname'].touched">
-               Surname is requried
-           </div>
-         </div>
-         <div class="image-div">
-         <img src="../assets/images/dashboard/user-more.svg" alt="">
-         </div>
-       </div>
- 
-       <div class="col-1-of-3">
-         <div class="controls">
-           <label for="">Cellphone</label> <br />
-           <input type="text" class ="input-field" formControlName="Cellphone" />
-           <div class="alert" *ngIf="!rForm.controls['Cellphone'].valid && rForm.controls['Cellphone'].touched">
-               Cellphone is requried
-           </div>
-         </div>
-         <div class="controls">
-           <label for="">Email</label> <br />
-           <input type="email" class ="input-field" formControlName="Email" />
-           <div class="alert" *ngIf="!rForm.controls['Email'].valid && rForm.controls['Email'].touched">
-               Email is requried
-           </div>
-         </div>
-         <div class="controls">
-           <label for="">Gender</label> <br />
-           <select  class ="input-field" formControlName="Gender">
-             <option value="Male">Male</option>
-             <option value="Female">Female</option>
-           </select>
-           <div class="alert" *ngIf="!rForm.controls['Gender'].valid && rForm.controls['Gender'].touched">
-               Gender is requried
-           </div>
-         </div>
-       </div>
+        <div class="col-1-of-4">
+            <div class="controls">
+                <label for="">Title</label> <br />
+                <select  class ="input-field" formControlName="Title">
+                  <option value="Mr">Mr</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Ms">Ms</option>
+                  <option value="Dr">Dr</option>
+                  <option value="Prof">Prof</option>
+                </select>
+                <div class="alert" *ngIf="!rForm.controls['Title'].valid">
+                    Title is requried
+                </div>
+              </div>
+          <div class="controls">
+            <label for="">First Name</label> <br />
+            <input type="text" class ="input-field" formControlName="FirstName" />
+            <div class="alert" *ngIf="!rForm.controls['FirstName'].valid">
+              First Name is requried
+            </div>
+          </div>
+          <div class="controls">
+            <label for="">Surname</label> <br />
+            <input type="text" class ="input-field" formControlName="Surname" />
+            <div class="alert" *ngIf="!rForm.controls['Surname'].valid">
+                Surname is requried
+            </div>
+          </div>
+          <div class="image-div">
+          <img src="../assets/images/dashboard/user-more.svg" alt="">
+          </div>
+        </div>
+  
+        <div class="col-1-of-3">
+          <div class="controls">
+            <label for="">Cellphone</label> <br />
+            <input type="text" class ="input-field" formControlName="Cellphone" />
+            <div class="alert" *ngIf="!rForm.controls['Cellphone'].valid">
+                Cellphone is requried
+            </div>
+          </div>
+          <div class="controls">
+            <label for="">Email</label> <br />
+            <input type="email" class ="input-field" formControlName="Email" />
+            <div class="alert" *ngIf="!rForm.controls['Email'].valid && rForm.controls['Email'].touched">
+                Email is requried
+            </div>
+          </div>
+          <div class="controls">
+            <label for="">Gender</label> <br />
+            <select  class ="input-field" formControlName="Gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <div class="alert" *ngIf="!rForm.controls['Gender'].valid">
+                Gender is requried
+            </div>
+          </div>
+        </div>
+         
         
-       
- 
-       <div class="col-1-of-3">
-         <div class="controls">
-           <label for="">Identification number</label> <br />
-           <input type="text" class ="input-field" formControlName="IdNumber" />
-           <div class="alert" *ngIf="!rForm.controls['IdNumber'].valid && rForm.controls['IdNumber'].touched">
-               Id Number is requried
-           </div>
-         </div>
-         <div class="controls">
-           <label for="">Date of birth</label> <br />
-           <input type="date" class ="input-field" formControlName="DOB" />
-           <div class="alert" *ngIf="!rForm.controls['DOB'].valid && rForm.controls['DOB'].touched">
-               Date of birth is requried
-           </div>
-         </div>
-         <!-- <div class="controls">
-           <label for="">Age</label> <br />
-           <input type="text" class ="input-field" formControlName="Age"  readonly/>
-         </div> -->
-       </div>
- 
-       <div class="col-1-of-3 col-1-of-2">
-           <div class="controls">
-             <label for="">Street address</label> <br />
-             <input type="text" class ="input-field" formControlName="AddressLine1" />
-             <div class="alert" *ngIf="!rForm.controls['AddressLine1'].valid && rForm.controls['AddressLine1'].touched">
-                 Address is requried
-             </div>
-           </div>
-         </div>
- 
- 
-       <div class="col-1-of-3">
-           <div class="controls">
-             <label for="">City</label> <br />
-             <input type="text" class ="input-field" formControlName="City" />
-             <div class="alert" *ngIf="!rForm.controls['City'].valid && rForm.controls['City'].touched">
-                 City is requried
-             </div>
-           </div>
-           <div class="controls">
-             <label for="">Province</label> <br />
-             <input type="text" class ="input-field" formControlName="Province" />
-             <div class="alert" *ngIf="!rForm.controls['Province'].valid && rForm.controls['Province'].touched">
-                 Province is requried
-             </div>
-           </div>
-           <div class="controls">
-             <label for="">Post Code</label> <br />
-             <input type="text" class ="input-field" formControlName="PostCode" />
-             <div class="alert" *ngIf="!rForm.controls['PostCode'].valid && rForm.controls['PostCode'].touched">
-                 Postal Code is requried
-             </div>
-           </div>
-         </div>
-          
-        
-       
+  
+        <div class="col-1-of-3">
+          <div class="controls">
+            <label for="">Identification number</label> <br />
+            <input type="text" class ="input-field" formControlName="IdNumber" />
+            <div class="alert" *ngIf="!rForm.controls['IdNumber'].valid">
+                Id Number is requried
+            </div>
+          </div>
+          <div class="controls">
+            <label for="">Date of birth</label> <br />
+            <input type="date" class ="input-field" formControlName="DOB" />
+            <div class="alert" *ngIf="!rForm.controls['DOB'].valid">
+                Date of birth is requried
+            </div>
+          </div>
+         
+        </div>
+  
+        <div class="col-1-of-3 col-1-of-2">
+            <div class="controls">
+              <label for="">Street address</label> <br />
+              <input type="text" class ="input-field" formControlName="AddressLine1" />
+              <div class="alert" *ngIf="!rForm.controls['AddressLine1'].valid && rForm.controls['AddressLine1'].touched">
+                  Address is requried
+              </div>
+            </div>
+          </div>
+  
+  
+        <div class="col-1-of-3">
+            <div class="controls">
+              <label for="">City</label> <br />
+              <input type="text" class ="input-field" formControlName="City" />
+              <div class="alert" *ngIf="!rForm.controls['City'].valid && rForm.controls['City'].touched">
+                  City is requried
+              </div>
+            </div>
+           
+            <div class="controls">
+                <label for="">Province</label> <br />
+                <select  class ="input-field" formControlName="Province">
+                  <option *ngFor="let province of provinces" [ngValue]="province">{{province}}</option>
+                </select>
+             
+              </div>
+            <div class="controls">
+              <label for="">Post Code</label> <br />
+              <input type="text" class ="input-field" formControlName="PostCode" />
+              <div class="alert" *ngIf="!rForm.controls['PostCode'].valid && rForm.controls['PostCode'].touched">
+                  Postal Code is requried
+              </div>
+            </div>
+          </div>
+           
+         
          <div class="controls">
            <input type="submit" value="SAVE" class="button" [disabled]="!rForm.valid" />
          </div>

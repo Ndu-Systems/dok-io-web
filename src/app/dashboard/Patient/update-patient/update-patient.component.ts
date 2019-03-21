@@ -1,31 +1,44 @@
-import { Patient } from 'src/app/models/patient.model';
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Patient } from "src/app/models/patient.model";
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"; //l-f
-import { PatientService } from 'src/app/services';
-import { getCurrentUser } from 'src/app/shared';
-import { CloseModalEventEmmiter } from 'src/app/models/modal.eventemitter.model';
-
+import { PatientService } from "src/app/services";
+import { getCurrentUser } from "src/app/shared";
+import { CloseModalEventEmmiter } from "src/app/models/modal.eventemitter.model";
 
 @Component({
-  selector: 'app-update-patient',
-  templateUrl: './update-patient.component.html',
-  styleUrls: ['./update-patient.component.scss']
+  selector: "app-update-patient",
+  templateUrl: "./update-patient.component.html",
+  styleUrls: ["./update-patient.component.scss"]
 })
 export class UpdatePatientComponent implements OnInit {
+  provinces: Array<string> = [
+    "Eastern Cape",
+    "Free State",
+    "Gauteng",
+    "KwaZulu-Natal",
+    "Limpopo",
+    "Mpumalanga",
+    "North West",
+    "Northern Cape",
+    "Western Cape"
+  ];
+
   UserId: string = getCurrentUser();
 
-@Input() patient:Patient;
-@Output() closeModalAction: EventEmitter<
-CloseModalEventEmmiter
-> = new EventEmitter();
-rForm: FormGroup;
+  @Input() patient: Patient;
+  @Output() closeModalAction: EventEmitter<
+    CloseModalEventEmmiter
+  > = new EventEmitter();
+  rForm: FormGroup;
 
-constructor(private fb: FormBuilder, private patientService: PatientService) {
-
-}
+  constructor(
+    private fb: FormBuilder,
+    private patientService: PatientService
+  ) {}
   ngOnInit() {
     this.rForm = this.fb.group({
       PatientId: [this.patient.PatientId, Validators.required],
+      Title: [this.patient.Title, Validators.required],
       FirstName: [this.patient.FirstName, Validators.required],
       Surname: [this.patient.Surname, Validators.required],
       IdNumber: [this.patient.IdNumber, Validators.required],
@@ -40,12 +53,12 @@ constructor(private fb: FormBuilder, private patientService: PatientService) {
       StatusId: [this.patient.StatusId],
       Province: [this.patient.Province]
     });
-  
+
     this.rForm.valueChanges.subscribe(data => {
       console.log(data);
     });
   }
-  closeModal():void {
+  closeModal(): void {
     this.closeModalAction.emit({
       closeAll: true,
       openAddEmengencyContact: false,
@@ -53,7 +66,7 @@ constructor(private fb: FormBuilder, private patientService: PatientService) {
       openAddPatient: false
     });
   }
-  update(data:Patient){
+  update(data: Patient) {
     this.patientService.updatePatient(data).subscribe(response => {
       if (response !== null) {
         this.closeModalAction.emit({
@@ -67,5 +80,4 @@ constructor(private fb: FormBuilder, private patientService: PatientService) {
       }
     });
   }
-
 }
