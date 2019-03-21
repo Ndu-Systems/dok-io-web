@@ -10,7 +10,7 @@
           <h1>Membership # {{patient.MemberShipNumber}}</h1>
         </div>
         <ng-template #nomembership>
-          <div>
+          <div class="empty-list">
             <h1 class="no-membership">No Medical Aid</h1>
           </div>
         </ng-template>
@@ -97,7 +97,7 @@
         </div>
       </section>
       <ng-template #nomedicine>
-        <div class="info">
+        <div class="empty-list">
           <h1>No Medication was </h1>
         </div>
       </ng-template>
