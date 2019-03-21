@@ -3,6 +3,7 @@ import { CloseModalEventEmmiter } from 'src/app/models/modal.eventemitter.model'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { getCurrentUser, LAST_INSERT_ID } from 'src/app/shared';
 import { EmergencyContactService } from 'src/app/services/emergency-contact.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-emergency-contact',
@@ -33,7 +34,7 @@ Relationship: string;
 CellNumber: string;
 CreateUserId: string;
 StatusId: number;
-constructor(private fb: FormBuilder, private emergencyContactService: EmergencyContactService) {
+constructor(private fb: FormBuilder, private emergencyContactService: EmergencyContactService, private router:Router) {
   this.rForm = fb.group({
     PatientId: [localStorage.getItem(LAST_INSERT_ID), Validators.required],
     Name: [null, Validators.required],
@@ -48,7 +49,9 @@ constructor(private fb: FormBuilder, private emergencyContactService: EmergencyC
   });
 }
 
-ngOnInit() {}
+ngOnInit() {
+  this.PatientId = localStorage.getItem(LAST_INSERT_ID);
+}
 closeModal() {
   this.closeModalAction.emit({
     closeAll: true,
@@ -60,13 +63,15 @@ closeModal() {
 addcontact(data) {
   this.emergencyContactService.addEmergencyContact(data).subscribe(response => {    
     if (response) {
-      alert(response);
       this.closeModalAction.emit({
         closeAll: true,
         openAddEmengencyContact: false,
         openAddMedicalAid: false,
         openAddPatient: false
       });
+      this.router.navigate([`/dashboard/patient/${this.PatientId}`])
+
+
     } else {
       alert(`Error: ${response}`);
     }
