@@ -29,15 +29,18 @@ export class UpdateMedicalAidComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.PatientId = localStorage.getItem(SELECT_PATIENT);
     this.medicalaidService.getPatientMedicalAid(this.PatientId).subscribe(r => {
+      debugger
       console.log("Medicat iad info", r);
-      if (r.length) {
+      if (r.length == 0) {
         //create new medical aid
         this.createMedicalAid();
+      }else{
+        this.medicalAidInfo = r[0];
       }
       // load the patient medical iad
-      this.medicalAidInfo = r[0];
       this.formInit();
       
     });
@@ -48,6 +51,7 @@ export class UpdateMedicalAidComponent implements OnInit {
     this.rForm = this.fb.group({
       PatientId: [localStorage.getItem(SELECT_PATIENT), Validators.required],
       HasMedicalAid: [true, Validators.required],
+      MedicalaidId: [this.medicalAidInfo.MedicalaidId, Validators.required],
       MedicalaidName: [this.medicalAidInfo.MedicalaidName, Validators.required],
       MedicalaidType: [this.medicalAidInfo.MedicalaidType, Validators.required],
       MemberShipNumber: [this.medicalAidInfo.MemberShipNumber, Validators.required],
@@ -88,7 +92,7 @@ export class UpdateMedicalAidComponent implements OnInit {
   }
   updateMedicalInfo(data){
     console.log(data);
-    this.medicalaidService.addMedicalaid(data).subscribe(response => {    
+    this.medicalaidService.updateMedicalaid(data).subscribe(response => {    
       if (response) {
         alert(response);
         this.closeModal()
@@ -113,5 +117,7 @@ initMedicalInfo(){
     "ModifyDate":"",
     "StatusId":"0"
  }
+ console.log("init initMedicalInfo", this.medicalAidInfo);
+ 
 }
 }
