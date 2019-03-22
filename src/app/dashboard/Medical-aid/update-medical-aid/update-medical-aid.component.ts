@@ -88,6 +88,14 @@ export class UpdateMedicalAidComponent implements OnInit {
   }
   updateMedicalInfo(data){
     console.log(data);
+    this.medicalaidService.addMedicalaid(data).subscribe(response => {    
+      if (response) {
+        alert(response);
+        this.closeModal()
+      } else {
+        alert(`Error: ${response}`);
+      }
+    });
     
   }
 
