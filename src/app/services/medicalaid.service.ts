@@ -12,5 +12,9 @@ export class MedicalaidService {
   addMedicalaid(data): Observable<any> {
     return this.http.post<any>(`${API_URL}/api/medicalaid/add-medicalaid.php`,data);
   }
-
+  getPatientMedicalAid(id: string): Observable<any> {
+    return this.http.get<any>(
+      `${API_URL}/api/medicalaid/get-medicalaid.php?PatientId=${id}`
+    );
+  }
 }
