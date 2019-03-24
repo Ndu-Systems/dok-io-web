@@ -62,20 +62,29 @@ export class PatientsComponent implements OnInit {
     this.patient = patient;
     this.showUpdatePopup = this.openUpdatePatient = true;
   }
-    closeModal(e:CloseModalEventEmmiter){
+  closeModal(e: CloseModalEventEmmiter) {
     console.log(e);
+    this.closeAll();
 
-    if(e.closeAll){
+    if (e.closeAll) {
       this.showUpdatePopup = false;
-    }
-    else if(e.openAddMedicalAid){
+    } else if (e.openAddMedicalAid) {
       this.openUpdatePatient = false;
       this.openUpdateMedicalAid = true;
-    }
-    else if(e.openAddEmengencyContact){
+    } else if (e.openAddEmengencyContact) {
       this.openUpdatePatient = false;
       this.openUpdateMedicalAid = false;
       this.openUpdateEmengencyContact = true;
     }
+    else if (e.openAddPatient) {
+      this.openUpdatePatient = true;
+      this.openUpdateMedicalAid = false;
+      this.openUpdateEmengencyContact = false;
+    }
+  }
+  closeAll(){
+    this.openUpdatePatient = false;
+    this.openUpdateMedicalAid = false;
+    this.openUpdateEmengencyContact = false;
   }
 }

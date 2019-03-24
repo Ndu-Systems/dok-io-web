@@ -2,10 +2,10 @@
   <section class="modal-header">
     <ul>
       <li  class="anabled">
-          <a>UPDATE PATIENT DETAILS</a>
+          <a  (click)="openFirst()">UPDATE PATIENT DETAILS</a>
       </li>
       <li  class="anabled" >
-        <a   >UPDATEMEDICAL INFO</a>
+        <a  (click)="openPrev()" >UPDATEMEDICAL INFO</a>
       </li>
       <li  class="active">
         <a (click)="openNext()">UPDATE EMERGENCY CONTACTS</a>
@@ -16,7 +16,7 @@
     </ul>
   </section>
   <section class="popup-body">
-    <form [formGroup]="rForm" (ngSubmit)="addcontact(rForm.value)" class="box form-group" class="dashboard-forms">
+    <form [formGroup]="rForm" (ngSubmit)="updateContact(rForm.value)" class="box form-group" class="dashboard-forms">
 
       <div class="col-1-of-3 col-3-1">
         <div class="controls">
@@ -45,11 +45,9 @@
         </div>
       </div>
       <div class="controls">
-        <input type="submit" value="SUBMIT" class="button" [disabled]="!rForm.valid" />
+        <input type="submit" value="SAVE" class="button" [disabled]="!rForm.valid" />
       </div>
-      <div class="controls skip">
-          <a (click)="goBanckOnce()">Go back to add medical aid</a>
-        </div>
+   
     </form>
   </section>
 </section>

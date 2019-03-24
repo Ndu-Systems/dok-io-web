@@ -90,12 +90,20 @@ export class UpdateMedicalAidComponent implements OnInit {
       openAddPatient: false
     });
   }
+  openPrev() {
+    this.closeModalAction.emit({
+      closeAll: false,
+      openAddEmengencyContact: false,
+      openAddMedicalAid: false,
+      openAddPatient: true
+    });
+  }
   updateMedicalInfo(data){
     console.log(data);
     this.medicalaidService.updateMedicalaid(data).subscribe(response => {    
       if (response) {
-        alert(response);
-        this.closeModal()
+        // alert(response);
+        this.openNext()
       } else {
         alert(`Error: ${response}`);
       }
@@ -105,7 +113,7 @@ export class UpdateMedicalAidComponent implements OnInit {
 
 initMedicalInfo(){
   this.medicalAidInfo =  {  
-    "MedicalaidId":"",
+    "MedicalaidId":"0000",
     "PatientId":"",
     "MedicalaidName":"",
     "MedicalaidType":"",

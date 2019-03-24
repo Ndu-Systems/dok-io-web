@@ -68,15 +68,26 @@ export class UpdatePatientComponent implements OnInit {
       openAddPatient: false
     });
   }
+  openNext(){
+    this.closeModalAction.emit({
+      closeAll: false,
+      openAddEmengencyContact: false,
+      openAddMedicalAid: true,
+      openAddPatient: false
+    });
+  }
+  openLast(){
+    this.closeModalAction.emit({
+      closeAll: false,
+      openAddEmengencyContact: true,
+      openAddMedicalAid: false,
+      openAddPatient: false
+    });
+  }
   update(data: Patient) {
     this.patientService.updatePatient(data).subscribe(response => {
       if (response !== null) {
-        this.closeModalAction.emit({
-          closeAll: false,
-          openAddEmengencyContact: false,
-          openAddMedicalAid: true,
-          openAddPatient: false
-        });
+       this.openNext()
       } else {
         alert(`Error: ${response}`);
       }

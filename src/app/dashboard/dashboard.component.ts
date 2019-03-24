@@ -50,7 +50,6 @@ cloaseAll(){
   this.openAddPatient = false;
   this.openAddEmengencyContact = false;
   this.openAddMedicalAid = false;
-  this.openAddEmengencyContact = false;
 }
   openOptions() {
     this.showOptions = true;
