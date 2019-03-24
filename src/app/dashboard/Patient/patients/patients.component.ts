@@ -68,6 +68,7 @@ export class PatientsComponent implements OnInit {
 
     if (e.closeAll) {
       this.showUpdatePopup = false;
+      this.patients$= this.patientService.getPatients();
     } else if (e.openAddMedicalAid) {
       this.openUpdatePatient = false;
       this.openUpdateMedicalAid = true;
