@@ -60,10 +60,10 @@ export class UpdateMedicalAidComponent implements OnInit {
       ModifyUserId: [this.UserId, Validators.required],
       StatusId: [1, Validators.required]
     });
-
     this.rForm.valueChanges.subscribe(data => {
       console.log(data);
-      if (!data.HasMedicalAid) {
+      if(!data.HasMedicalAid){
+        this.openNext()
       }
     });
   }
