@@ -1,3 +1,4 @@
+import { ArchivedPatientsComponent } from './Patient/archived-patients/archived-patients.component';
 import { ConfirmBoxComponent } from './Patient/confirm-box/confirm-box.component';
 import { UpdatePatientComponent } from "./Patient/update-patient/update-patient.component";
 import { AddNoteComponent } from "./Patient/add-note/add-note.component";
@@ -26,6 +27,7 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: "dashboard", component: PatientsComponent },
+      { path: "archived", component: ArchivedPatientsComponent },
       { path: "", component: PatientsComponent },
       { path: "patient/:id", component: PatientComponent },
       {
@@ -55,7 +57,8 @@ export const declarations: Array<any> = [
   UpdatePatientComponent,
   UpdateMedicalAidComponent,
   UpdateEmergencyContactComponent,
-  ConfirmBoxComponent
+  ConfirmBoxComponent,
+  ArchivedPatientsComponent
 ];
 
 @NgModule({

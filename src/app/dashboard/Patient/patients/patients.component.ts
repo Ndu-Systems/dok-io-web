@@ -36,7 +36,7 @@ export class PatientsComponent implements OnInit {
     // },
     {
       name: " ARCHIVED PATIENTS",
-      url: "/dashboard",
+      url: "/dashboard/archived",
       active: false
     }
   ];
