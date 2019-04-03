@@ -28,16 +28,16 @@ export class PatientsComponent implements OnInit {
       url: "/dashboard",
       active: true
     },
-    {
-      name: "INCOMPLETE PATIENTS",
-      url: "/dashboard",
-      active: false
-    },
-    {
-      name: " ARCHIVED PATIENTS",
-      url: "/dashboard",
-      active: false
-    }
+    // {
+    //   name: "INCOMPLETE PATIENTS",
+    //   url: "/dashboard",
+    //   active: false
+    // },
+    // {
+    //   name: " ARCHIVED PATIENTS",
+    //   url: "/dashboard",
+    //   active: false
+    // }
   ];
 
   patients$: Observable<Array<any>> = this.patientService.getPatients();

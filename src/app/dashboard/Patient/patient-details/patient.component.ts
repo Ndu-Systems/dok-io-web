@@ -36,11 +36,11 @@ export class PatientComponent implements OnInit {
         url: `/dashboard/patient-prescription/${this.patientId}`,
         active: false
       },
-      {
-        name: " APPOINTMENTS",
-        url: "/dashboard",
-        active: false
-      }
+      // {
+      //   name: " APPOINTMENTS",
+      //   url: "/dashboard",
+      //   active: false
+      // }
     ];
   }
 

@@ -68,11 +68,11 @@ export class ViewPrescriptionComponent implements OnInit {
         url: `/dashboard/patient-prescription/${this.patientId}`,
         active: true
       },
-      {
-        name: ' APPOINTMENTS',
-        url: '/dashboard',
-        active: false
-      }
+      // {
+      //   name: ' APPOINTMENTS',
+      //   url: '/dashboard',
+      //   active: false
+      // }
     ];
   }
 
