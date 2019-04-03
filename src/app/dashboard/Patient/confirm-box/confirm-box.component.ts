@@ -18,7 +18,7 @@ export class ConfirmBoxComponent implements OnInit {
   }
   closeModal() {
     this.closeModalAction.emit({
-      closeAll: true,
+      closeAll: false,
       openAddEmengencyContact: false,
       openAddMedicalAid: false,
       openAddPatient: false,
