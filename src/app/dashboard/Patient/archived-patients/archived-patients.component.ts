@@ -26,7 +26,7 @@ export class ArchivedPatientsComponent implements OnInit {
     {
       name: "ACTIVE PATIENTS",
       url: "/dashboard",
-      active: true
+      active: false
     },
     // {
     //   name: "INCOMPLETE PATIENTS",
@@ -36,7 +36,7 @@ export class ArchivedPatientsComponent implements OnInit {
     {
       name: " ARCHIVED PATIENTS",
       url: "/dashboard/archived",
-      active: false
+      active: true
     }
   ];
 
