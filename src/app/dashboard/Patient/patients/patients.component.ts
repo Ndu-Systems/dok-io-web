@@ -20,6 +20,7 @@ export class PatientsComponent implements OnInit {
   openUpdateMedicalAid: boolean;
   openUpdateEmengencyContact: boolean;
   patient: Patient;
+  actionString:string='John doe Is about to be archived';
 
   p: number = 1;
   items: Array<BreadCrumb> = [
@@ -33,14 +34,15 @@ export class PatientsComponent implements OnInit {
     //   url: "/dashboard",
     //   active: false
     // },
-    // {
-    //   name: " ARCHIVED PATIENTS",
-    //   url: "/dashboard",
-    //   active: false
-    // }
+    {
+      name: " ARCHIVED PATIENTS",
+      url: "/dashboard",
+      active: false
+    }
   ];
 
   patients$: Observable<Array<any>> = this.patientService.getPatients();
+  showConfirm: boolean=true;
   constructor(
     private patientService: PatientService,
     private queeService: QueeService
@@ -63,6 +65,7 @@ export class PatientsComponent implements OnInit {
     this.showUpdatePopup = this.openUpdatePatient = true;
   }
   closeModal(e: CloseModalEventEmmiter) {
+    debugger;
     console.log(e);
     this.closeAll();
 
@@ -82,10 +85,24 @@ export class PatientsComponent implements OnInit {
       this.openUpdateMedicalAid = false;
       this.openUpdateEmengencyContact = false;
     }
+    else if (e.closeConfirm) {
+      this.showConfirm = false
+    }
+    else if (e.actionConfirmed) {
+      this.showConfirm = false
+      alert('hata');
+    }
   }
   closeAll(){
     this.openUpdatePatient = false;
     this.openUpdateMedicalAid = false;
     this.openUpdateEmengencyContact = false;
+    this.showConfirm = false
+
+  }
+
+  archive(patient:Patient){
+    this.showConfirm = true;
+    this.actionString = `${patient.FirstName} ${patient.Surname} Is about to be archived`
   }
 }

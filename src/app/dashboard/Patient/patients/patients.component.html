@@ -82,7 +82,7 @@
                   <img src="assets/images/dashboard/btn-edit.svg" (click)="showEdit(data)" class="img-btn" alt="">
                 </div>
                 <div class="btns">
-                  <img src="assets/images/dashboard/btn-delete.svg" class="img-btn" alt="">
+                  <img src="assets/images/dashboard/btn-delete.svg"  (click)="archive(data)" class="img-btn" alt="">
                 </div>
                 <div class="btns">
                   <img src="assets/images/dashboard/add-to-q.svg" (click)="quue(data)" class="img-btn" alt="">
@@ -106,3 +106,8 @@
   <app-update-medical-aid *ngIf="openUpdateMedicalAid" (closeModalAction)="closeModal($event)"></app-update-medical-aid>
   <app-update-emergency-contact *ngIf="openUpdateEmengencyContact" (closeModalAction)="closeModal($event)"></app-update-emergency-contact>
 </div>
+<div class="overlay" *ngIf="showConfirm">
+ <app-confirm-box [actionString]="actionString"  (closeModalAction)="closeModal($event)"></app-confirm-box>
+</div>
+
+

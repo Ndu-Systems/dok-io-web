@@ -1,3 +1,4 @@
+import { ConfirmBoxComponent } from './Patient/confirm-box/confirm-box.component';
 import { UpdatePatientComponent } from "./Patient/update-patient/update-patient.component";
 import { AddNoteComponent } from "./Patient/add-note/add-note.component";
 import { AddPrescriptionComponent } from "./prescription/add-prescription/add-prescription.component";
@@ -53,7 +54,8 @@ export const declarations: Array<any> = [
   AddNoteComponent,
   UpdatePatientComponent,
   UpdateMedicalAidComponent,
-  UpdateEmergencyContactComponent
+  UpdateEmergencyContactComponent,
+  ConfirmBoxComponent
 ];
 
 @NgModule({
