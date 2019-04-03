@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"; //l-f
 import { PatientService } from "src/app/services";
 import { getCurrentUser } from "src/app/shared";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-add-note",
@@ -18,7 +19,7 @@ export class AddNoteComponent implements OnInit {
   prescriptionGiven: string;
   UserId: string = getCurrentUser();
 
-  constructor(private fb: FormBuilder, private patientService: PatientService) {
+  constructor(private fb: FormBuilder, private patientService: PatientService,private messageService:MessageService) {
 
   }
 
@@ -41,12 +42,20 @@ export class AddNoteComponent implements OnInit {
   }
   addNotes(data) {
     this.patientService.addPatientNotes(data).subscribe(response => {
-      alert(response)
+      this.popMessage('success','Transiction saved',`Note was created successfuly`);
       if (response) {
         this.closeModalAction.emit(false);
       } else {
         alert(`Error: ${response}`);
       }
     });
+  }
+  popMessage(severity, summary, detail) {
+    this.messageService.add({
+      severity: severity,
+      summary: summary,
+      detail: detail
+    });
+      // this.popMessage('success','Transiction saved',`${this.patient.FirstName } details updated!`);
   }
 }

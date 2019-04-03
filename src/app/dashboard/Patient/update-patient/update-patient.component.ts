@@ -5,6 +5,7 @@ import { PatientService } from "src/app/services";
 import { getCurrentUser, SELECT_PATIENT } from "src/app/shared";
 import { CloseModalEventEmmiter } from "src/app/models/modal.eventemitter.model";
 import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-update-patient",
@@ -34,7 +35,8 @@ export class UpdatePatientComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private patientService: PatientService
+    private patientService: PatientService,
+    private messageService :MessageService
   ) {}
   ngOnInit() {
     this.rForm = this.fb.group({
@@ -87,10 +89,19 @@ export class UpdatePatientComponent implements OnInit {
   update(data: Patient) {
     this.patientService.updatePatient(data).subscribe(response => {
       if (response !== null) {
-       this.openNext()
+      this.popMessage('success','Transiction saved',`${this.patient.FirstName } details updated!`);
+       this.openNext();
       } else {
         alert(`Error: ${response}`);
       }
     });
+  }
+  popMessage(severity, summary, detail) {
+    this.messageService.add({
+      severity: severity,
+      summary: summary,
+      detail: detail
+    });
+      // this.popMessage('success','Transiction saved',`${this.patient.FirstName } details updated!`);
   }
 }

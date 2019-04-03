@@ -8,6 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
 
 @NgModule({
   imports: [
@@ -17,8 +20,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ReactiveFormsModule,
     NgxPaginationModule,
     AutoCompleteModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ToastModule
   ],
-  declarations: [...declarations]
+  declarations: [...declarations],
+  providers:[MessageService]
 })
 export class DashboardModule {}

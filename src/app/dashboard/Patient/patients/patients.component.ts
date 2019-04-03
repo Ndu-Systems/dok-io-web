@@ -6,6 +6,7 @@ import { Observable } from "rxjs";
 import { BreadCrumb } from "../../bread-crumb/bread-crumb.model";
 import { getCurrentUser } from "src/app/shared";
 import { CloseModalEventEmmiter } from "src/app/models/modal.eventemitter.model";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-patients",
@@ -20,7 +21,7 @@ export class PatientsComponent implements OnInit {
   openUpdateMedicalAid: boolean;
   openUpdateEmengencyContact: boolean;
   patient: Patient;
-  actionString:string='John doe Is about to be archived';
+  actionString: string = "John doe Is about to be archived";
 
   p: number = 1;
   items: Array<BreadCrumb> = [
@@ -45,7 +46,8 @@ export class PatientsComponent implements OnInit {
   showConfirm: boolean;
   constructor(
     private patientService: PatientService,
-    private queeService: QueeService
+    private queeService: QueeService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {}
@@ -70,7 +72,7 @@ export class PatientsComponent implements OnInit {
 
     if (e.closeAll) {
       this.showUpdatePopup = false;
-      this.patients$= this.patientService.getPatients();
+      this.patients$ = this.patientService.getPatients();
     } else if (e.openAddMedicalAid) {
       this.openUpdatePatient = false;
       this.openUpdateMedicalAid = true;
@@ -78,40 +80,51 @@ export class PatientsComponent implements OnInit {
       this.openUpdatePatient = false;
       this.openUpdateMedicalAid = false;
       this.openUpdateEmengencyContact = true;
-    }
-    else if (e.openAddPatient) {
+    } else if (e.openAddPatient) {
       this.openUpdatePatient = true;
       this.openUpdateMedicalAid = false;
       this.openUpdateEmengencyContact = false;
-    }
-    else if (e.closeConfirm) {
-      this.showConfirm = false
-    }
-    else if (e.actionConfirmed) {
+    } else if (e.closeConfirm) {
+      this.showConfirm = false;
+    } else if (e.actionConfirmed) {
       this.showConfirm = false;
       this.archive();
     }
   }
-  closeAll(){
+  closeAll() {
     this.openUpdatePatient = false;
     this.openUpdateMedicalAid = false;
     this.openUpdateEmengencyContact = false;
-    this.showConfirm = false
-
+    this.showConfirm = false;
   }
 
-  confirmArchive(patient:Patient){
+  confirmArchive(patient: Patient) {
     this.showConfirm = true;
-    this.actionString = `${patient.FirstName} ${patient.Surname} Is about to be archived`
+    this.actionString = `${patient.FirstName} ${
+      patient.Surname
+    } Is about to be archived`;
     this.patient = patient;
   }
-  archive(){
+  archive() {
     this.patient.StatusId = 2;
     this.patient.CreateUserId = this.UserId;
-    this.patientService.updatePatient(this.patient).subscribe(r=>{
-      this.patients$= this.patientService.getPatients();
+    this.patientService.updatePatient(this.patient).subscribe(r => {
+      this.patients$ = this.patientService.getPatients();
 
-      alert(`${this.patient.FirstName } archived!`)
+      // alert(`${this.patient.FirstName } archived!`)
+      this.popMessage(
+        "warn",
+        "Transiction saved",
+        `${this.patient.FirstName} archived!`
+      );
     });
+  }
+  popMessage(severity, summary, detail) {
+    this.messageService.add({
+      severity: severity,
+      summary: summary,
+      detail: detail
+    });
+    //    this.popMessage('warn','Transiction saved',`${this.patient.FirstName } archived!`);
   }
 }
