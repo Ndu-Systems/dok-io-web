@@ -8,6 +8,7 @@ import { NotesComponent } from "../dashboard/Patient/notes/notes.component";
   providedIn: "root"
 })
 export class PatientService {
+ 
   notes = new BehaviorSubject<string>('');
   castNotes = this.notes.asObservable();
 

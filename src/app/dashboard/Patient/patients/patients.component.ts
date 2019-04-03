@@ -42,7 +42,7 @@ export class PatientsComponent implements OnInit {
   ];
 
   patients$: Observable<Array<any>> = this.patientService.getPatients();
-  showConfirm: boolean=true;
+  showConfirm: boolean;
   constructor(
     private patientService: PatientService,
     private queeService: QueeService
@@ -65,7 +65,6 @@ export class PatientsComponent implements OnInit {
     this.showUpdatePopup = this.openUpdatePatient = true;
   }
   closeModal(e: CloseModalEventEmmiter) {
-    debugger;
     console.log(e);
     this.closeAll();
 
@@ -89,8 +88,8 @@ export class PatientsComponent implements OnInit {
       this.showConfirm = false
     }
     else if (e.actionConfirmed) {
-      this.showConfirm = false
-      alert('hata');
+      this.showConfirm = false;
+      this.archive();
     }
   }
   closeAll(){
@@ -101,8 +100,18 @@ export class PatientsComponent implements OnInit {
 
   }
 
-  archive(patient:Patient){
+  confirmArchive(patient:Patient){
     this.showConfirm = true;
     this.actionString = `${patient.FirstName} ${patient.Surname} Is about to be archived`
+    this.patient = patient;
+  }
+  archive(){
+    this.patient.StatusId = 2;
+    this.patient.CreateUserId = this.UserId;
+    this.patientService.updatePatient(this.patient).subscribe(r=>{
+      this.patients$= this.patientService.getPatients();
+
+      alert(`${this.patient.FirstName } archived!`)
+    });
   }
 }
