@@ -42,7 +42,6 @@ export class AddNoteComponent implements OnInit {
   }
   addNotes(data) {
     this.patientService.addPatientNotes(data).subscribe(response => {
-      this.popMessage('success','Transiction saved',`Note was created successfuly`);
       if (response) {
         this.closeModalAction.emit(false);
       } else {

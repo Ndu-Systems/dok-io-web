@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/components/common/messageservice';
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { CloseModalEventEmmiter } from "src/app/models";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
@@ -22,7 +23,8 @@ export class UpdateEmergencyContactComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private emergencyContactService: EmergencyContactService
+    private emergencyContactService: EmergencyContactService,
+    private messageService: MessageService,
   ) {
     this.initFormData();
     this.formInit();
@@ -100,7 +102,7 @@ export class UpdateEmergencyContactComponent implements OnInit {
       .updateEmergencyContact(data)
       .subscribe(response => {
         if (response) {
-          alert(response);
+          this.popMessage('success','Transiction saved',`Emergency cantatc  details updated!`);
           this.closeModal();
         } else {
           alert(`Error: ${response}`);
@@ -120,5 +122,15 @@ export class UpdateEmergencyContactComponent implements OnInit {
       StatusId: "1"
     };
     console.log("init contactInfo", this.contactInfo);
+  }
+  popMessage(severity, summary, detail) {
+    this.messageService.add({
+      severity: severity,
+      summary: summary,
+      detail: detail
+    });
+    // this.popMessage('success','Transiction saved',`Emergency cantatc  details updated!`);
+    // this.popMessage('success','Transiction saved',`${this.patient.FirstName } details updated!`);
+    //<p-toast></p-toast>
   }
 }

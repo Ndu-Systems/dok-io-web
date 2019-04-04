@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { MedicalaidService } from "src/app/services/medicalaid.service";
 import { LAST_INSERT_ID, getCurrentUser, SELECT_PATIENT } from "src/app/shared";
 import { MedicalAid } from "src/app/models";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-update-medical-aid",
@@ -22,7 +23,8 @@ export class UpdateMedicalAidComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private medicalaidService: MedicalaidService
+    private medicalaidService: MedicalaidService,
+    private messageService: MessageService,
   ) {
     this.initMedicalInfo();
     this.formInit()
@@ -101,8 +103,8 @@ export class UpdateMedicalAidComponent implements OnInit {
   updateMedicalInfo(data){
     console.log(data);
     this.medicalaidService.updateMedicalaid(data).subscribe(response => {    
-      if (response) {
-        // alert(response);
+      if (response) {  
+          this.popMessage('success','Transiction saved',`Medical aid details updated!`);      
         this.openNext()
       } else {
         alert(`Error: ${response}`);
@@ -127,5 +129,14 @@ initMedicalInfo(){
  }
  console.log("init initMedicalInfo", this.medicalAidInfo);
  
+}
+popMessage(severity, summary, detail) {
+  this.messageService.add({
+    severity: severity,
+    summary: summary,
+    detail: detail
+  });
+  // this.popMessage('success','Transiction saved',`${this.patient.FirstName } details updated!`);
+  //<p-toast></p-toast>
 }
 }
