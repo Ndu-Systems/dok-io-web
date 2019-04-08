@@ -11,6 +11,31 @@
       </ul>
     </div>
   </section>
+  <div class="mobile-nav">
+    <div class="logo">
+      <img src="assets/images/home/icon-mobile.svg" alt="">
+    </div>
+    <div class="toggle-btn">
+      <img src="assets/images/home/toggle-menu.svg" (click)="toggleNavMobile()" alt="">
+
+    </div>
+    
+  </div>
+  <div class="mobile-menu-items" *ngIf="toggleMobileMenu">
+    <div class="close-btn">
+      <h1>
+        Dok-Io
+      </h1>
+      <img src="assets/images/home/close-nav-btn.svg" (click)="toggleNavMobile()" alt="">
+    </div>
+  <ul>
+        <li><a routerLink="">Home</a></li>
+        <li><a routerLink="">About</a></li>
+        <li><a routerLink="">How it works</a></li>
+        <li><a routerLink="" (click)="showLoginModal()">Login</a></li>
+        <li><a routerLink=""><img src="assets/images/home/call-us.svg" alt="call us"></a></li>
+      </ul>
+  </div>
   <div class="home-banner">
     <div class="header">
       <h1>
@@ -58,17 +83,11 @@
         <img src="assets/images/home/business-rules.svg" alt="business rules" class="business-rules">
       </div>
     </div>
-    <div>
+    <div class="pc-only">
       <img src="assets/images/home/laptop-demo.svg" alt="laptop demo">
     </div>
   </div>
-  <section class="banner">
-    <div class="col-1-of-2">
-
-    </div>
-
-
-  </section>
+ 
 
   <section class="our-offering">
     <div class="col-1-of-2">
@@ -81,8 +100,8 @@
         </span>
       </h1>
     </div>
-    <div class="col-1-of-2">
-      <div class="col-1-of-2">
+    <div class="col-1-of-2 grid-full">
+      <div class="col-1-of-2 grid-full">
         <h1>
           <span class="heading about">
             About
@@ -107,7 +126,7 @@
           <img src="assets/images/home/learn more.svg" alt="learn more" class="learn-more">
         </h1>
       </div>
-      <img src="assets/images/home/login.svg" alt="login demo">
+      <img class="pc-only" src="assets/images/home/login.svg" alt="login demo">
     </div>
   </section>
   <section class="our-mvp">
@@ -117,9 +136,9 @@
       </span>
     </h1>
     <div class="col-3">
-      <div> <img src="../../assets/images/home/mvp1.svg" alt="mvp 1"> </div>
-      <div> <img src="../../assets/images/home/mvp2.svg" alt="mvp 2"></div>
-      <div> <img src="../../assets/images/home/mvp3.svg" alt="mvp 3"></div>
+      <div> <img src="assets/images/home/mvp1.svg" alt="mvp 1"> </div>
+      <div> <img src="assets/images/home/mvp2.svg" alt="mvp 2"></div>
+      <div> <img src="assets/images/home/mvp3.svg" alt="mvp 3"></div>
     </div>
   </section>
 
@@ -130,8 +149,8 @@
       </span>
     </h1>
     <div class="col-1-of-2">
-      <img src="../../assets/images/home/pricing-1.svg" alt="pricing 1">
-      <img src="../../assets/images/home/pricing-2.svg" alt="pricing 2">
+      <img src="assets/images/home/pricing-1.svg" alt="pricing 1">
+      <img src="assets/images/home/pricing-2.svg" alt="pricing 2">
     </div>
   </section>
 
@@ -142,7 +161,7 @@
           Help us, help you thrive effortlessly
         </span>
       </h1>
-      <img src="../../assets/images/home/contact-button.svg" class="btn-contact" alt="contact us">
+      <img src="assets/images/home/contact-button.svg" class="btn-contact" alt="contact us">
     </div>
     <hr>
     <h1 class="powered-by">

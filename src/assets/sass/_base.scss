@@ -43,12 +43,25 @@ body {
   color: #000;
   background-color: #FBFCFC;
   padding: 1.5rem;
+  box-sizing: border-box;
 
-  @include responsive(phone) {
-    padding: 0;
-    padding-left: 0;
+
+  @media only screen and (max-width: 600px) {
+    padding:0;
   }
+}
 
+@media only screen and (max-width: 600px) {
+ .pc-only{
+   display: none;
+ }
+ .grid-full{
+   display: grid;
+   grid-template-columns: 100%;
+ }
+ p{
+   font-size: 2rem;
+ }
 }
 
 a {

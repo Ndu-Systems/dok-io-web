@@ -8,7 +8,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  showModal: boolean;
+  showModal: boolean=true;
+  toggleMobileMenu: boolean;
   rForm: FormGroup;
 
   email = '';
@@ -32,6 +33,9 @@ export class HomeComponent implements OnInit {
 
   showLoginModal(){
     this.showModal = true;
+  }
+  toggleNavMobile(){
+    this.toggleMobileMenu = !this.toggleMobileMenu;
   }
 
   closeModal(event: ExitModalEventEmmiter) {

@@ -23,6 +23,12 @@
     h1 {
       font-size: 2em;
     }
+
+    @media only screen and (max-width: 600px) {
+      img {
+        width: 150%;
+      }
+    }
   }
 
   .dashboard-forms {
@@ -46,6 +52,13 @@
       color: $cloud-white-color;
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+  }
 }
 
 .error {
@@ -55,7 +68,7 @@
   font-weight: 600;
   text-transform: uppercase;
 }
-.controls{
+.controls {
   text-align: center;
   .button {
     width: 12rem;
@@ -64,4 +77,3 @@
     // padding: 1rem 1.2rem;
   }
 }
-
