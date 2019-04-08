@@ -1,7 +1,7 @@
 <div class="home" id="home">
   <section class="navigation">
     <div class="col-1-of-2">
-      <img src="assets/images/home/logo.png" alt="logo image">
+      <img src="assets/images/home/logo.png" class="logo" alt="logo image">
       <ul>
         <li><a routerLink="">Home</a></li>
         <li><a routerLink="">About</a></li>
@@ -11,10 +11,9 @@
       </ul>
     </div>
   </section>
-
-  <section class="banner">
-    <div class="col-1-of-2">
-      <h1 class="header">
+  <div class="home-banner">
+    <div class="header">
+      <h1>
         <span class="header-small">
           Personalized patient filing
         </span>
@@ -25,8 +24,6 @@
           Try us now, let us call you back
         </span>
       </h1>
-    </div>
-    <div class="col-1-of-2">
       <form [formGroup]="rForm" class="box form-group" class="dashboard-forms">
 
         <div class="col-1-of-2">
@@ -57,11 +54,20 @@
           <input type="submit" value="Submit" class="button" [disabled]="!rForm.valid" />
         </div>
       </form>
+      <div class="business-rules">
+        <img src="assets/images/home/business-rules.svg" alt="business rules" class="business-rules">
+      </div>
+    </div>
+    <div>
       <img src="assets/images/home/laptop-demo.svg" alt="laptop demo">
     </div>
+  </div>
+  <section class="banner">
     <div class="col-1-of-2">
-      <img src="assets/images/home/business-rules.svg" alt="business rules" class="business-rules">
+
     </div>
+
+
   </section>
 
   <section class="our-offering">
@@ -110,10 +116,10 @@
         Our MVP Concepts
       </span>
     </h1>
-    <div class="col-1-of-3">
-      <img src="../../assets/images/home/mvp1.svg" alt="mvp 1">
-      <img src="../../assets/images/home/mvp2.svg" alt="mvp 2">
-      <img src="../../assets/images/home/mvp3.svg" alt="mvp 3">
+    <div class="col-3">
+      <div> <img src="../../assets/images/home/mvp1.svg" alt="mvp 1"> </div>
+      <div> <img src="../../assets/images/home/mvp2.svg" alt="mvp 2"></div>
+      <div> <img src="../../assets/images/home/mvp3.svg" alt="mvp 3"></div>
     </div>
   </section>
 
@@ -131,18 +137,18 @@
 
   <section class="footer">
     <div class="contact">
-        <h1>
-            <span class="header">
-              Help us, help you thrive effortlessly
-            </span>
-          </h1>
-          <img src="../../assets/images/home/contact-button.svg" alt="contact us">
+      <h1>
+        <span class="header">
+          Help us, help you thrive effortlessly
+        </span>
+      </h1>
+      <img src="../../assets/images/home/contact-button.svg" class="btn-contact" alt="contact us">
     </div>
     <hr>
     <h1 class="powered-by">
       <span class="powered">powered by</span> www.ndu-systems.net
     </h1>
-    
+
   </section>
 
 </div>

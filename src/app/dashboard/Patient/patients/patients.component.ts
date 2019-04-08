@@ -59,7 +59,11 @@ export class PatientsComponent implements OnInit {
       CreateUserId: this.UserId
     };
     this.queeService.addQuee(data).subscribe(r => {
-      alert(`Your ticket number: ${r}`);
+      this.popMessage(
+        "success",
+        "Added to quee",
+        `Your ticket number: ${r}`
+      );
     });
   }
   showEdit(patient: Patient) {
