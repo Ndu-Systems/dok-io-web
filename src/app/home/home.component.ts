@@ -8,7 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  showModal: boolean=true;
+  showModal: boolean;
   toggleMobileMenu: boolean;
   rForm: FormGroup;
 

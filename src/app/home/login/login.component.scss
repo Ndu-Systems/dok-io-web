@@ -23,7 +23,22 @@
     h1 {
       font-size: 2em;
     }
-
+.modal-header-login{
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 3rem;
+    grid-template-columns: 50% auto;
+    div:nth-child(1){
+      text-align-last: left;
+    }
+    div:nth-child(2){
+      text-align: right;
+      box-sizing: border-box;
+      img{
+        width: 40%;
+      }
+    }
+  }
+}
     @media only screen and (max-width: 600px) {
       img {
         width: 150%;
@@ -40,6 +55,9 @@
       margin: 0rem 5rem;
       padding-top: 2rem;
     }
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
   }
 
   .contact-us {
@@ -50,7 +68,16 @@
     .try-us {
       font-size: 1rem;
       color: $cloud-white-color;
+      color: #000;
+
     }
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    h1{
+      color: #000;
+    }
+
+  }
   }
 
   @media only screen and (max-width: 600px) {
@@ -58,6 +85,8 @@
     left: 0;
     top: 0;
     height: 100%;
+    position: fixed;
+    background: #fff;
   }
 }
 
