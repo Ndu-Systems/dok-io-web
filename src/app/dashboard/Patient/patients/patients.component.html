@@ -96,39 +96,45 @@
             </td>
 
 
-            <td class="mobile-tbody">
-              <div class="patient-mobile-view-top">
-                <div>
-                  {{data.FirstName}} {{data.Surname}}
+            <td class="mobile-tdata">
+             <div>
+                <div class="patient-mobile-view-top">
+                    <div>
+                      {{data.FirstName}} {{data.Surname}}
+                    </div>
+                    <div>
+                      {{data.Cellphone}}
+                    </div>
+                    <div>
+                      {{data.Email}}
+                    </div>
+                  </div>
+                  <div class="patient-mobile-view-bottom">
+                    <div>
+                      {{data.CreateDate}}
+                    </div>
+                    <div>
+    
+                      <span *ngIf="data.MedicalaidName">
+                        {{data.MedicalaidName}}
+                      </span>
+                      <span class="warning" *ngIf="!data.MedicalaidName">
+                        No Medical Aid
+                      </span>
+                    </div>
+                    <div>
+                      {{data.NumAppointments}}
+                    </div>
+                  </div>
+             </div>
+             <div class="item-menu">
+               <img src="../../../../assets/images/dashboard/btn-menu.svg" alt="">
+               <div class="popup">
+                  <h1>Pop</h1>
                 </div>
-                <div>
-                  {{data.Cellphone}}
-                </div>
-                <div>
-                  {{data.Email}}
-                </div>
-              </div>
-              <div class="patient-mobile-view-bottom">
-                <div>
-                  {{data.CreateDate}}
-                </div>
-                <div>
-
-                  <span *ngIf="data.MedicalaidName">
-                    {{data.MedicalaidName}}
-                  </span>
-                  <span class="warning" *ngIf="!data.MedicalaidName">
-                    No Medical Aid
-                  </span>
-                </div>
-                <div>
-                  {{data.NumAppointments}}
-                </div>
-              </div>
+             </div>
             </td>
-            <td class="mobile-tbody">
-              ...
-            </td>
+           
           </tr>
 
       </table>
