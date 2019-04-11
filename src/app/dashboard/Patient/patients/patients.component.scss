@@ -1,8 +1,5 @@
 .main {
-
-
   .section-main {
-
     padding: 3%;
 
     .table-heading {
@@ -10,11 +7,19 @@
       grid-template-columns: 40% 40% auto;
       padding-left: 2rem;
       padding-right: 3rem;
+      @media only screen and (max-width: 600px) {
+        grid-template-columns: 100%;
+        background: #29b6f6;
+        color: #fff;
+        padding: 3rem;
+      }
 
       h1 {
         text-transform: uppercase;
-        animation: moveInLeft 1s ease-out .5s;
+        animation: moveInLeft 1s ease-out 0.5s;
         animation-fill-mode: backwards;
+        width: 100%;
+        text-align: center;
       }
 
       .dashboard-forms {
@@ -24,13 +29,12 @@
           border: none;
           background: rgba(120, 144, 156, 0.151);
           border-radius: 5rem;
-          padding: .7rem 2rem;
+          padding: 0.7rem 2rem;
           margin: 0 1rem;
           width: 70%;
-          color: #78909C;
+          color: #78909c;
           font-weight: 600;
-        }       
-
+        }
       }
 
       .filters {
@@ -38,32 +42,44 @@
 
         label {
           font-weight: 700;
-          font-size: .8rem;
+          font-size: 0.8rem;
         }
-
-
 
         select {
           background: none;
           border: none;
           font-weight: 700;
-          color: #29B6F6;
-          font-size: .8rem;
+          color: #29b6f6;
+          font-size: 0.8rem;
         }
       }
     }
-table{
-  td{
-    .warning{
-      // background: #f39c12;
-      // color: #fff;
-      // padding: .6rem;
-      color:  #f39c12;
+    table {
+      td {
+        .warning {
+          // background: #f39c12;
+          // color: #fff;
+          // padding: .6rem;
+          color: #f39c12;
+        }
+      }
     }
   }
-}
+
+  // MOBIlE TABLES
+  .mobile-tbody {
+    display: none;
+    @media only screen and (max-width: 600px) {
+      display: block;
+    }
+  }
+  .patient-mobile-view-top, .patient-mobile-view-bottom{
+  display: grid;
+  grid-template-columns: 30% 30% auto;
+  padding: 1rem 0;
 
   }
-
-
+  .patient-mobile-view-top{
+    border-bottom: 1px solid #78909C;
+  }
 }

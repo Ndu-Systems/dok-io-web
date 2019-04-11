@@ -39,6 +39,30 @@
       </div>
     </div>
   </div>
+  <div class="mobile-nav">
+    <div class="logo">
+      <img src="assets/images/dashboard/dash-logo.svg" alt="">
+    </div>
+    <div class="mobile-menu-items" *ngIf="toggleMobileMenu">
+      <div class="close-btn">
+      
+        <img src="../../assets/images/dashboard/btn-back.svg" (click)="toggleNavMobile()" alt="">
+      </div>
+    <ul>
+          <li><a routerLink="/dashboard">PATIENTS</a></li>
+          <li><a routerLink="/">
+          <img src="../../assets/images/dashboard/btn-logout.svg" class="log-out-btn" alt="">
+          </a></li>
+          <!-- <li><a routerLink="/">Log out</a></li> -->
+         
+        </ul>
+    </div>
+    <div class="toggle-btn">
+      <img src="assets/images/dashboard/btn-toggle-menu-dash.svg" (click)="toggleNavMobile()" alt="">
+
+    </div>
+    
+  </div>
   <section class="main-outlet">
     <section class="outlet">
       <router-outlet></router-outlet>

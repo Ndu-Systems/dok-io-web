@@ -1,16 +1,17 @@
 <section class="main">
   <app-bread-crumb [items]="items"></app-bread-crumb>
+
   <section class="section-main">
     <div class="table-heading col-1-of-3">
       <h1>
         Active patients
       </h1>
-      <div class="filters dashboard-forms">
+      <div class="filters dashboard-forms pc-only">
         <label> Search by :</label>
         <input type="text" placeholder="Email, Firstname, Patient number" class="input-field" [(ngModel)]="searchText"
           [ngModelOptions]="{standalone: true}" />
       </div>
-      <div class="filters">
+      <div class="filters pc-only">
         <label> Sort By :</label>
         <select name="" id="">
           <option value="">
@@ -22,7 +23,7 @@
 
     <div class="table">
       <table *ngIf=" patients$ | async as  patients">
-        <thead>
+        <thead class="pc-only">
           <tr>
             <td>
               FULLNAME
@@ -45,13 +46,16 @@
 
           </tr>
         </thead>
+
+
         <tbody>
-          <tr *ngFor="let data of patients.patients | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
-            <td class="full-name">
+          <tr
+            *ngFor="let data of patients.patients | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+            <td class="full-name pc-only">
               {{data.FirstName}} {{data.Surname}}
               <span>{{data.CreateDate}}</span>
             </td>
-            <td>
+            <td class="pc-only">
 
               <span *ngIf="data.MedicalaidName">
                 {{data.MedicalaidName}}
@@ -61,36 +65,72 @@
               </span>
 
             </td>
-            <td>
+            <td class="pc-only">
               {{data.Email}}
             </td>
-            <td>
+            <td class="pc-only">
               {{data.Cellphone}}
             </td>
-            <td class="aling-center">
+            <td class="aling-center pc-only">
               <span class="number-dadge  number-{{data.NumAppointments}}">
                 {{data.NumAppointments}}
               </span>
             </td>
-            <td>
+            <td class="pc-only">
               <div class="btn-group btn-group-4">
                 <div class="btns">
-                  <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/btn-search.svg" class="img-btn"
-                      alt=""></a>
+                  <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/btn-search.svg"
+                      class="img-btn" alt=""></a>
                 </div>
                 <div class="btns">
                   <img src="assets/images/dashboard/btn-edit.svg" (click)="showEdit(data)" class="img-btn" alt="">
                 </div>
                 <div class="btns">
-                  <img src="assets/images/dashboard/btn-delete.svg"  (click)="confirmArchive(data)" class="img-btn" alt="">
+                  <img src="assets/images/dashboard/btn-delete.svg" (click)="confirmArchive(data)" class="img-btn"
+                    alt="">
                 </div>
                 <div class="btns">
                   <img src="assets/images/dashboard/add-to-q.svg" (click)="quue(data)" class="img-btn" alt="">
                 </div>
               </div>
             </td>
+
+
+            <td class="mobile-tbody">
+              <div class="patient-mobile-view-top">
+                <div>
+                  {{data.FirstName}} {{data.Surname}}
+                </div>
+                <div>
+                  {{data.Cellphone}}
+                </div>
+                <div>
+                  {{data.Email}}
+                </div>
+              </div>
+              <div class="patient-mobile-view-bottom">
+                <div>
+                  {{data.CreateDate}}
+                </div>
+                <div>
+
+                  <span *ngIf="data.MedicalaidName">
+                    {{data.MedicalaidName}}
+                  </span>
+                  <span class="warning" *ngIf="!data.MedicalaidName">
+                    No Medical Aid
+                  </span>
+                </div>
+                <div>
+                  {{data.NumAppointments}}
+                </div>
+              </div>
+            </td>
+            <td class="mobile-tbody">
+              ...
+            </td>
           </tr>
-        </tbody>
+
       </table>
       <div class="paging">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
@@ -101,15 +141,18 @@
 
 </section>
 
+<section class="mobile-main">
+
+</section>
+
 <div class="overlay" *ngIf="showUpdatePopup">
-  <app-update-patient [patient]="patient" *ngIf="openUpdatePatient" (closeModalAction)="closeModal($event)"></app-update-patient>
+  <app-update-patient [patient]="patient" *ngIf="openUpdatePatient" (closeModalAction)="closeModal($event)">
+  </app-update-patient>
   <app-update-medical-aid *ngIf="openUpdateMedicalAid" (closeModalAction)="closeModal($event)"></app-update-medical-aid>
-  <app-update-emergency-contact *ngIf="openUpdateEmengencyContact" (closeModalAction)="closeModal($event)"></app-update-emergency-contact>
+  <app-update-emergency-contact *ngIf="openUpdateEmengencyContact" (closeModalAction)="closeModal($event)">
+  </app-update-emergency-contact>
 </div>
 <div class="overlay" *ngIf="showConfirm">
- <app-confirm-box [actionString]="actionString"  (closeModalAction)="closeModal($event)"></app-confirm-box>
+  <app-confirm-box [actionString]="actionString" (closeModalAction)="closeModal($event)"></app-confirm-box>
 </div>
 <p-toast></p-toast>
-
-
-

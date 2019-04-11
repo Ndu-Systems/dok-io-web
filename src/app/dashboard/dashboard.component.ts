@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   openAddEmengencyContact:boolean;
   quees$:Observable<Array<any>>;
   showOptions: boolean;
+  toggleMobileMenu: boolean;
   constructor(private queeService:QueeService,private router: Router
     ) { 
     this.quees$ = this.queeService.getQuees();
@@ -53,6 +54,9 @@ cloaseAll(){
 }
   openOptions() {
     this.showOptions = true;
+  }
+  toggleNavMobile(){
+    this.toggleMobileMenu = !this.toggleMobileMenu;
   }
   closeOptions(e: ExitModalEventEmmiter){
     if(e.close){
