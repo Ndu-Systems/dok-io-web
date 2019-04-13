@@ -35,7 +35,6 @@ export class UpdateEmergencyContactComponent implements OnInit {
     this.emergencyContactService
       .getPatientEmegencyContatct(this.PatientId)
       .subscribe(r => {
-        debugger;
         console.log("Medicat iad info", r);
         if (r.length == 0) {
           //create new medical aid

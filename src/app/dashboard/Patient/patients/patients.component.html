@@ -96,9 +96,19 @@
             </td>
 
 
-            <td class="mobile-tdata">
-             <div>
-                <div class="patient-mobile-view-top">
+            <td class="mobile-td">
+              <div class="popup-mobile-options" *ngIf="data.showMobilePatientOptions">
+
+              <div class="btns">
+                <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/mobile-btn-view.svg" alt=""></a>
+                <img src="assets/images/dashboard/mobile-btn-edit.svg"  (click)="showEdit(data)" alt="">
+                <img src="assets/images/dashboard/mobile-btn-del.svg"  (click)="confirmArchive(data)" alt="">
+                <img src="assets/images/dashboard/mobile-btn-exit-options.svg"  (click)="toggleShowMobilePatientOptions(data, false)" alt="">
+              </div>
+              </div>
+              <div class="mobile-tdata">
+                <div>
+                  <div class="patient-mobile-view-top">
                     <div>
                       {{data.FirstName}} {{data.Surname}}
                     </div>
@@ -114,7 +124,7 @@
                       {{data.CreateDate}}
                     </div>
                     <div>
-    
+
                       <span *ngIf="data.MedicalaidName">
                         {{data.MedicalaidName}}
                       </span>
@@ -126,15 +136,15 @@
                       {{data.NumAppointments}}
                     </div>
                   </div>
-             </div>
-             <div class="item-menu">
-               <img src="../../../../assets/images/dashboard/btn-menu.svg" alt="">
-               <div class="popup">
-                  <h1>Pop</h1>
                 </div>
-             </div>
+                <div class="item-menu">
+                  <img src="assets/images/dashboard/btn-menu.svg"  (click)="toggleShowMobilePatientOptions(data, true)" alt="">
+
+                </div>
+              </div>
+
             </td>
-           
+
           </tr>
 
       </table>
@@ -147,9 +157,6 @@
 
 </section>
 
-<section class="mobile-main">
-
-</section>
 
 <div class="overlay" *ngIf="showUpdatePopup">
   <app-update-patient [patient]="patient" *ngIf="openUpdatePatient" (closeModalAction)="closeModal($event)">

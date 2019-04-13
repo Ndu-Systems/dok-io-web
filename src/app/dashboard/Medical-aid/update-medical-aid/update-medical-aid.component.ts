@@ -34,7 +34,6 @@ export class UpdateMedicalAidComponent implements OnInit {
     
     this.PatientId = localStorage.getItem(SELECT_PATIENT);
     this.medicalaidService.getPatientMedicalAid(this.PatientId).subscribe(r => {
-      debugger
       console.log("Medicat iad info", r);
       if (r.length == 0) {
         //create new medical aid

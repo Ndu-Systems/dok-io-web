@@ -20,7 +20,7 @@ export class PatientsComponent implements OnInit {
   openUpdatePatient: boolean;
   openUpdateMedicalAid: boolean;
   openUpdateEmengencyContact: boolean;
-  patient: Patient;
+  patient: any;
   actionString: string = "John doe Is about to be archived";
 
   p: number = 1;
@@ -66,9 +66,10 @@ export class PatientsComponent implements OnInit {
       );
     });
   }
-  showEdit(patient: Patient) {
+  showEdit(patient: any) {
     this.patient = patient;
     this.showUpdatePopup = this.openUpdatePatient = true;
+    this.patient.showMobilePatientOptions = false;
   }
   closeModal(e: CloseModalEventEmmiter) {
     console.log(e);
@@ -108,6 +109,8 @@ export class PatientsComponent implements OnInit {
       patient.Surname
     } Is about to be archived`;
     this.patient = patient;
+    this.patient.showMobilePatientOptions = false;
+
   }
   archive() {
     this.patient.StatusId = 2;
@@ -129,6 +132,9 @@ export class PatientsComponent implements OnInit {
       summary: summary,
       detail: detail
     });
-    //    this.popMessage('warn','Transiction saved',`${this.patient.FirstName } archived!`);
+  }
+  toggleShowMobilePatientOptions(data, val){
+    data.showMobilePatientOptions=val;
+    this.patient = data;
   }
 }

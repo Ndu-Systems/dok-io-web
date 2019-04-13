@@ -28,6 +28,9 @@
 
     .col-1-of-3 {
       grid-template-columns: 30% 50% auto;
+      @media only screen and (max-width: 600px) {
+        grid-template-columns: 100%;
+      }
     }
   }
 
@@ -39,9 +42,7 @@
       margin-bottom: 0rem;
     }
 
-    .col-1-of-3 {
-      grid-template-columns: 30% 30% auto;
-    }
+
 
     .header-text {
       display: block;

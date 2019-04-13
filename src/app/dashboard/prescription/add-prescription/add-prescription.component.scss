@@ -1,6 +1,10 @@
 .drugs{
     .col-1-of-3{
         grid-template-columns: 25% 25% 25% auto;
+        @media only screen and (max-width: 600px) {
+            grid-template-columns: 100%;
+        
+          }
     }
     .btn-remove{
         padding-top: 2rem;
@@ -22,4 +26,10 @@
       img{
           width: 20%;
       }
+  }
+  .btn-remove{
+  @media only screen and (max-width: 600px) {
+width: 60%;
+  }
+
   }

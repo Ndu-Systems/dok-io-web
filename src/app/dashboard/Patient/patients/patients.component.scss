@@ -67,41 +67,5 @@
   }
 
   // MOBIlE TABLES
-  .mobile-tdata {
-    display: none;
-    @media only screen and (max-width: 600px) {
-      display: grid;
-      grid-template-columns: 90% 10%;
-    }
-    .item-menu{
-      text-align: right;
-      position: relative;
-      .popup{
-        position: absolute;
-        right: -2rem;
-        bottom: 1rem;
-        width: 10rem;
-        height: 10rem;
-        background: #f39c12;
-        z-index: 1000;
-        color: #fff
-      }
-      img{
-        width: 20%;
-      }
-    }
-  }
-  .patient-mobile-view-top,
-  .patient-mobile-view-bottom {
-    display: grid;
-    grid-template-columns: 30% 30% auto;
-    padding: 1rem 0;
-    div{
-      overflow: hidden;
-      // overflow-x: scroll;
-    }
-  }
-  .patient-mobile-view-top {
-    border-bottom: 1px solid #78909c;
-  }
+ 
 }

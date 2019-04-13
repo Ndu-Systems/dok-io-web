@@ -5,13 +5,17 @@
   width: 70%;
   height: auto;
   z-index: 100;
-  background: #FFFFFF;
+  background: #ffffff;
   animation: animationFadeIn 1s ease-out 0s;
   animation-fill-mode: backwards;
-
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
   .modal-header {
-    background: #29B6F6;
-    padding-top: .3rem;
+    background: #29b6f6;
+    padding-top: 0.3rem;
 
     ul {
       list-style: none;
@@ -21,24 +25,22 @@
         display: inline-block;
         width: 25%;
         text-align: center;
-        padding: .7rem;
+        padding: 0.7rem;
 
         a {
           color: rgb(209, 214, 214);
           cursor: pointer;
-
         }
       }
 
       .active {
-        border-bottom: .3rem solid rgb(248, 248, 248);
+        border-bottom: 0.3rem solid rgb(248, 248, 248);
 
         a {
           color: #fff;
         }
       }
       .anabled {
-
         a {
           color: #fff;
         }
@@ -52,7 +54,6 @@
           cursor: pointer;
         }
       }
-
     }
   }
 }

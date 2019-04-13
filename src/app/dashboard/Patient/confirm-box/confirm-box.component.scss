@@ -3,6 +3,11 @@
     left: 30%;
     top: 20%;
     width: 40%;
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+        left: 0;
+        top: 35%;
+    }
 
 .popup-body{
     padding: 5%;

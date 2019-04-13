@@ -96,6 +96,7 @@
     grid-template-columns: 80% 20%;
     @media only screen and (max-width: 600px) {
       grid-template-columns: 100%;
+      margin-top: 7rem;
     }
 
     .section-feed {
@@ -144,6 +145,10 @@
   grid-template-columns: 50% auto;
   padding: 5%;
   background: #fff;
+  position: fixed;
+  z-index: 100;
+  top:0;
+  width: 100%;
 
   .logo {
     img {
