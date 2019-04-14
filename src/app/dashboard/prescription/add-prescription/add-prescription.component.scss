@@ -25,6 +25,11 @@
   .btn-add{
       img{
           width: 20%;
+  @media only screen and (max-width: 600px) {
+    width: 35%;
+
+
+  }
       }
   }
   .btn-remove{

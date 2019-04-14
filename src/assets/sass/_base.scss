@@ -198,3 +198,15 @@ img {
 ::-webkit-scrollbar-thumb:hover {
   background: $cloud-white-color;
 }
+
+
+.img-btn-larger {
+  width: 14rem;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: translate(0.3rem);
+  }
+
+}

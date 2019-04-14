@@ -44,6 +44,7 @@ export class PatientsComponent implements OnInit {
 
   patients$: Observable<Array<any>> = this.patientService.getPatients();
   showConfirm: boolean;
+  prevCustomer: any = {};
   constructor(
     private patientService: PatientService,
     private queeService: QueeService,
@@ -134,7 +135,9 @@ export class PatientsComponent implements OnInit {
     });
   }
   toggleShowMobilePatientOptions(data, val){
+    this.prevCustomer.showMobilePatientOptions = false;
     data.showMobilePatientOptions=val;
+    this.prevCustomer = data;
     this.patient = data;
   }
 }
