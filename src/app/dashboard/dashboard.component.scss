@@ -12,7 +12,6 @@
 
     @media only screen and (max-width: 600px) {
       background: #fff;
-
     }
 
     div {
@@ -94,6 +93,15 @@
   .main-outlet {
     display: grid;
     grid-template-columns: 80% 20%;
+    .add-patient {
+      display: none;
+      @media only screen and (max-width: 600px) {
+        display: block;
+        position: fixed;
+        bottom: 5%;
+        right: 1%;
+      }
+    }
     @media only screen and (max-width: 600px) {
       grid-template-columns: 100%;
       margin-top: 7rem;
@@ -138,7 +146,6 @@
   }
 }
 
-
 .mobile-nav {
   display: grid;
   display: none;
@@ -147,7 +154,7 @@
   background: #fff;
   position: fixed;
   z-index: 100;
-  top:0;
+  top: 0;
   width: 100%;
 
   .logo {
@@ -161,7 +168,6 @@
     img {
       width: 20%;
       cursor: pointer;
-
     }
   }
   @media only screen and (max-width: 600px) {
@@ -173,7 +179,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background:#29b6f6;
+  background: #29b6f6;
   box-shadow: 10px 10px 45px -4px rgba(0, 0, 0, 1);
   width: 60%;
   padding: 3rem;
@@ -182,40 +188,37 @@
   animation: moveInRight 1s ease-out;
   animation-fill-mode: backwards;
 
-  .close-btn{
+  .close-btn {
     color: #fff;
     padding-bottom: 5rem;
 
-    img{
+    img {
       width: 10rem;
       cursor: pointer;
     }
-
   }
 
   ul {
     list-style-type: none;
     padding: 0;
 
-    li{
+    li {
       padding: 1rem;
       a {
         color: white;
         font-weight: 500;
         font-size: 2rem;
-  
+
         img {
           margin-top: -1rem;
           width: 40%;
         }
-        .log-out-btn{
+        .log-out-btn {
           width: 12rem;
           margin-top: 7rem;
         }
       }
     }
-
- 
   }
 
   @media only screen and (max-width: 600px) {

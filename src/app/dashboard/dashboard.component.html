@@ -64,12 +64,15 @@
     
   </div>
   <section class="main-outlet">
+    <div class="add-patient">
+      <img src="../../assets/images/dashboard/add-patient-mobile.svg"  (click)="showAddPatientModal()" alt="">
+    </div>
     <section class="outlet">
       <router-outlet></router-outlet>
     </section>
     <section class="section-feed">
       <div class="add-patient">
-        <img src="assets/images/dashboard/btn-add-patient.svg" (click)="showAddPatientModal()" class="img-btn" alt="">
+        <img src="assets/images/dashboard/btn-add-patient.svg"main class="img-btn" alt="">
       </div>
       <!-- <div class="feed">
         <h1>
