@@ -10,7 +10,7 @@
     </div>
   </section>
   <section class="popup-body">
-      <form [formGroup]="rForm"  (ngSubmit)="Login()" action=""  class="dashboard-forms">
+      <form [formGroup]="rForm"  (ngSubmit)="SignUp(rForm.value)" action=""  class="dashboard-forms">
           <div class="col-1-of-3">
               <div class="controls">
                   <label for="">Title</label> <br />
@@ -58,16 +58,16 @@
             </div>
             <div class="controls">
                 <label for="">ID Number</label> <br />
-                <input type="email" class ="input-field" formControlName="Email" />
-                <div class="alert" *ngIf="!rForm.controls['Email'].valid && rForm.controls['Email'].touched">
+                <input type="number" class ="input-field" formControlName="IdNumber" />
+                <div class="alert" *ngIf="!rForm.controls['IdNumber'].valid">
                     ID Number is requried
                 </div>
               </div>
           <div class="controls">
-            <label for="">Cellphone</label> <br />
-            <input type="text" class ="input-field" formControlName="Cellphone" />
-            <div class="alert" *ngIf="!rForm.controls['Cellphone'].valid">
-                Cellphone is requried
+            <label for="">Phone Number</label> <br />
+            <input type="text" class ="input-field" formControlName="PhoneNumber" />
+            <div class="alert" *ngIf="!rForm.controls['PhoneNumber'].valid">
+                Phone Number is requried
             </div>
           </div>
          
@@ -80,19 +80,23 @@
               <div class="controls">
                   <label for="">Email</label> <br />
                   <input type="email" class ="input-field" formControlName="Email" />
-                  <div class="alert" *ngIf="!rForm.controls['Email'].valid && rForm.controls['Email'].touched">
+                  <div class="alert" *ngIf="!rForm.controls['Email'].valid">
                       Email is requried
                   </div>
                 </div>
             <div class="controls">
-                <label for="">Passowrd</label> <br />
-                <input type="password" class ="input-field" formControlName="PostCode" />
+                <label for="">Password</label> <br />
+                <input type="password" class ="input-field" formControlName="Password" />
+                <div class="alert" *ngIf="!rForm.controls['Password'].valid">
+                    Password is requried
+                </div>
               </div>
+
             <div class="controls">
-              <label for="">Confirm Passowrd</label> <br />
-              <input type="password" class ="input-field" formControlName="PostCode" />
-              <div class="alert" *ngIf="!rForm.controls['PostCode'].valid && rForm.controls['PostCode'].touched">
-                  Postal Code is requried
+              <label for="">Confirm Password</label> <br />
+              <input type="password" class ="input-field" formControlName="PasswordConfirm" />
+              <div class="alert" *ngIf="!rForm.controls['PasswordConfirm'].valid">
+                  Password do not match
               </div>
             </div>
           </div>
@@ -112,3 +116,17 @@
      
   </section>
 </section>
+
+
+
+<!-- /*
+FirstName: [null,Validators.required],
+      Surname: [null,Validators.required],
+      Title: [null,Validators.required],
+      Gender: [null,Validators.required],
+      PhoneNumber: [null,Validators.required],
+      IdNumber: [null,Validators.required],
+      CreateUserId: [null,Validators.required],
+      Email: [null,Validators.email],
+      StatusId: [null,Validators.email],
+    */ -->

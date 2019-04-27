@@ -1,63 +1,60 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ExitModalEventEmmiter } from 'src/app/models';
-import { LoginService } from '../login';
-import { Router } from '@angular/router';
-import { CURRENT_USER } from 'src/app/shared';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ExitModalEventEmmiter } from "src/app/models";
+import { LoginService } from "../login";
+import { Router } from "@angular/router";
+import { CURRENT_USER } from "src/app/shared";
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  selector: "app-sign-up",
+  templateUrl: "./sign-up.component.html",
+  styleUrls: ["./sign-up.component.scss"]
 })
 export class SignUpComponent implements OnInit {
-
   rForm: FormGroup;
   @Output() closeModalAction: EventEmitter<
-  ExitModalEventEmmiter> = new EventEmitter();
-  email = 'doc@mail.com';
-  password = 'pass';
+    ExitModalEventEmmiter
+  > = new EventEmitter();
+  email = "doc@mail.com";
+  password = "pass";
   error;
 
-  constructor(private fb: FormBuilder,
-        private loginService: LoginService,
-        private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private router: Router
+  ) {
     this.rForm = fb.group({
-      email: [
-        null,
-        Validators.compose([Validators.required, Validators.minLength(5)])
-      ],
-      password: [null, Validators.required],
-
+      FirstName: [null,Validators.required],
+      Surname: [null,Validators.required],
+      Title: [null,Validators.required],
+      Gender: [null,Validators.required],
+      PhoneNumber: [null,Validators.required],
+      IdNumber: [null,Validators.required],
+      CreateUserId: ['SYS',Validators.required],
+      ModifyUserId: ['SYS',Validators.required],
+      Email: [null,Validators.required],
+      Password: [null,Validators.required],
+      PasswordConfirm: [null,Validators.required],
+      StatusId: [4,Validators.required],
     });
 
-    localStorage.clear();
+
+
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+  get formValues() {
+    return this.rForm.controls;
   }
- get formValues() {
-   return this.rForm.controls;
- }
 
-  Login(){
-    this.loginService.loginUser(this.formValues.email.value, this.formValues.password.value)
-        .subscribe(response => {
-          if(response.UserId){
-            localStorage.setItem(CURRENT_USER, response.UserId);
-            this.router.navigate(['/dashboard']);
-          }
-          else{
-            this.error = response;
-          }
-        });
-
+  SignUp(data) {
+    console.log(data);
   }
 
   closeModal() {
     this.closeModalAction.emit({
-     close: true
+      close: true
     });
   }
-
 }

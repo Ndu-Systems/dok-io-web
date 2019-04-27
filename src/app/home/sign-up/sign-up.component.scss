@@ -104,6 +104,12 @@
 .controls {
   text-align: center;
 
+  label{
+    text-align: left;
+    width: 100%;
+    display: block;
+  }
+
   .button {
     width: 12rem;
     padding: 1rem;
