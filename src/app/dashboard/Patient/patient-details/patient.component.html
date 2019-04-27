@@ -1,130 +1,26 @@
 <section class="main">
   <app-bread-crumb [items]="items"></app-bread-crumb>
   <section class="section-main">
-    <section class="section-user-details">
-      <div class="user-info" *ngIf="patientData">
-        <section>
+   <div class="container">
+     <div class="col-1-of-2">
+       <div class="cta-patient">
           <h1>
-            {{patientData.FirstName}} {{patientData.Surname}}
+            <span class="heading">
+                {{patientData.FirstName}} {{patientData.Surname}}
+            </span>
           </h1>
-          <table>
-            <tr>
-              <td>
-                EMAIL
-              </td>
-              <td>
-                {{patientData.Email}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                PHONE
-              </td>
-              <td>
-                {{patientData.Cellphone}}
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                DOB
-              </td>
-              <td>
-                {{patientData.DOB}}
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                ID NUMBER
-              </td>
-              <td>
-                {{patientData.IdNumber}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                REG:DATE
-              </td>
-              <td>
-                {{patientData.CreateDate}}
-              </td>
-            </tr>
-          </table>
-        </section>
-
-        <section>
-          <img src="assets/images/dashboard/user-more.svg" alt="">
-        </section>
+          <img src="assets/images/dashboard/user-icon-details.svg" alt="user icon" class="user-icon">
+          <div class="cta-buttons">
+            
+          </div>
+       </div>
+       <div class="data-patient">
+          <h1>Hi</h1>
       </div>
-      <div class="medical-aid-details"  *ngIf="patientData">
-        <section>
-          <h1>
-            {{patientData.MedicalaidName }}
-          </h1>
-          <table>
-            <tr>
-              <td>
-                Member
-              </td>
-              <td>
-                {{patientData.PrimaryMember}}
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                Membership #
-              </td>
-              <td>
-                {{patientData.PrimaryMemberId}}
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                STREET
-              </td>
-              <td>
-                <!-- {{patientData.DOB}} -->
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                CITY
-              </td>
-              <td>
-                <!-- {{patientData.IdNumber}} -->
-              </td>
-            </tr>
-            <tr>
-              <td>
-                PROVINCE
-              </td>
-              <td>
-                <!-- {{patientData.CreateDate}} -->
-              </td>
-            </tr>
-            <tr>
-              <td>
-                POST-CODE
-              </td>
-              <td>
-                <!-- {{patientData.CreateDate}} -->
-              </td>
-            </tr>
-
-          </table>
-        </section>
-        <section>
-          <img src="assets/images/dashboard/medical-aid-icon.svg" alt="">
-        </section>
-      </div>
-    </section>
+     </div>
+   </div>
   </section>
-  <section class="notes">
-   
+  <section class="notes">   
     <app-notes  [Name]="Name"></app-notes>
   </section>
 </section>

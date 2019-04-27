@@ -93,7 +93,7 @@
   .main-outlet {
     display: grid;
     grid-template-columns: 80% 20%;
-    .add-patient {
+    .add-patient-mobile {
       display: none;
       @media only screen and (max-width: 600px) {
         display: block;
@@ -102,6 +102,7 @@
         right: 1%;
       }
     }
+  
     @media only screen and (max-width: 600px) {
       grid-template-columns: 100%;
       margin-top: 7rem;
@@ -115,10 +116,16 @@
         padding: 0.8rem 0.1rem;
 
         img {
-          width: 50%;
+          width: 10vw;
           cursor: pointer;
         }
+        @media only screen and (max-width: 600px) {
+        display: none;
+          
+        }
       }
+
+  
 
       .feed {
         transition: 2s ease-in-out;
@@ -223,5 +230,12 @@
 
   @media only screen and (max-width: 600px) {
     display: block;
+  }
+}
+
+.class-button {
+  padding-bottom: 2rem;
+  .img-btn {
+    height: 2rem;
   }
 }

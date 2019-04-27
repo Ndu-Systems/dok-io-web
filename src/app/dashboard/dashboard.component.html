@@ -64,16 +64,17 @@
     
   </div>
   <section class="main-outlet">
-    <div class="add-patient">
+    <div class="add-patient-mobile">
       <img src="../../assets/images/dashboard/add-patient-mobile.svg"  (click)="showAddPatientModal()" alt="">
     </div>
+   
     <section class="outlet">
       <router-outlet></router-outlet>
     </section>
     <section class="section-feed">
-      <div class="add-patient">
-        <img src="assets/images/dashboard/btn-add-patient.svg"main class="img-btn" alt="">
-      </div>
+        <div class="add-patient">
+            <img src="assets/images/dashboard/btn-add-patient.svg"main class="img-btn" (click)="showAddPatientModal()" alt="">
+          </div>
       <!-- <div class="feed">
         <h1>
             Notification feed
