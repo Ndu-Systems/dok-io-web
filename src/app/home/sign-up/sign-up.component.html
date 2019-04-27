@@ -1,0 +1,132 @@
+<section class="modal shadow-black">
+  <section class="modal-header">
+    <div class="col-1-of-2 modal-header-login">
+      <div>
+        <h1>Sign Up</h1>
+      </div>
+      <div>
+        <img src="assets/images/home/login-exit.svg" alt="exit button" class="exit-btn" (click)="closeModal()">
+      </div>
+    </div>
+  </section>
+  <section class="popup-body">
+      <form [formGroup]="rForm"  (ngSubmit)="SignUp(rForm.value)" action=""  class="dashboard-forms">
+          <div class="col-1-of-3">
+              <div class="controls">
+                  <label for="">Title</label> <br />
+                  <select  class ="input-field" formControlName="Title">
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Ms">Ms</option>
+                    <option value="Dr">Dr</option>
+                    <option value="Prof">Prof</option>
+                  </select>
+                  <div class="alert" *ngIf="!rForm.controls['Title'].valid">
+                      Title is requried
+                  </div>
+                </div>
+            <div class="controls">
+              <label for="">First Name</label> <br />
+              <input type="text" class ="input-field" formControlName="FirstName" />
+              <div class="alert" *ngIf="!rForm.controls['FirstName'].valid">
+                First Name is requried
+              </div>
+            </div>
+            <div class="controls">
+              <label for="">Surname</label> <br />
+              <input type="text" class ="input-field" formControlName="Surname" />
+              <div class="alert" *ngIf="!rForm.controls['Surname'].valid">
+                  Surname is requried
+              </div>
+            </div>
+          
+          </div>
+
+
+
+          
+      <div class="col-1-of-3">
+          <div class="controls">
+              <label for="">Gender</label> <br />
+              <select  class ="input-field" formControlName="Gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <div class="alert" *ngIf="!rForm.controls['Gender'].valid">
+                  Gender is requried
+              </div>
+            </div>
+            <div class="controls">
+                <label for="">ID Number</label> <br />
+                <input type="number" class ="input-field" formControlName="IdNumber" />
+                <div class="alert" *ngIf="!rForm.controls['IdNumber'].valid">
+                    ID Number is requried
+                </div>
+              </div>
+          <div class="controls">
+            <label for="">Phone Number</label> <br />
+            <input type="text" class ="input-field" formControlName="PhoneNumber" />
+            <div class="alert" *ngIf="!rForm.controls['PhoneNumber'].valid">
+                Phone Number is requried
+            </div>
+          </div>
+         
+        
+        </div>
+
+
+        <div class="col-1-of-3">
+           
+              <div class="controls">
+                  <label for="">Email</label> <br />
+                  <input type="email" class ="input-field" formControlName="Email" />
+                  <div class="alert" *ngIf="!rForm.controls['Email'].valid">
+                      Email is requried
+                  </div>
+                </div>
+            <div class="controls">
+                <label for="">Password</label> <br />
+                <input type="password" class ="input-field" formControlName="Password" />
+                <div class="alert" *ngIf="!rForm.controls['Password'].valid">
+                    Password is requried
+                </div>
+              </div>
+
+            <div class="controls">
+              <label for="">Confirm Password</label> <br />
+              <input type="password" class ="input-field" formControlName="PasswordConfirm" />
+              <div class="alert" *ngIf="!rForm.controls['PasswordConfirm'].valid">
+                  Password do not match
+              </div>
+            </div>
+          </div>
+        
+
+
+        
+          
+            <div class="controls float-right">
+                <input type="submit" value="Sign Up" class="button" [disabled]="!rForm.valid" />
+              </div>
+            <div class="error">
+              {{error}}
+            </div>
+      </form>
+    
+     
+  </section>
+</section>
+
+
+
+<!-- /*
+FirstName: [null,Validators.required],
+      Surname: [null,Validators.required],
+      Title: [null,Validators.required],
+      Gender: [null,Validators.required],
+      PhoneNumber: [null,Validators.required],
+      IdNumber: [null,Validators.required],
+      CreateUserId: [null,Validators.required],
+      Email: [null,Validators.email],
+      StatusId: [null,Validators.email],
+    */ -->

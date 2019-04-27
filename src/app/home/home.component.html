@@ -7,7 +7,8 @@
         <li><a routerLink="">About</a></li>
         <li><a routerLink="">How it works</a></li>
         <li><a routerLink="" (click)="showLoginModal()">Login</a></li>
-        <li><a routerLink=""><img src="assets/images/home/call-us.svg" alt="call us"></a></li>
+        <li><a routerLink="" (click)="showSignUpModal()">Sign Up</a></li>
+        <li><a class="call-us">084 252 9472</a></li>
       </ul>
     </div>
   </section>
@@ -33,6 +34,7 @@
         <li><a routerLink="">About</a></li>
         <li><a routerLink="">How it works</a></li>
         <li><a routerLink="" (click)="showLoginModal()">Login</a></li>
+        <li><a routerLink="" (click)="showSignUpModal()">Sign Up</a></li>
         <li><a routerLink=""><img src="assets/images/home/call-us.svg" alt="call us"></a></li>
       </ul>
   </div>
@@ -174,4 +176,7 @@
 
 <div class="overlay" *ngIf="showModal">
   <app-login (closeModalAction)="closeModal($event)"></app-login>
+</div>
+<div class="overlay" *ngIf="showSignUp">
+  <app-sign-up (closeModalAction)="showSignUpModal()"></app-sign-up>
 </div>
