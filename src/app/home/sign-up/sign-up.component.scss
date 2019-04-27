@@ -2,8 +2,8 @@
 
 .modal {
   width: 60%;
-  left: 25%;
-  height: 70%;
+  left: 20%;
+  // height: 70%;
   background-repeat: no-repeat;
   background-position-y: 100%;
   background-position-x: center;
@@ -23,22 +23,27 @@
     h1 {
       font-size: 2em;
     }
-.modal-header-login{
-  @media only screen and (max-width: 600px) {
-    margin-bottom: 3rem;
-    grid-template-columns: 50% auto;
-    div:nth-child(1){
-      text-align-last: left;
-    }
-    div:nth-child(2){
-      text-align: right;
-      box-sizing: border-box;
-      img{
-        width: 40%;
+
+    .modal-header-login {
+      @media only screen and (max-width: 600px) {
+        margin-bottom: 3rem;
+        grid-template-columns: 50% auto;
+
+        div:nth-child(1) {
+          text-align-last: left;
+        }
+
+        div:nth-child(2) {
+          text-align: right;
+          box-sizing: border-box;
+
+          img {
+            width: 40%;
+          }
+        }
       }
     }
-  }
-}
+
     @media only screen and (max-width: 600px) {
       img {
         width: 150%;
@@ -55,33 +60,28 @@
       margin: 0rem 5rem;
       padding-top: 2rem;
     }
+
     @media only screen and (max-width: 600px) {
       width: 100%;
     }
-    .col-1-of-2{
-        grid-template-columns: 50% auto;
+
+    .col-1-of-2 {
+      grid-template-columns: 50% auto;
+
+      @media only screen and (max-width: 600px) {
+        grid-template-columns: 100%;
+      }
+    }
+
+    .col-1-of-3 {
+      grid-template-columns: 33% 33% auto;
+
+      @media only screen and (max-width: 600px) {
+        grid-template-columns: 100%;
+      }
     }
   }
 
-  .contact-us {
-    width: 42%;
-    margin-top: 1.2rem;
-    padding: 2em;
-
-    .try-us {
-      font-size: 1rem;
-      color: $cloud-white-color;
-      color: #000;
-
-    }
-  @media only screen and (max-width: 600px) {
-    width: 100%;
-    h1{
-      color: #000;
-    }
-
-  }
-  }
 
   @media only screen and (max-width: 600px) {
     width: 100%;
@@ -100,8 +100,10 @@
   font-weight: 600;
   text-transform: uppercase;
 }
+
 .controls {
   text-align: center;
+
   .button {
     width: 12rem;
     padding: 1rem;
@@ -109,3 +111,7 @@
     // padding: 1rem 1.2rem;
   }
 }
+.float-right{
+  text-align: right;
+}
+
