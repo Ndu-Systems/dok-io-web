@@ -62,13 +62,14 @@
 
   .button {
     width: 22rem;
-    padding: 1.4rem;
+    padding: 1rem;
     background: #29b6f6;
     text-transform: uppercase;
     color: #fff;
     font-weight: 600;
     border: none;
-    box-shadow: 10px 10px 45px -4px rgba(0, 0, 0, 1);
+    font-size: 1.1rem;
+    border-radius: 10rem;
 
     cursor: pointer;
     &:hover {
