@@ -28,7 +28,7 @@
     "ng2-search-filter": "^0.4.7",
     "ngx-pagination": "^3.2.1",
     "primeicons": "^1.0.0",
-    "primeng": "^7.0.5",
+    "primeng": "^7.1.2",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },

@@ -1,9 +1,9 @@
 <div class="main-notes">
   <div class="head">
       <h1>Patient Notes</h1>
-      <div class="btn-add">
-        <img src="assets/images/dashboard/add-note.svg" class="img-btn-larger" (click)="showModal()" alt="">
-      </div>
+       
+        <button class="btn success" (click)="showModal()"><i class="fas fa-book"></i> add-note</button>
+    
   </div>
  
 <div *ngIf="notes$ | async as  notes; else nonotes">
@@ -19,9 +19,7 @@
               </td>
               <td>
                 DATE
-              </td>
-    
-    
+              </td>    
               <td>
                 ACTIONS
               </td>

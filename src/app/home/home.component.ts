@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   showModal: boolean;
-  showSignUp: boolean=true;
+  showSignUp: boolean;
   toggleMobileMenu: boolean;
   rForm: FormGroup;
 

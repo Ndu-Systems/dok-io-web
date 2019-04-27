@@ -14,6 +14,7 @@ export class PatientComponent implements OnInit {
   items: Array<BreadCrumb> = [];
   patientId: any;
   Name: string;
+  medical;
   constructor(
     private activatedRoute: ActivatedRoute,
     private patientService: PatientService
@@ -50,6 +51,7 @@ export class PatientComponent implements OnInit {
     this.patientService.getPatient(patientId).subscribe(r => {
       this.patientData = r;
       this.Name = ` ${this.patientData.FirstName} ${this.patientData.Surname}`;
+      this.medical = this.patientData.MedicalaidName;
     });
    
   }
