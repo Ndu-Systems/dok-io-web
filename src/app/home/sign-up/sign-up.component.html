@@ -1,0 +1,117 @@
+<section class="modal shadow-black">
+  <section class="modal-header">
+    <div class="col-1-of-2 modal-header-login">
+      <div>
+        <h1>Sign Up</h1>
+      </div>
+      <div>
+        <img src="assets/images/home/login-exit.svg" alt="exit button" class="exit-btn" (click)="closeModal()">
+      </div>
+    </div>
+  </section>
+  <section class="popup-body">
+      <form [formGroup]="rForm"  (ngSubmit)="Login()" action=""  class="dashboard-forms">
+          <div class="col-1-of-4">
+              <div class="controls">
+                  <label for="">Title</label> <br />
+                  <select  class ="input-field" formControlName="Title">
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Ms">Ms</option>
+                    <option value="Dr">Dr</option>
+                    <option value="Prof">Prof</option>
+                  </select>
+                  <div class="alert" *ngIf="!rForm.controls['Title'].valid">
+                      Title is requried
+                  </div>
+                </div>
+            <div class="controls">
+              <label for="">First Name</label> <br />
+              <input type="text" class ="input-field" formControlName="FirstName" />
+              <div class="alert" *ngIf="!rForm.controls['FirstName'].valid">
+                First Name is requried
+              </div>
+            </div>
+            <div class="controls">
+              <label for="">Surname</label> <br />
+              <input type="text" class ="input-field" formControlName="Surname" />
+              <div class="alert" *ngIf="!rForm.controls['Surname'].valid">
+                  Surname is requried
+              </div>
+            </div>
+            <div class="image-div pc-only">
+            <img src="../assets/images/dashboard/user-more.svg" alt="">
+            </div>
+          </div>
+
+
+
+          
+      <div class="col-1-of-3">
+          <div class="controls">
+            <label for="">Cellphone</label> <br />
+            <input type="text" class ="input-field" formControlName="Cellphone" />
+            <div class="alert" *ngIf="!rForm.controls['Cellphone'].valid">
+                Cellphone is requried
+            </div>
+          </div>
+          <div class="controls">
+            <label for="">Email</label> <br />
+            <input type="email" class ="input-field" formControlName="Email" />
+            <div class="alert" *ngIf="!rForm.controls['Email'].valid && rForm.controls['Email'].touched">
+                Email is requried
+            </div>
+          </div>
+          <div class="controls">
+            <label for="">Gender</label> <br />
+            <select  class ="input-field" formControlName="Gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <div class="alert" *ngIf="!rForm.controls['Gender'].valid">
+                Gender is requried
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-1-of-2">
+           
+           
+            <div class="controls">
+                <label for="">Passowrd</label> <br />
+                <input type="password" class ="input-field" formControlName="PostCode" />
+              </div>
+            <div class="controls">
+              <label for="">Confirm Passowrd</label> <br />
+              <input type="password" class ="input-field" formControlName="PostCode" />
+              <div class="alert" *ngIf="!rForm.controls['PostCode'].valid && rForm.controls['PostCode'].touched">
+                  Postal Code is requried
+              </div>
+            </div>
+          </div>
+        
+
+
+        
+          
+            <div class="controls">
+                <input type="submit" value="Login" class="button" [disabled]="!rForm.valid" />
+              </div>
+            <div class="error">
+              {{error}}
+            </div>
+      </form>
+      <section class="contact-us">
+          <div class="col-1-of-2">
+              <h1>
+                <span class="try-us">
+                    Not yet with the program? no worries try us out.
+                </span>
+              </h1>
+              <img src="assets/images/home/contact-us.svg" alt="contact us">
+            </div>
+      </section>
+     
+  </section>
+</section>
