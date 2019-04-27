@@ -4,6 +4,7 @@ import { ExitModalEventEmmiter } from "src/app/models";
 import { LoginService } from "../login";
 import { Router } from "@angular/router";
 import { CURRENT_USER } from "src/app/shared";
+import { SignUpService } from "src/app/services/sign-up.service";
 
 @Component({
   selector: "app-sign-up",
@@ -21,26 +22,23 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private loginService: LoginService,
+    private signUpService: SignUpService,
     private router: Router
   ) {
     this.rForm = fb.group({
-      FirstName: [null,Validators.required],
-      Surname: [null,Validators.required],
-      Title: [null,Validators.required],
-      Gender: [null,Validators.required],
-      PhoneNumber: [null,Validators.required],
-      IdNumber: [null,Validators.required],
-      CreateUserId: ['SYS',Validators.required],
-      ModifyUserId: ['SYS',Validators.required],
-      Email: [null,Validators.required],
-      Password: [null,Validators.required],
-      PasswordConfirm: [null,Validators.required],
-      StatusId: [4,Validators.required],
+      FirstName: [null, Validators.required],
+      Surname: [null, Validators.required],
+      Title: [null, Validators.required],
+      Gender: [null, Validators.required],
+      PhoneNumber: [null, Validators.required],
+      IdNumber: [null, Validators.required],
+      CreateUserId: ["SYS", Validators.required],
+      ModifyUserId: ["SYS", Validators.required],
+      Email: [null, Validators.required],
+      Password: [null, Validators.required],
+      PasswordConfirm: [null, Validators.required],
+      StatusId: [4, Validators.required]
     });
-
-
-
   }
 
   ngOnInit() {}
@@ -50,6 +48,13 @@ export class SignUpComponent implements OnInit {
 
   SignUp(data) {
     console.log(data);
+    this.signUpService.signUp(data).subscribe(response => {
+      if (response) {
+        alert(response);
+      } else {
+        alert(`Error: ${response}`);
+      }
+    });
   }
 
   closeModal() {
