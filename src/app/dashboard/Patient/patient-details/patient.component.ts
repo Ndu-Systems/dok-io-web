@@ -55,4 +55,7 @@ export class PatientComponent implements OnInit {
     });
    
   }
+  AddContact(){
+    
+  }
 }
