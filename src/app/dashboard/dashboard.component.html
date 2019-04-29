@@ -26,9 +26,9 @@
       <div class="dp">
         <img src="assets/images/dashboard/user-icon.svg" alt="">
       </div>
-      <div class="name">
+      <div class="name" *ngIf="currentUser">
         <h3>
-          Dr. Guest
+          {{currentUser.Title}}. {{currentUser.Surname}}
         </h3>
         <p>
           GENERAL PRACTITIONER
@@ -45,35 +45,36 @@
     </div>
     <div class="mobile-menu-items" *ngIf="toggleMobileMenu">
       <div class="close-btn">
-      
+
         <img src="../../assets/images/dashboard/btn-back.svg" (click)="toggleNavMobile()" alt="">
       </div>
-    <ul>
-          <li><a routerLink="/dashboard"   (click)="toggleNavMobile()" >PATIENTS</a></li>
-          <li><a routerLink="/">
-          <img src="../../assets/images/dashboard/btn-logout.svg" class="log-out-btn" alt="">
+      <ul>
+        <li><a routerLink="/dashboard" (click)="toggleNavMobile()">PATIENTS</a></li>
+        <li><a routerLink="/">
+            <img src="../../assets/images/dashboard/btn-logout.svg" class="log-out-btn" alt="">
           </a></li>
-          <!-- <li><a routerLink="/">Log out</a></li> -->
-         
-        </ul>
+        <!-- <li><a routerLink="/">Log out</a></li> -->
+
+      </ul>
     </div>
     <div class="toggle-btn">
       <img src="assets/images/dashboard/btn-toggle-menu-dash.svg" (click)="toggleNavMobile()" alt="">
     </div>
-    
+
   </div>
   <section class="main-outlet">
-    <div class="add-patient-mobile">      
+    <div class="add-patient-mobile">
       <button class="btn success" (click)="showAddPatientModal()"><i class="fas fa-plus"></i> add patient</button>
     </div>
-   
+
     <section class="outlet">
       <router-outlet></router-outlet>
     </section>
     <section class="section-feed">
-        <div class="add-patient">          
-            <button class="btn primary-add img-btn" (click)="showAddPatientModal()"><i class="fas fa-plus"></i> add patient</button>
-          </div>
+      <div class="add-patient">
+        <button class="btn primary-add img-btn" (click)="showAddPatientModal()"><i class="fas fa-plus"></i> add
+          patient</button>
+      </div>
       <!-- <div class="feed">
         <h1>
             Notification feed
@@ -103,11 +104,34 @@
 <div class="overlay" *ngIf="showPopup">
   <app-add-patient *ngIf="openAddPatient" (closeModalAction)="closeModal($event)"></app-add-patient>
   <app-add-medical-aid *ngIf="openAddMedicalAid" (closeModalAction)="closeModal($event)"></app-add-medical-aid>
-  <app-add-emergency-contact *ngIf="openAddEmengencyContact" (closeModalAction)="closeModal($event)"></app-add-emergency-contact>
+  <app-add-emergency-contact *ngIf="openAddEmengencyContact" (closeModalAction)="closeModal($event)">
+  </app-add-emergency-contact>
 </div>
 <audio id="myAudio">
   <source src="assets/sounds/beep.wav" type="audio/ogg">
 </audio>
 <div class="overlay" *ngIf="showOptions">
   <app-account-options (closeModalAction)="closeOptions($event)"></app-account-options>
+</div>
+
+
+<!-- Landing new account -->
+<div class="landing-overlay" *ngIf="isNewUser">
+  <div class="welcome-box">
+    <h1>
+      Welcome to Dok.io
+      <span>
+        Patient filing re-imagined
+      </span>
+    </h1>
+    <p>
+      Your account is being verified by our team we are hoping to get you up and running in no time.
+    </p>
+    <img src="assets/images/dashboard/welocme-svg.svg" alt="">
+    <div class="action">
+      <a routerLink="/">
+        <button class="btn warning"><i class="fa fa-trash"></i> log out</button>
+      </a>
+    </div>
+  </div>
 </div>

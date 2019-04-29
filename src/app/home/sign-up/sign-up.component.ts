@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ExitModalEventEmmiter } from "src/app/models";
-import { LoginService } from "../login";
 import { Router } from "@angular/router";
 import { CURRENT_USER } from "src/app/shared";
 import { SignUpService } from "src/app/services/sign-up.service";
@@ -50,7 +49,8 @@ export class SignUpComponent implements OnInit {
     console.log(data);
     this.signUpService.signUp(data).subscribe(response => {
       if (response) {
-        alert(response);
+        localStorage.setItem(CURRENT_USER, response.UserId);
+        this.router.navigate(['/dashboard']);
       } else {
         alert(`Error: ${response}`);
       }
