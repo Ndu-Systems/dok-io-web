@@ -88,7 +88,7 @@
         <div class="header col-1-of-2">
           <h1>
             <span class="heading">
-              Medical Aid
+              medical aid
             </span>
           </h1>
           <img src="../../../../assets/images/dashboard/medical-aid.svg" alt="medical aid" class="medical-icon">
@@ -101,7 +101,7 @@
                   Member on card:
                 </span>
                 <span class="text">
-                    {{patientData.PrimaryMember}}
+                  {{patientData.PrimaryMember}}
                 </span>
               </h1>
             </div>
@@ -111,75 +111,105 @@
                   Institute:
                 </span>
                 <span class="text">
-                    {{patientData.MedicalaidName}}
+                  {{patientData.MedicalaidName}}
                 </span>
               </h1>
             </div>
           </div>
           <div class="col-1-of-2">
-              <div>
-                <h1>
-                  <span class="header">
-                      Member #:
-                  </span>
-                  <span class="text">
-                      {{patientData.PrimaryMemberId}}
-                  </span>
-                </h1>
-              </div>
-              <div>
-                <h1>
-                  <span class="header">
-                      Plan type:
-                  </span>
-                  <span class="text">
-                      {{patientData.MedicalaidType }}
-                  </span>
-                </h1>
-              </div>
+            <div>
+              <h1>
+                <span class="header">
+                  Member #:
+                </span>
+                <span class="text">
+                  {{patientData.PrimaryMemberId}}
+                </span>
+              </h1>
             </div>
+            <div>
+              <h1>
+                <span class="header">
+                  Plan type:
+                </span>
+                <span class="text">
+                  {{patientData.MedicalaidType }}
+                </span>
+              </h1>
+            </div>
+          </div>
         </div>
         <ng-template #nomedical>
+          <div class="direction">
             <h1>
-              No medical aid
+              <span class="info">
+                No medical aid
+              </span>
             </h1>
+            <button class="btn blue"><i class="fas fa-plus"></i> medical aid</button>
+          </div>
+
         </ng-template>
 
       </div>
-      <div class="card 1 dark-blue" *ngIf="patientData.ContactName; else nocontactdetails">
+      <div class="card 1 dark-blue">
+        <div class="header col-1-of-2">
+          <h1>
+            <span class="heading">
+              emergency contact
+            </span>
+          </h1>
+          <img src="assets/images/dashboard/contact.svg" alt="contact icon" class="medical-icon">
+        </div>
         <div class="body">
-            <div class="col-1-of-2">
-                <div>
-                  <h1>
-                    <span class="header">
-                      Emergency contact
-                    </span>
-                    <span class="text">
-                        {{patientData?.ContactName}}
-                    </span>
-                    <span class="text">
-                        {{patientData?.ContactRelationship}}
-                    </span>
-                    <span class="text">
-                        {{patientData?.ContactCell}}
-                    </span>
-                 
-                  </h1>
-                </div>
-                <div>
-                  <img src="assets/images/dashboard/contact.svg" alt="contact">
-                </div>
+          <div class="col-1-of-1" *ngIf="patientData.ContactName; else nocontactdetails">
+
+            <div>
+              <h1 class="col-1-of-2">
+                <span class="header">
+                  Name:
+                </span>
+                <span class="text">
+                  {{patientData?.ContactName}}
+                </span>
+              </h1>
             </div>
+            <div>
+              <h1 class="col-1-of-2">
+                <span class="header">
+                  Relationship:
+                </span>
+                <span class="text">
+                  {{patientData?.ContactRelationship}}
+                </span>
+              </h1>
+            </div>
+            <div>
+              <h1 class="col-1-of-2">
+                <span class="header">
+                  Contact #:
+                </span>
+                <span class="text">
+                  {{patientData?.ContactCell}}
+                </span>
+              </h1>
+            </div>
+
+          </div>
+          <ng-template #nocontactdetails>
+            <div class="direction">
+              <h1>
+                <span class="info">
+                  No emegency contact detials
+                </span>
+              </h1>
+              <button class="btn blue"><i class="fas fa-plus"></i> contact</button>
+            </div>
+
+          </ng-template>
         </div>
       </div>
-      <ng-template #nocontactdetails>
-<div class="no-emegency-contact-detials">
-  <h1>
-    No emegency contact detials
-  </h1>
-  <a (click)="AddContact()">Add emegency contact detials</a>
-</div>
-      </ng-template>
+
     </div>
   </section>
   <section class="notes">

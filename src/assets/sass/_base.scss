@@ -241,3 +241,17 @@ img {
 .btn:hover {
   background-color: $blue-color ;
 }
+
+
+.direction {
+  h1 {
+    .info {
+    
+      font-weight: 300;
+    }
+  }
+  button {
+    margin-top: 1rem;
+    padding: 1.333rem 3.66rem;
+  }
+}
