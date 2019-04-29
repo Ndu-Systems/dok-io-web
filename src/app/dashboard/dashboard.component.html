@@ -59,21 +59,20 @@
     </div>
     <div class="toggle-btn">
       <img src="assets/images/dashboard/btn-toggle-menu-dash.svg" (click)="toggleNavMobile()" alt="">
-
     </div>
     
   </div>
   <section class="main-outlet">
-    <div class="add-patient-mobile">
-      <img src="../../assets/images/dashboard/add-patient-mobile.svg"  (click)="showAddPatientModal()" alt="">
+    <div class="add-patient-mobile">      
+      <button class="btn success" (click)="showAddPatientModal()"><i class="fas fa-plus"></i> add patient</button>
     </div>
    
     <section class="outlet">
       <router-outlet></router-outlet>
     </section>
     <section class="section-feed">
-        <div class="add-patient">
-            <img src="assets/images/dashboard/btn-add-patient.svg"main class="img-btn" (click)="showAddPatientModal()" alt="">
+        <div class="add-patient">          
+            <button class="btn primary-add img-btn" (click)="showAddPatientModal()"><i class="fas fa-plus"></i> add patient</button>
           </div>
       <!-- <div class="feed">
         <h1>

@@ -52,10 +52,12 @@ body {
   .pc-only {
     display: none;
   }
+
   .grid-full {
     display: grid;
     grid-template-columns: 100%;
   }
+
   p {
     font-size: 2rem;
   }
@@ -74,9 +76,18 @@ img {
   width: 100%;
 }
 
-.btn.primary {
-  background: #26c6da;
-  color: #fff;
+.btn {
+  padding: 1rem 2.1rem;
+  &.primary {
+    background: #26c6da;
+    color: #fff;
+  }
+  &.primary-add {
+    background: #29B6F6;
+    color: #fff;
+  
+  }
+
 }
 
 .overlay {
@@ -90,7 +101,8 @@ img {
   left: 0;
 
   @media only screen and (max-width: 600px) {
-    background:#fff;;
+    background: #fff;
+    ;
 
   }
 }
@@ -128,12 +140,14 @@ img {
     transform: translate(0.3rem);
   }
 }
-.image-div{
+
+.image-div {
   @media only screen and (max-width: 600px) {
-   display: none;
+    display: none;
 
   }
 }
+
 .alert {
   color: $pink-color;
   font-size: 0.8rem;
@@ -152,6 +166,7 @@ img {
   font-weight: 400;
   text-align: center;
 }
+
 .no-prescription {
   padding: 20px;
   background-color: #ff8f00;
@@ -169,8 +184,10 @@ img {
   padding: 3rem;
   text-align: center;
 }
+
 .empty-list {
   padding: 0 2rem;
+
   h1 {
     color: #ff8f00;
     font-weight: 300;
@@ -212,25 +229,27 @@ img {
 }
 
 .btn {
-  background-color: $primary-color ;
+  background-color: $primary-color;
   border: none;
   color: white;
   padding: 12px 16px;
   font-size: 16px;
   cursor: pointer;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   border-radius: 30px;
   text-transform: capitalize;
 
   &.warning {
-    background-color: $gold-color ;
+    background-color: $gold-color;
+
     &:hover {
       background: orange;
     }
   }
 
-  &.success{
-    background-color: $green-color  ;
+  &.success {
+    background-color: $green-color;
+
     &:hover {
       background: green;
     }
@@ -239,17 +258,18 @@ img {
 
 /* Darker background on mouse-over */
 .btn:hover {
-  background-color: $blue-color ;
+  background-color: $blue-color;
 }
 
 
 .direction {
   h1 {
     .info {
-    
+
       font-weight: 300;
     }
   }
+
   button {
     margin-top: 1rem;
     padding: 1.333rem 3.66rem;

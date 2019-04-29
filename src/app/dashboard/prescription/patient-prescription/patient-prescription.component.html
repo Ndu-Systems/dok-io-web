@@ -23,10 +23,8 @@
       <div class="table-header col-1-of-2">
         <h1>
           Prescriptions
-        </h1>
-        <div class="btn">
-          <img src="assets/images/dashboard/btn-add-prescription.svg" (click)="openModal()" class="img-btn-larger" alt="">
-        </div>
+        </h1>       
+        <button class="btn primary-add"  (click)="openModal()" ><i class="fas fa-plus"></i> prescription</button>         
       </div>
       <!-- <div *ngIf="prescriptions$ | async as  prescriptions"> -->
       <div class="table" *ngIf="prescriptions; else noprescriptions">

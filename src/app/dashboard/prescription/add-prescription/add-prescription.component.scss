@@ -1,4 +1,5 @@
 .drugs{
+  margin-bottom: 2rem;
     .col-1-of-3{
         grid-template-columns: 25% 25% 25% auto;
         @media only screen and (max-width: 600px) {

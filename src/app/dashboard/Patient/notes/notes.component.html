@@ -1,9 +1,7 @@
 <div class="main-notes">
   <div class="head">
-      <h1>Patient Notes</h1>
-       
-        <button class="btn success" (click)="showModal()"><i class="fas fa-book"></i> add-note</button>
-    
+      <h1>Patient Notes</h1>     
+      <button class="btn primary-add"  (click)="showModal()" ><i class="fas fa-plus"></i> note</button>   
   </div>
  
 <div *ngIf="notes$ | async as  notes; else nonotes">
