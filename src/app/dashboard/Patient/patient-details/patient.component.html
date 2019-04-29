@@ -146,7 +146,7 @@
         </ng-template>
 
       </div>
-      <div class="card 1 dark-blue">
+      <div class="card 1 dark-blue" *ngIf="patientData.ContactName; else nocontactdetails">
         <div class="body">
             <div class="col-1-of-2">
                 <div>
@@ -155,8 +155,15 @@
                       Emergency contact
                     </span>
                     <span class="text">
-                        {{patientData.PrimaryMember}}
+                        {{patientData?.ContactName}}
                     </span>
+                    <span class="text">
+                        {{patientData?.ContactRelationship}}
+                    </span>
+                    <span class="text">
+                        {{patientData?.ContactCell}}
+                    </span>
+                 
                   </h1>
                 </div>
                 <div>
@@ -165,6 +172,14 @@
             </div>
         </div>
       </div>
+      <ng-template #nocontactdetails>
+<div class="no-emegency-contact-detials">
+  <h1>
+    No emegency contact detials
+  </h1>
+  <a (click)="AddContact()">Add emegency contact detials</a>
+</div>
+      </ng-template>
     </div>
   </section>
   <section class="notes">
