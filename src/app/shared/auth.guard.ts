@@ -20,13 +20,13 @@ export class AuthGuard implements CanActivate {
     // this.router.navigate(['/']);
     // return false;
     const currentUser = this.loginService.currentUserValue;
-    if (currentUser.Role) {
-      debugger
-      // if (route.data.roles && route.data.roles.indexOf(currentUser.Role) === -1) {
-      //   // role not authorised sor redirect to login page
-      //   this.router.navigate(['/']);
-      //   return false;
-      // }
+    if (currentUser) {
+     
+      if (route.data.roles && route.data.roles.indexOf(currentUser.Role) === -1) {
+        // role not authorised sor redirect to login page
+        this.router.navigate(['/']);
+        return false;
+      }
       // authorised
       return true;
 

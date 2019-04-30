@@ -39,7 +39,6 @@ export class LoginService {
         return user;
       }));
 
-<<<<<<< HEAD
   }
 
   public get currentUserValue(): User {
@@ -47,6 +46,7 @@ export class LoginService {
   }
 
   logout() {
+ 
     // remove user from local storage to log user out
     localStorage.removeItem(CURRENT_USER);
     this.currentUserSubject.next(null);
@@ -54,22 +54,12 @@ export class LoginService {
   public get getUser() {
     return JSON.parse(localStorage.getItem(CURRENT_USER))
   }
-  getFullUserDetails() {    
-    if(!this.getUser){
-      return null;
-    } 
-    return this.httpClient.get<any>(`${this.url}/api/account/get-user.php?UserId=${this.getUser.UserId}`);
+  getFullUserDetails(UserId) {    
+ 
+    return this.httpClient.get<any>(`${this.url}/api/account/get-user.php?UserId=${UserId}`);
   }
-=======
-}
-public get getUser(){
-  return localStorage.getItem(CURRENT_USER)
-}
-getFullUserDetails(){
-  return this.httpClient.get<any>(`${this.url}/api/account/get-user.php?UserId=${this.getUser}`);
-}
-getUserByParentId(){
-  return this.httpClient.get<any>(`${this.url}/api/account/get-user-by-parent-id.php?UserId=${this.getUser}`);
-}
->>>>>>> d7634e1ab477d8e0fef88ec67e48ce0dba229aab
+
+  getUserByParentId(UserId){
+    return this.httpClient.get<any>(`${this.url}/api/account/get-user-by-parent-id.php?UserId=${UserId}`);
+  }
 }

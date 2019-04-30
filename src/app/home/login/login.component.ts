@@ -53,12 +53,12 @@ export class LoginComponent implements OnInit {
 
   Login() {
     this.spinnerService.showSpinner();
-     debugger
+ 
     this.loginService
       .loginUser(this.formValues.email.value, this.formValues.password.value)
       .pipe(first())
       .subscribe(response => {
-        debugger
+    
         if (response) {
           // this.router.navigate(["/dashboard"]);
           this.router.navigate(["/dashboard"]);

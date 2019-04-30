@@ -8,12 +8,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./staff.component.scss']
 })
 export class StaffComponent implements OnInit {
-  staff$:Observable<any>
-  constructor(private loginService:LoginService) { 
-    this.staff$ = this.loginService.getUserByParentId();
+  staff$:Observable<any>;
+  user:any;
+  constructor(private loginService:LoginService,) { 
+    this.loginService.currentUser.subscribe(u => this.user = u);
+    this.staff$ = this.loginService.getUserByParentId(this.user.UserId);
   }
 
   ngOnInit() {
+
   }
 
 }

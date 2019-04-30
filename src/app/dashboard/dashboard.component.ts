@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
   isNewUser: boolean = false;
   userId: string;
   currentUser: any;
+  user: any;
   constructor(
     private queeService: QueeService,
     private router: Router,
@@ -36,29 +37,15 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
-    if (this.authicateService.getFullUserDetails()) {
-      this.router.navigate(['/']);
-      return false;
-    }
-    else {
-      this.authicateService.getFullUserDetails().subscribe(r => {
+        this.authicateService.currentUser.subscribe(u => this.user = u);
+      this.authicateService.getFullUserDetails(this.user.UserId).subscribe(r => {
         this.currentUser = r;
         if (Number(this.currentUser.StatusId) == 4) {
           this.isNewUser = true;
         }
       })
-    }
+    
 
-=======
-   this.authicateService.getFullUserDetails().subscribe(r=>{
-     this.currentUser = r;
-      if(Number(this.currentUser.StatusId) == 4){
-        // this.isNewUser=true;
-      }
-    })
-   
->>>>>>> d7634e1ab477d8e0fef88ec67e48ce0dba229aab
   }
   showAddPatientModal() {
     this.showPopup = true;
@@ -134,6 +121,7 @@ export class DashboardComponent implements OnInit {
   }
 
   logout() {
+ 
     this.authicateService.logout();
     this.router.navigate(['/']);
   }
