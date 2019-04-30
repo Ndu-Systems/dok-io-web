@@ -39,14 +39,27 @@ export class LoginService {
         return user;
       }));
 
-}
-public get getUser(){
-  return localStorage.getItem(CURRENT_USER)
-}
-getFullUserDetails(){
-  return this.httpClient.get<any>(`${this.url}/api/account/get-user.php?UserId=${this.getUser}`);
-}
-getUserByParentId(){
-  return this.httpClient.get<any>(`${this.url}/api/account/get-user-by-parent-id.php?UserId=${this.getUser}`);
-}
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
+  logout() {
+ 
+    // remove user from local storage to log user out
+    localStorage.removeItem(CURRENT_USER);
+    this.currentUserSubject.next(null);
+  }
+  public get getUser() {
+    return JSON.parse(localStorage.getItem(CURRENT_USER))
+  }
+  getFullUserDetails(UserId) {    
+ 
+    return this.httpClient.get<any>(`${this.url}/api/account/get-user.php?UserId=${UserId}`);
+  }
+
+  getUserByParentId(UserId){
+    return this.httpClient.get<any>(`${this.url}/api/account/get-user-by-parent-id.php?UserId=${UserId}`);
+  }
 }

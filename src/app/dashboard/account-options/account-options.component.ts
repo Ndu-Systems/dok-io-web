@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ExitModalEventEmmiter } from 'src/app/models/modal.eventemitter.model';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/home/login';
 
 @Component({
   selector: 'app-account-options',
@@ -11,7 +12,8 @@ export class AccountOptionsComponent implements OnInit {
   @Output() closeModalAction: EventEmitter<
   ExitModalEventEmmiter> = new EventEmitter();
   constructor(
-    private router: Router
+    private router: Router,
+    private authicateService: LoginService
   ) { }
 
   ngOnInit() {
@@ -23,8 +25,8 @@ export class AccountOptionsComponent implements OnInit {
     });
   }
 
-  logOff() {
-    localStorage.clear();
-    this.router.navigate(['']);
-  }
+  logout() {
+        this.authicateService.logout();
+       this.router.navigate(['/']);
+     }
 }
