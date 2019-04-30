@@ -20,6 +20,8 @@ import { AccountOptionsComponent } from "./account-options";
 import { NotesComponent } from "./Patient/notes/notes.component";
 import { UpdateMedicalAidComponent } from "./Medical-aid/update-medical-aid/update-medical-aid.component";
 import { UpdateEmergencyContactComponent } from "./Contact-Person/update-emergency-contact/update-emergency-contact.component";
+import { StaffComponent } from './Dok-staff/staff/staff.component';
+import { PracticesComponent } from './practices/practices.component';
 
 const routes: Routes = [
   {
@@ -28,6 +30,8 @@ const routes: Routes = [
     children: [
       { path: "dashboard", component: PatientsComponent },
       { path: "archived", component: ArchivedPatientsComponent },
+      { path: "staff", component: StaffComponent },
+      { path: "practices", component: PracticesComponent },
       { path: "", component: PatientsComponent },
       { path: "patient/:id", component: PatientComponent },
       {
@@ -58,7 +62,9 @@ export const declarations: Array<any> = [
   UpdateMedicalAidComponent,
   UpdateEmergencyContactComponent,
   ConfirmBoxComponent,
-  ArchivedPatientsComponent
+  ArchivedPatientsComponent,
+  StaffComponent,
+  PracticesComponent
 ];
 
 @NgModule({

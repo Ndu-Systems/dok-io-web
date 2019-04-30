@@ -18,6 +18,7 @@ export class SignUpComponent implements OnInit {
   email = "doc@mail.com";
   password = "pass";
   error;
+  passwordMisMatch: string;
 
   constructor(
     private fb: FormBuilder,
@@ -46,9 +47,14 @@ export class SignUpComponent implements OnInit {
   }
 
   SignUp(data) {
+    this.passwordMisMatch = undefined;
     console.log(data);
+    if(data.Password != data.PasswordConfirm){
+      this.passwordMisMatch = "Passwords must match";
+      return false;
+    }
     this.signUpService.signUp(data).subscribe(response => {
-      if (response) {
+      if (response.UserId) {
         localStorage.setItem(CURRENT_USER, response.UserId);
         this.router.navigate(['/dashboard']);
       } else {

@@ -39,6 +39,7 @@ export class LoginService {
         return user;
       }));
 
+<<<<<<< HEAD
   }
 
   public get currentUserValue(): User {
@@ -59,4 +60,16 @@ export class LoginService {
     } 
     return this.httpClient.get<any>(`${this.url}/api/account/get-user.php?UserId=${this.getUser.UserId}`);
   }
+=======
+}
+public get getUser(){
+  return localStorage.getItem(CURRENT_USER)
+}
+getFullUserDetails(){
+  return this.httpClient.get<any>(`${this.url}/api/account/get-user.php?UserId=${this.getUser}`);
+}
+getUserByParentId(){
+  return this.httpClient.get<any>(`${this.url}/api/account/get-user-by-parent-id.php?UserId=${this.getUser}`);
+}
+>>>>>>> d7634e1ab477d8e0fef88ec67e48ce0dba229aab
 }

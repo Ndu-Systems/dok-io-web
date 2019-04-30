@@ -96,6 +96,9 @@
               <label for="">Confirm Password</label> <br />
               <input type="password" class ="input-field" formControlName="PasswordConfirm" />
               <div class="alert" *ngIf="!rForm.controls['PasswordConfirm'].valid">
+                  Password is requried
+              </div>
+              <div class="alert" *ngIf="passwordMisMatch">
                   Password do not match
               </div>
             </div>

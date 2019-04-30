@@ -60,11 +60,19 @@ export class PatientsComponent implements OnInit {
       CreateUserId: this.UserId
     };
     this.queeService.addQuee(data).subscribe(r => {
+    if(!isNaN(r)){
       this.popMessage(
         "success",
         "Added to quee",
         `Your ticket number: ${r}`
       );
+    }else{
+      this.popMessage(
+        "warn",
+        "Sorry...",
+        `${r}`
+      );
+    }
     });
   }
   showEdit(patient: any) {
