@@ -21,78 +21,37 @@
       </div>
   
       <div class="table">
-          <table *ngIf=" patients$ | async as  patients">
+          <table *ngIf=" staff$ | async as  staff">
               <thead class="pc-only">
                 <tr>
                   <td>
                     FULLNAME
                   </td>
-                  <td>
-                    MEDICAL AID
-                  </td>
+                
                   <td>
                     EMAIL
                   </td>
                   <td>
                     CELLPHONE
                   </td>
-                  <!-- <td>
-                    UPCOMING <br> APPOINTMENTS
-                  </td>
-                  <td>
-                    ACTIONS
-                  </td> -->
-      
                 </tr>
               </thead>
       
       
               <tbody>
                 <tr
-                  *ngFor="let data of patients.patients | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                  *ngFor="let data of staff | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
                   <td class="full-name pc-only">
-                    {{data.FirstName}} {{data.Surname}}
+                      {{data.Title}} {{data.FirstName}} {{data.Surname}}
                     <span>{{data.CreateDate}}</span>
                   </td>
-                  <td class="pc-only">
-      
-                    <span *ngIf="data.MedicalaidName">
-                      {{data.MedicalaidName}}
-                    </span>
-                    <span class="warning" *ngIf="!data.MedicalaidName">
-                      No Medical Aid
-                    </span>
-      
-                  </td>
+                
                   <td class="pc-only">
                     {{data.Email}}
                   </td>
                   <td class="pc-only">
-                    {{data.Cellphone}}
+                    {{data.PhoneNumber}}
                   </td>
-                  <!-- <td class="aling-center pc-only">
-                    <span class="number-dadge  number-{{data.NumAppointments}}">
-                      {{data.NumAppointments}}
-                    </span>
-                  </td> -->
-                  <!-- <td class="pc-only">
-                    <div class="btn-group btn-group-4">
-                      <div class="btns">
-                        <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/btn-search.svg"
-                            class="img-btn" alt=""></a>
-                      </div>
-                      <div class="btns">
-                        <img src="assets/images/dashboard/btn-edit.svg" (click)="showEdit(data)" class="img-btn" alt="">
-                      </div>
-                      <div class="btns">
-                        <img src="assets/images/dashboard/btn-delete.svg" (click)="confirmArchive(data)" class="img-btn"
-                          alt="">
-                      </div>
-                      <div class="btns">
-                        <img src="assets/images/dashboard/add-to-q.svg" (click)="quue(data)" class="img-btn" alt="">
-                      </div>
-                    </div>
-                  </td> -->
       
       
                   <td class="mobile-td">

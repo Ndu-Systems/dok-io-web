@@ -29,4 +29,7 @@ public get getUser(){
 getFullUserDetails(){
   return this.httpClient.get<any>(`${this.url}/api/account/get-user.php?UserId=${this.getUser}`);
 }
+getUserByParentId(){
+  return this.httpClient.get<any>(`${this.url}/api/account/get-user-by-parent-id.php?UserId=${this.getUser}`);
+}
 }
