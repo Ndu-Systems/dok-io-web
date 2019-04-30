@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   toggleMobileMenu: boolean;
   isNewUser: boolean = false;
   userId: string;
-  currentUser:any;
+  currentUser: any;
   constructor(
     private queeService: QueeService,
     private router: Router,
@@ -36,13 +36,19 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-   this.authicateService.getFullUserDetails().subscribe(r=>{
-     this.currentUser = r;
-      if(Number(this.currentUser.StatusId) == 4){
-        this.isNewUser=true;
-      }
-    })
-   
+    if (this.authicateService.getFullUserDetails()) {
+      this.router.navigate(['/']);
+      return false;
+    }
+    else {
+      this.authicateService.getFullUserDetails().subscribe(r => {
+        this.currentUser = r;
+        if (Number(this.currentUser.StatusId) == 4) {
+          this.isNewUser = true;
+        }
+      })
+    }
+
   }
   showAddPatientModal() {
     this.showPopup = true;
@@ -94,7 +100,7 @@ export class DashboardComponent implements OnInit {
         audio.src = "../../assets/sounds/beep.wav";
         audio.load();
         audio.play();
-        setTimeout(function() {
+        setTimeout(function () {
           // say it
           var base = `Now calling patient number, ${nextId}`;
           var msg = new SpeechSynthesisUtterance(base);
@@ -115,5 +121,10 @@ export class DashboardComponent implements OnInit {
         });
       }
     });
+  }
+
+  logout() {
+    this.authicateService.logout();
+    this.router.navigate(['/']);
   }
 }
