@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dok-io';
+  showSpinner:boolean=false;
 }

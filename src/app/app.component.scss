@@ -1,0 +1,16 @@
+.spinner-overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    background: #ecf0f1;
+    left: 0;
+
+    .spinner{
+         background: red;
+         width: 20%;
+         margin: 0 auto;
+         text-align: center;
+         margin-top: 20%;       
+    }
+}
