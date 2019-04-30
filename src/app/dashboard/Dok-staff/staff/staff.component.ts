@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class StaffComponent implements OnInit {
   staff$:Observable<any>
   constructor(private loginService:LoginService) { 
-    this.staff$ = this.loginService.getUserByParentId();
+    this.staff$ = this.loginService.getUserByParentId()
   }
 
   ngOnInit() {
