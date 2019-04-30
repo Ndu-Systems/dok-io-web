@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
    this.authicateService.getFullUserDetails().subscribe(r=>{
      this.currentUser = r;
       if(Number(this.currentUser.StatusId) == 4){
-        this.isNewUser=true;
+        // this.isNewUser=true;
       }
     })
    
