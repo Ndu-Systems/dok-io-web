@@ -68,7 +68,6 @@
                 (completeMethod)="search($event)"></p-autoComplete>
 
             </div>
-
             <div class="controls">
               <label for="">Unit</label> <br />
               <input type="text" class="input-field" formControlName="unit" />
@@ -78,8 +77,8 @@
               <label for="">Dosage</label> <br />
               <input type="text" class="input-field" formControlName="dosage" />
             </div>
-            <div class="controls btn-remove">
-                <img src="assets/images/dashboard/btn-remove-drug.svg" (click)="deleteDrug(i)" class="img-btn btn-remove" alt="">
+            <div class="controls btn-remove">                
+                <button class="btn warning" type="button" (click)="deleteDrug(i)"  ><i class="fas fa-trash"></i> remove</button> 
             </div>
           </div>
         </div>
