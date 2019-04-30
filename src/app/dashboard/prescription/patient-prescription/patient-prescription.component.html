@@ -24,7 +24,7 @@
         <h1>
           Prescriptions
         </h1>       
-        <button class="btn primary-add"  (click)="openModal()" ><i class="fas fa-plus"></i> prescription</button>         
+        <button class="btn primary-add" type="button" (click)="openModal()" ><i class="fas fa-plus"></i> prescription</button>         
       </div>
       <!-- <div *ngIf="prescriptions$ | async as  prescriptions"> -->
       <div class="table" *ngIf="prescriptions; else noprescriptions">
