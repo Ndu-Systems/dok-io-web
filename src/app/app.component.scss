@@ -5,12 +5,16 @@
     top:0;
     background: #ecf0f1;
     left: 0;
+    z-index: 100;
 
     .spinner{
-         background: red;
          width: 20%;
          margin: 0 auto;
          text-align: center;
-         margin-top: 20%;       
+         margin-top: 20%;   
+         
+         h1{
+             font-weight: 100;
+         }
     }
 }
