@@ -1,3 +1,4 @@
+import { AddStaffComponent } from './Dok-staff/add-staff/add-staff.component';
 import { ArchivedPatientsComponent } from './Patient/archived-patients/archived-patients.component';
 import { ConfirmBoxComponent } from './Patient/confirm-box/confirm-box.component';
 import { UpdatePatientComponent } from "./Patient/update-patient/update-patient.component";
@@ -64,6 +65,7 @@ export const declarations: Array<any> = [
   ConfirmBoxComponent,
   ArchivedPatientsComponent,
   StaffComponent,
+  AddStaffComponent,
   PracticesComponent
 ];
 
