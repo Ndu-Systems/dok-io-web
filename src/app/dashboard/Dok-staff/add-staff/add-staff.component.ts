@@ -55,9 +55,7 @@ export class AddStaffComponent implements OnInit {
 
     this.signUpService.addStaff(data).subscribe(response => {
       if (response.UserId) {
-        alert(JSON.stringify(response))
-        // localStorage.setItem(CURRENT_USER, response.UserId);
-        // this.router.navigate(['/dashboard']);
+        this.closeModalAction.emit(false);
       } else {
         alert(`Error: ${response}`);
       }

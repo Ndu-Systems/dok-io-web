@@ -24,5 +24,6 @@ export class StaffComponent implements OnInit {
   }
   closeModal(e: boolean) {
     this.showAddStaff = e;
+    this.staff$ = this.loginService.getUserByParentId(this.user.UserId);
   }
 }
