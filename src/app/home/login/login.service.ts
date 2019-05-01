@@ -29,7 +29,7 @@ export class LoginService {
     };
 
     const reqheaders = new HttpHeaders({ 'Content-Type': 'application/json' });
-    debugger
+ 
     return this.httpClient.post<any>(this.url + '/api/login/login-user.php', JSON.stringify(data), { headers: reqheaders })
       .pipe(map(user => {
         if (user && user.Role) {
