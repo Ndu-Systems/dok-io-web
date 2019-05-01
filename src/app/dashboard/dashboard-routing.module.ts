@@ -1,3 +1,5 @@
+import { AddPracticeComponent } from './Dok-practices/add-practice/add-practice.component';
+import { AddStaffComponent } from './Dok-staff/add-staff/add-staff.component';
 import { ArchivedPatientsComponent } from './Patient/archived-patients/archived-patients.component';
 import { ConfirmBoxComponent } from './Patient/confirm-box/confirm-box.component';
 import { UpdatePatientComponent } from "./Patient/update-patient/update-patient.component";
@@ -21,7 +23,7 @@ import { NotesComponent } from "./Patient/notes/notes.component";
 import { UpdateMedicalAidComponent } from "./Medical-aid/update-medical-aid/update-medical-aid.component";
 import { UpdateEmergencyContactComponent } from "./Contact-Person/update-emergency-contact/update-emergency-contact.component";
 import { StaffComponent } from './Dok-staff/staff/staff.component';
-import { PracticesComponent } from './practices/practices.component';
+import { PracticesComponent } from './Dok-practices/practices/practices.component';
 
 const routes: Routes = [
   {
@@ -64,7 +66,9 @@ export const declarations: Array<any> = [
   ConfirmBoxComponent,
   ArchivedPatientsComponent,
   StaffComponent,
-  PracticesComponent
+  AddStaffComponent,
+  PracticesComponent,
+  AddPracticeComponent
 ];
 
 @NgModule({

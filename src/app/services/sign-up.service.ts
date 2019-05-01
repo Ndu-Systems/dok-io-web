@@ -11,4 +11,7 @@ export class SignUpService {
   signUp(data): Observable<any> {
     return this.http.post<any>(`${API_URL}/api/account/sign-up.php`, data);
   }
+  addStaff(data): Observable<any> {
+    return this.http.post<any>(`${API_URL}/api/account/add-user.php`, data);
+  }
 }

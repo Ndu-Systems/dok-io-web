@@ -19,7 +19,10 @@
           </select>
         </div>
       </div>
-  
+      <div class="add">
+          <button class="btn primary-add"  (click)="showModal()" ><i class="fas fa-plus"></i> Staff</button>   
+
+      </div>
       <div class="table">
           <table *ngIf=" staff$ | async as  staff">
               <thead class="pc-only">
@@ -113,15 +116,6 @@
     </section>
   
   </section>
-  
-  <div class="overlay" *ngIf="showUpdatePopup">
-    <app-update-patient [patient]="patient" *ngIf="openUpdatePatient" (closeModalAction)="closeModal($event)"></app-update-patient>
-    <app-update-medical-aid *ngIf="openUpdateMedicalAid" (closeModalAction)="closeModal($event)"></app-update-medical-aid>
-    <app-update-emergency-contact *ngIf="openUpdateEmengencyContact" (closeModalAction)="closeModal($event)"></app-update-emergency-contact>
-  </div>
-  <div class="overlay" *ngIf="showConfirm">
-   <app-confirm-box [actionString]="actionString"  (closeModalAction)="closeModal($event)"></app-confirm-box>
-  </div>
-  
-  
-  
+  <div class="overlay" *ngIf="showAddStaff">
+      <app-add-staff  (closeModalAction)="closeModal($event)"></app-add-staff>
+    </div>
