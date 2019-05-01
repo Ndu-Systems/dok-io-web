@@ -20,138 +20,62 @@
         </select>
       </div>
     </div>
-
-    <div class="table">
-      <table *ngIf=" patients$ | async as  patients">
-        <thead class="pc-only">
-          <tr>
-            <td>
-              FULLNAME
-            </td>
-            <td>
-              MEDICAL AID
-            </td>
-            <td>
-              EMAIL
-            </td>
-            <td>
-              CELLPHONE
-            </td>
-            <td>
-              UPCOMING <br> APPOINTMENTS
-            </td>
-            <td>
-              ACTIONS
-            </td>
-
-          </tr>
-        </thead>
-
-
-        <tbody>
-          <tr
-            *ngFor="let data of patients.patients | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
-            <td class="full-name pc-only">
-              {{data.FirstName}} {{data.Surname}}
-              <span>{{data.CreateDate}}</span>
-            </td>
-            <td class="pc-only">
-
-              <span *ngIf="data.MedicalaidName">
-                {{data.MedicalaidName}}
-              </span>
-              <span class="warning" *ngIf="!data.MedicalaidName">
-                No Medical Aid
-              </span>
-
-            </td>
-            <td class="pc-only">
-              {{data.Email}}
-            </td>
-            <td class="pc-only">
-              {{data.Cellphone}}
-            </td>
-            <td class="aling-center pc-only">
-              <span class="number-dadge  number-{{data.NumAppointments}}">
-                {{data.NumAppointments}}
-              </span>
-            </td>
-            <td class="pc-only">
-              <div class="btn-group btn-group-4">
-                <div class="btns">
-                  <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/btn-search.svg"
-                      class="img-btn" alt=""></a>
-                </div>
-                <div class="btns">
-                  <img src="assets/images/dashboard/btn-edit.svg" (click)="showEdit(data)" class="img-btn" alt="">
-                </div>
-                <div class="btns">
-                  <img src="assets/images/dashboard/btn-delete.svg" (click)="confirmArchive(data)" class="img-btn"
-                    alt="">
-                </div>
-                <div class="btns">
-                  <img src="assets/images/dashboard/add-to-q.svg" (click)="quue(data)" class="img-btn" alt="">
-                </div>
-              </div>
-            </td>
-
-
-            <td class="mobile-td">
-              <div class="popup-mobile-options" *ngIf="data.showMobilePatientOptions">
-
-              <div class="btns">
-                <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/mobile-btn-view.svg" alt=""></a>
-                <img src="assets/images/dashboard/mobile-btn-edit.svg"  (click)="showEdit(data)" alt="">
-                <img src="assets/images/dashboard/mobile-btn-del.svg"  (click)="confirmArchive(data)" alt="">
-                <img src="assets/images/dashboard/mobile-btn-exit-options.svg"  (click)="toggleShowMobilePatientOptions(data, false)" alt="">
-              </div>
-              </div>
-              <div class="mobile-tdata">
-                <div>
-                  <div class="patient-mobile-view-top">
-                    <div>
-                      {{data.FirstName}} {{data.Surname}}
+    <div class="table-container">
+      <div class="wrap">
+        <div class="table-wrapper">
+          <table class="table-responsive card-list-table" *ngIf=" patients$ | async as  patients">
+            <thead>
+              <tr>
+                <th>full name</th>
+                <th>medical aid</th>
+                <th>email</th>
+                <th>cellphone</th>
+                <th>upcoming appointments</th>
+                <th>actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let data of patients.patients | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td data-title="full name" class="full-name">
+                  {{data.FirstName}} {{data.Surname}}
+                  <span>{{data.CreateDate}}</span></td>
+                <td data-title="medical aid">
+                  <span *ngIf="data.MedicalaidName">
+                    {{data.MedicalaidName}}
+                  </span>
+                  <span class="warning" *ngIf="!data.MedicalaidName">
+                    No Medical Aid
+                  </span></td>
+                <td data-title="email"> {{data.Email}}</td>
+                <td data-title="cellphone"> {{data.Cellphone}}</td>
+                <td data-title="appointments">
+                  <span class="number-dadge  number-{{data.NumAppointments}}">
+                    {{data.NumAppointments}}
+                  </span></td>
+                <td data-title="actions">
+                  <div class="btn-group btn-group-4">
+                    <div class="btns">
+                      <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/btn-search.svg"
+                          class="img-btn" alt=""></a>
                     </div>
-                    <div>
-                      {{data.Cellphone}}
+                    <div class="btns">
+                      <img src="assets/images/dashboard/btn-edit.svg" (click)="showEdit(data)" class="img-btn" alt="">
                     </div>
-                    <div>
-                      {{data.Email}}
+                    <div class="btns">
+                      <img src="assets/images/dashboard/btn-delete.svg" (click)="confirmArchive(data)" class="img-btn"
+                        alt="">
+                    </div>
+                    <div class="btns">
+                      <img src="assets/images/dashboard/add-to-q.svg" (click)="quue(data)" class="img-btn" alt="">
                     </div>
                   </div>
-                  <div class="patient-mobile-view-bottom">
-                    <div>
-                      {{data.CreateDate}}
-                    </div>
-                    <div>
-
-                      <span *ngIf="data.MedicalaidName">
-                        {{data.MedicalaidName}}
-                      </span>
-                      <span class="warning" *ngIf="!data.MedicalaidName">
-                        No Medical Aid
-                      </span>
-                    </div>
-                    <div>
-                      {{data.NumAppointments}}
-                    </div>
-                  </div>
-                </div>
-                <div class="item-menu">
-                  <img src="assets/images/dashboard/btn-menu.svg"  (click)="toggleShowMobilePatientOptions(data, true)" alt="">
-
-                </div>
-              </div>
-
-            </td>
-
-          </tr>
-
-      </table>
-      <div class="paging">
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
     </div>
   </section>
 
