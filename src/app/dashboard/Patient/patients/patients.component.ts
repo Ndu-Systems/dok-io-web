@@ -148,4 +148,8 @@ export class PatientsComponent implements OnInit {
     this.prevCustomer = data;
     this.patient = data;
   }
+
+  viewPatient(){
+   alert("news read")
+  }
 }

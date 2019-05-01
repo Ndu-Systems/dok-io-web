@@ -23,58 +23,54 @@
       <div class="table-header col-1-of-2">
         <h1>
           Prescriptions
-        </h1>       
-        <button class="btn primary-add" type="button" (click)="openModal()" ><i class="fas fa-plus"></i> prescription</button>         
+        </h1>
+        <button class="btn primary-add" type="button" (click)="openModal()"><i class="fas fa-plus"></i>
+          prescription</button>
       </div>
       <!-- <div *ngIf="prescriptions$ | async as  prescriptions"> -->
-      <div class="table" *ngIf="prescriptions; else noprescriptions">
-        <table>
-          <thead>
-            <tr>
-              <td>
-                SYSMPTOMS
-              </td>
-              <td>
-                DIAGNOSIS
-              </td>
-              <td>
-                PRESCRIPTION GIVEN
-              </td>
-              <td>
-                ACTIONS
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let data of prescriptions.PatientPrescriptions | paginate: { itemsPerPage: 5, currentPage: p }">
-              <td class="full-name">
-                {{data.symptoms}}
-              </td>
-              <td>
-                {{data.diagnosis}}
-              </td>
-              <td>
-                Yes
-              </td>
-              <td>
-                <div class="btn-group">
-                  <div class="btns">
-                    <a (click)="viewPrescription(data)"><img src="assets/images/dashboard/btn-search.svg" class="img-btn"
-                        alt=""></a>
-                  </div>
-                  <div class="btns">
-                    <img src="assets/images/dashboard/btn-edit.svg" class="img-btn" alt="">
-                  </div>
-                  <div class="btns">
-                    <img src="assets/images/dashboard/btn-delete.svg" class="img-btn" alt="">
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="paging">
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <div class="table-container" *ngIf="prescriptions; else noprescriptions">
+        <div class="wrap">
+          <div class="table-wrapper">
+            <table class="table-responsive card-list-table">
+              <thead>
+                <tr>
+                  <th>symptoms</th>
+                  <th>diagnosis</th>
+                  <th>prescription given</th>
+                  <th>actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let data of prescriptions.PatientPrescriptions | paginate: { itemsPerPage: 5, currentPage: p }">
+                  <td data-title="symptoms" class="full-name">
+                    {{data.symptoms}}
+                  </td>
+                  <td data-title="diagnosis">
+                    {{data.diagnosis}}
+                  </td>
+                  <td data-title="prescription"> Yes</td>
+                  <td data-title="actions">
+                    <div class="btn-group">
+                      <div class="btns">
+                        <a (click)="viewPrescription(data)"><img src="assets/images/dashboard/btn-search.svg"
+                            class="img-btn" alt=""></a>
+                      </div>
+                      <div class="btns">
+                        <img src="assets/images/dashboard/btn-edit.svg" class="img-btn" alt="">
+                      </div>
+                      <div class="btns">
+                        <img src="assets/images/dashboard/btn-delete.svg" class="img-btn" alt="">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="paging">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
         </div>
       </div>
       <ng-template #noprescriptions>
