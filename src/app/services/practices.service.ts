@@ -16,7 +16,7 @@ export class PracticesService {
   }
 
   getPractices(userId): Observable<any> {
-    return this.http.get<any>(`${API_URL}/api/practice/get-practices.php?userId=${userId}`);
+    return this.http.get<any>(`${API_URL}/api/practice/get-practice.php?UserId=${userId}`);
   }
 
 }
