@@ -23,96 +23,36 @@
           <button class="btn primary-add"  (click)="showModal()" ><i class="fas fa-plus"></i> Staff</button>   
 
       </div>
-      <div class="table">
-          <table *ngIf=" staff$ | async as  staff">
-              <thead class="pc-only">
-                <tr>
-                  <td>
-                    FULLNAME
-                  </td>
-                
-                  <td>
-                    EMAIL
-                  </td>
-                  <td>
-                    CELLPHONE
-                  </td>
-                </tr>
-              </thead>
-      
-      
-              <tbody>
-                <tr
-                  *ngFor="let data of staff | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
-                  <td class="full-name pc-only">
-                      {{data.Title}} {{data.FirstName}} {{data.Surname}}
-                    <span>{{data.CreateDate}}</span>
-                  </td>
-                
-                  <td class="pc-only">
-                    {{data.Email}}
-                  </td>
-                  <td class="pc-only">
-                    {{data.PhoneNumber}}
-                  </td>
-      
-      
-                  <td class="mobile-td">
-                    <div class="popup-mobile-options" *ngIf="data.showMobilePatientOptions">
-      
-                    <div class="btns">
-                      <a [routerLink]="['patient',data.PatientId]"><img src="assets/images/dashboard/mobile-btn-view.svg" alt=""></a>
-                      <img src="assets/images/dashboard/mobile-btn-edit.svg"  (click)="showEdit(data)" alt="">
-                      <img src="assets/images/dashboard/mobile-btn-del.svg"  (click)="confirmArchive(data)" alt="">
-                      <img src="assets/images/dashboard/mobile-btn-exit-options.svg"  (click)="toggleShowMobilePatientOptions(data, false)" alt="">
-                    </div>
-                    </div>
-                    <div class="mobile-tdata">
-                      <div>
-                        <div class="patient-mobile-view-top">
-                          <div>
-                            {{data.FirstName}} {{data.Surname}}
-                          </div>
-                          <div>
-                            {{data.Cellphone}}
-                          </div>
-                          <div>
-                            {{data.Email}}
-                          </div>
-                        </div>
-                        <div class="patient-mobile-view-bottom">
-                          <div>
-                            {{data.CreateDate}}
-                          </div>
-                          <div>
-      
-                            <span *ngIf="data.MedicalaidName">
-                              {{data.MedicalaidName}}
-                            </span>
-                            <span class="warning" *ngIf="!data.MedicalaidName">
-                              No Medical Aid
-                            </span>
-                          </div>
-                          <div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-menu">
-                        <!-- <img src="assets/images/dashboard/btn-menu.svg"  (click)="toggleShowMobilePatientOptions(data, true)" alt=""> -->
-      
-                      </div>
-                    </div>
-      
-                  </td>
-      
-                </tr>
-      
-            </table>
-        <div class="paging">
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <div class="table-container">
+          <div class="wrap">
+            <div class="table-wrapper">
+              <table class="table-responsive card-list-table"  *ngIf=" staff$ | async as  staff">
+                <thead>
+                  <tr>
+                    <th>full name</th>                 
+                    <th>email</th>
+                    <th>cellphone</th>               
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    *ngFor="let data of staff | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                    <td data-title="full name" class="full-name">
+                        {{data.Title}} {{data.FirstName}} {{data.Surname}}
+                      <span>{{data.CreateDate}}</span></td>
+                   
+                    <td data-title="email"> {{data.Email}}</td>
+                    <td data-title="cellphone">   {{data.PhoneNumber}}</td>                   
+                     
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="paging">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+          </div>
         </div>
-  
-      </div>
     </section>
   
   </section>

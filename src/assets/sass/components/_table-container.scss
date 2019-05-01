@@ -80,6 +80,10 @@ $faded-yellow: lighten(#f1c40f, 40%);
               }
             }
 
+            &.note-box{
+                width: 50%;
+            }
+
             .btn-group {
               display: grid;
               grid-template-columns: 30% 30% 30%;
@@ -185,6 +189,10 @@ $faded-yellow: lighten(#f1c40f, 40%);
             &:nth-child(5) {
                 text-align: left;
               }
+
+              &.note-box{
+                width: 100%;
+            }
           }
 
           thead th {
