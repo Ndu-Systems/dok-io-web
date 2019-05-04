@@ -18,8 +18,8 @@ export class PatientService {
     this.notes.next(id);
   }
 
-  getPatients(): Observable<any> {
-    return this.http.get<any>(`${API_URL}/api/patient/get-active-patients.php`);
+  getPatients(id: string): Observable<any> {
+    return this.http.get<any>(`${API_URL}/api/patient/get-active-patients.php?docId=${id}`);
   }
   getArchived(): Observable<any> {
     return this.http.get<any>(`${API_URL}/api/patient/get-archived-patients.php`);
