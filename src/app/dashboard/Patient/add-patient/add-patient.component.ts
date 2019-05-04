@@ -3,6 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"; //l-f
 import { PatientService } from "src/app/services";
 import { LAST_INSERT_ID, getCurrentUser } from "src/app/shared";
+import { LoginService } from "../../../home/login/login.service";
 
 @Component({
   selector: "app-add-patient",
@@ -13,7 +14,7 @@ export class AddPatientComponent implements OnInit {
   @Output() closeModalAction: EventEmitter<
     CloseModalEventEmmiter
   > = new EventEmitter();
-
+  user;
   provinces: Array<string> = [
     "Eastern Cape",
     "Free State",
@@ -56,7 +57,8 @@ Form ends here
   Age: number;
   UserId: string = getCurrentUser();
 
-  constructor(private fb: FormBuilder, private patientService: PatientService) {
+  constructor(private fb: FormBuilder, private patientService: PatientService, private authenticationService: LoginService) {
+    this.authenticationService.currentUser.subscribe(u => this.user = u);
     this.rForm = fb.group({
       Title: [null, Validators.required],
       FirstName: [null, Validators.required],
@@ -69,9 +71,10 @@ Form ends here
       AddressLine1: [null],
       City: [null],
       PostCode: [null],
-      CreateUserId: [this.UserId],
+      CreateUserId: [this.user.UserId],
       StatusId: [1],
-      Province: [null]
+      Province: [null],
+      PracticeId: ['3766d2b9-6dd1-11e9-9e80-f48e38e878a3'] // TODO Select from Practice field?
     });
 
     this.rForm.valueChanges.subscribe(data => {
@@ -80,7 +83,7 @@ Form ends here
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   closeModal() {
     this.closeModalAction.emit({
       closeAll: true,
@@ -91,6 +94,7 @@ Form ends here
   }
   register(data) {
     this.patientService.addPatient(data).subscribe(response => {
+      debugger
       if (response.PatientId) {
         localStorage.setItem(LAST_INSERT_ID, response.PatientId);
         this.closeModalAction.emit({
