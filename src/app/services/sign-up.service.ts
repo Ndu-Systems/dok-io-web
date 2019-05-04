@@ -14,4 +14,5 @@ export class SignUpService {
   addStaff(data): Observable<any> {
     return this.http.post<any>(`${API_URL}/api/account/add-user.php`, data);
   }
+
 }

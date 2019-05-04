@@ -13,6 +13,10 @@ export class PracticesComponent implements OnInit {
   practices$:Observable<any>;
   user:any;
   showAddPractice: boolean;
+  searchText: any;
+  p:any;
+  
+
   constructor(private authiticateService:LoginService,private practicesService:PracticesService) { 
     this.authiticateService.currentUser.subscribe(u => this.user = u);
     this.practices$ = this.practicesService.getPractices(this.user.UserId);

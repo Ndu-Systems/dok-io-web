@@ -46,12 +46,18 @@
     <div class="mobile-menu-items" *ngIf="toggleMobileMenu">
       <div class="close-btn">
 
-        <img src="../../assets/images/dashboard/btn-back.svg" (click)="toggleNavMobile()" alt="">
+        <img src="assets/images/dashboard/btn-back.svg" (click)="toggleNavMobile()" alt="">
       </div>
       <ul>
         <li><a routerLink="/dashboard" (click)="toggleNavMobile()">PATIENTS</a></li>
+        <li>
+          <a routerLink="/dashboard/staff"  (click)="toggleNavMobile()">STAFF</a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/practices"  (click)="toggleNavMobile()">PRACTICES</a>
+        </li>
         <li><a routerLink="/">
-            <img src="../../assets/images/dashboard/btn-logout.svg" class="log-out-btn" alt="">
+            <img src="assets/images/dashboard/btn-logout.svg" class="log-out-btn" alt="">
           </a></li>
         <!-- <li><a routerLink="/">Log out</a></li> -->
 
@@ -72,7 +78,7 @@
     </section>
     <section class="section-feed">
       <div class="add-patient">
-        <button class="btn primary-add img-btn" (click)="showAddPatientModal()"><i class="fas fa-plus"></i> 
+        <button class="btn primary-add img-btn" (click)="showAddPatientModal()"><i class="fas fa-plus"></i>
           patient</button>
       </div>
       <!-- <div class="feed">
@@ -95,8 +101,9 @@
 
       </div>
       <div class="feed">
-        
-        <button class="btn success"  (click)="nextQuee()" type="button"><i class="fas fa-redo-alt"></i> next patient</button>
+
+        <button class="btn success" (click)="nextQuee()" type="button"><i class="fas fa-redo-alt"></i> next
+          patient</button>
       </div>
     </section>
 
@@ -129,9 +136,9 @@
       Your account is being verified by our team we are hoping to get you up and running in no time.
     </p>
     <img src="assets/images/dashboard/welocme-svg.svg" alt="">
-    <div class="action">      
-        <button class="btn warning" (click)="logout()"><i class="fa fa-trash"></i> log out</button>
-      
+    <div class="action">
+      <button class="btn warning" (click)="logout()"><i class="fa fa-trash"></i> log out</button>
+
     </div>
   </div>
 </div>

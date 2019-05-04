@@ -17,6 +17,7 @@ export class AddPracticeComponent implements OnInit {
 
   prescriptionGiven: string;
   UserId: string ='';
+  error: string ='';
 
   constructor(
     private fb: FormBuilder,

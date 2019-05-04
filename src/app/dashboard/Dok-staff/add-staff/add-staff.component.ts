@@ -17,7 +17,7 @@ export class AddStaffComponent implements OnInit {
   @Input() Name;
   rForm: FormGroup;
 
-  Notes: string;
+  error: string;
   prescriptionGiven: string;
   UserId: string = getCurrentUser();
   password: string = "Password01";

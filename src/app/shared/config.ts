@@ -10,7 +10,13 @@ export const   API_URL = api;
 export const WEB_HOST = web;
 export const LAST_INSERT_ID = "LAST_INSERT_ID";
 export const CURRENT_USER = "CURRENT_USER";
+export const STATUS_USER_NEW = 4;
+export const STATUS_USER_TRIAL = 3;
 export const SELECT_PATIENT = "SELECT_PATIENT";
+export const VERIFICATIONLINK = "has70554f35uyt6767-user87542447";
+
+export const SEND_ACC_VERIFICATION_EMAIL= 'http://dok.ndu-systems.net/api/email/email-acc-verify.php';
+
 export function getCurrentUser(){
     return localStorage.getItem(CURRENT_USER);
 }

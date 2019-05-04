@@ -1,9 +1,11 @@
+import { WEB_HOST, VERIFICATIONLINK } from './../../shared/config';
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ExitModalEventEmmiter } from "src/app/models";
 import { Router } from "@angular/router";
 import { CURRENT_USER } from "src/app/shared";
 import { SignUpService } from "src/app/services/sign-up.service";
+import { EmailService } from "src/app/services/email.service";
 
 @Component({
   selector: "app-sign-up",
@@ -23,6 +25,7 @@ export class SignUpComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private signUpService: SignUpService,
+    private emailService: EmailService,
     private router: Router
   ) {
     this.rForm = fb.group({
@@ -55,11 +58,9 @@ export class SignUpComponent implements OnInit {
     }
     this.signUpService.signUp(data).subscribe(response => {
       if (response.UserId) {
-        localStorage.setItem(CURRENT_USER, response.UserId);
-        this.router.navigate(['/dashboard']);
-      } else {
-        alert(`Error: ${response}`);
-      }
+        let link = `${WEB_HOST}/#/${VERIFICATIONLINK}/${response.UserId}`;
+        this.verifyAcc(response.FirstName,response.Email, link);
+      } 
     });
   }
 
@@ -67,5 +68,13 @@ export class SignUpComponent implements OnInit {
     this.closeModalAction.emit({
       close: true
     });
+  }
+  verifyAcc(name, email, link ){
+    let data = {
+      name:name, email:email, link:link
+    }
+    this.emailService.sendVerifyAcc(data).subscribe(r=>{
+      alert(JSON.stringify(r))
+    })
   }
 }
