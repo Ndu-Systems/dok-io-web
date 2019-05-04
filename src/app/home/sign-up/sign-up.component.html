@@ -122,14 +122,10 @@
 
 
 
-<!-- /*
-FirstName: [null,Validators.required],
-      Surname: [null,Validators.required],
-      Title: [null,Validators.required],
-      Gender: [null,Validators.required],
-      PhoneNumber: [null,Validators.required],
-      IdNumber: [null,Validators.required],
-      CreateUserId: [null,Validators.required],
-      Email: [null,Validators.email],
-      StatusId: [null,Validators.email],
-    */ -->
+<div class="mail-sent" *ngIf="showVerificationEmailSent">
+  <h1 class="msg">
+    {{progress}}
+</h1>
+<!-- <a  class="P" routerLink="/"><button>Go back Home</button></a> -->
+<button class="btn primary-add" (click)="mailSent(false)" ><i class="fas fa-home"></i> Go back home</button> 
+</div>

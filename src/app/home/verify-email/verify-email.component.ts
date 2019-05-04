@@ -14,6 +14,8 @@ import { UserService } from "src/app/services/user.service";
 export class VerifyEmailComponent implements OnInit {
   userId: string;
   currentUser: User;
+  progress:string = 'Verifying your account....'
+  Error: string;
   constructor(
     private activatedRoute: ActivatedRoute,
     private authicateService: LoginService,
@@ -49,6 +51,9 @@ export class VerifyEmailComponent implements OnInit {
               alert("Error");
             }
           });
+      }else{
+        this.Error ="This activation link  have already been used";
+        this.progress ="";
       }
     });
   }

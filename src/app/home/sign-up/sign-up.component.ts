@@ -21,6 +21,8 @@ export class SignUpComponent implements OnInit {
   password = "pass";
   error;
   passwordMisMatch: string;
+  showVerificationEmailSent: boolean;
+  progress: string = 'Email sent';
 
   constructor(
     private fb: FormBuilder,
@@ -48,6 +50,9 @@ export class SignUpComponent implements OnInit {
   get formValues() {
     return this.rForm.controls;
   }
+  mailSent(v){
+this.showVerificationEmailSent = v;
+  }
 
   SignUp(data) {
     this.passwordMisMatch = undefined;
@@ -74,7 +79,9 @@ export class SignUpComponent implements OnInit {
       name:name, email:email, link:link
     }
     this.emailService.sendVerifyAcc(data).subscribe(r=>{
-      alert(JSON.stringify(r))
+      // alert(JSON.stringify(r))
+      this.showVerificationEmailSent = true;
+      this.progress = `To ensure that your email account is valid, we have sent you an email to  ${email} to  verify your account,  please check your mailbox`
     })
   }
 }
