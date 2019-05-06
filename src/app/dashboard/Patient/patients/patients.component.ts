@@ -1,10 +1,11 @@
+import { User } from 'src/app/models';
 import { QueeService } from "./../../../services/quee.service";
 import { Patient } from "./../../../models/patient.model";
 import { Component, OnInit } from "@angular/core";
 import { PatientService } from "src/app/services";
 import { Observable } from "rxjs";
 import { BreadCrumb } from "../../bread-crumb/bread-crumb.model";
-import { getCurrentUser } from "src/app/shared";
+import { getCurrentUser, USER_ROLES_STAFF } from "src/app/shared";
 import { CloseModalEventEmmiter } from "src/app/models/modal.eventemitter.model";
 import { MessageService } from "primeng/api";
 import { LoginService } from "../../../home/login/login.service";
@@ -24,7 +25,7 @@ export class PatientsComponent implements OnInit {
   patients: any[];
   patient: any;
   actionString: string = "John doe Is about to be archived";
-  user;
+  user:User;
   p: number = 1;
   items: Array<BreadCrumb> = [
     {
@@ -44,7 +45,6 @@ export class PatientsComponent implements OnInit {
     }
   ];
 
-
   showConfirm: boolean;
   prevCustomer: any = {};
   constructor(
@@ -52,12 +52,17 @@ export class PatientsComponent implements OnInit {
     private queeService: QueeService,
     private messageService: MessageService,
     private authicateService: LoginService
-
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.authicateService.currentUser.subscribe(u => this.user = u);
-    this.patientService.getPatients(this.user.UserId).subscribe(r => {
+    this.authicateService.currentUser.subscribe(u => (this.user = u));
+    let parentuserid = this.user.UserId;
+    if(this.user.Role == USER_ROLES_STAFF) {
+      parentuserid = this.user.ParentId;
+    }
+    //Check if the user is staff
+    this.authicateService.currentUser.subscribe(u => (this.user = u));
+    this.patientService.getPatients(parentuserid).subscribe(r => {
       this.patients = r;
     });
   }
@@ -70,17 +75,9 @@ export class PatientsComponent implements OnInit {
     };
     this.queeService.addQuee(data).subscribe(r => {
       if (!isNaN(r)) {
-        this.popMessage(
-          "success",
-          "Added to quee",
-          `Your ticket number: ${r}`
-        );
+        this.popMessage("success", "Added to quee", `Your ticket number: ${r}`);
       } else {
-        this.popMessage(
-          "warn",
-          "Sorry...",
-          `${r}`
-        );
+        this.popMessage("warn", "Sorry...", `${r}`);
       }
     });
   }
@@ -127,17 +124,14 @@ export class PatientsComponent implements OnInit {
     this.showConfirm = true;
     this.actionString = `${patient.FirstName} ${
       patient.Surname
-      } Is about to be archived`;
+    } Is about to be archived`;
     this.patient = patient;
     this.patient.showMobilePatientOptions = false;
-
   }
   archive() {
     this.patient.StatusId = 2;
     this.patient.CreateUserId = this.UserId;
     this.patientService.updatePatient(this.patient).subscribe(r => {
-
-
       // this.patients$ = this.patientService.getPatients();
       this.patientService.getPatients(this.UserId).subscribe(r => {
         this.patients = r;
@@ -166,6 +160,6 @@ export class PatientsComponent implements OnInit {
   }
 
   viewPatient() {
-    alert("news read")
+    alert("news read");
   }
 }

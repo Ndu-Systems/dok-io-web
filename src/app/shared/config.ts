@@ -11,8 +11,15 @@ export const   APP_VERSION = '1.0';
 export const WEB_HOST = web;
 export const LAST_INSERT_ID = "LAST_INSERT_ID";
 export const CURRENT_USER = "CURRENT_USER";
+
+//USER STATUS
 export const STATUS_USER_NEW = 4;
 export const STATUS_USER_TRIAL = 3;
+
+//USER ROLES
+export const USER_ROLES_STAFF = 3;
+export const USER_ROLES_DOC = 3;
+
 export const SELECT_PATIENT = "SELECT_PATIENT";
 export const VERIFICATIONLINK = "has70554f35uyt6767-user87542447";
 

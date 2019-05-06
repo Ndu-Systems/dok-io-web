@@ -7,6 +7,8 @@ import {
 } from "../models/modal.eventemitter.model";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
+import { IfStmt } from "@angular/compiler";
+import { USER_ROLES_STAFF, STATUS_USER_NEW } from "../shared";
 
 @Component({
   selector: "app-dashboard",
@@ -37,15 +39,19 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-        this.authicateService.currentUser.subscribe(u => this.user = u);
-      this.authicateService.getFullUserDetails(this.user.UserId).subscribe(r => {
-        this.currentUser = r;
-        if (Number(this.currentUser.StatusId) == 4) {
-          this.isNewUser = true;
-        }
-      })
-    
+    //get userid
+    this.authicateService.currentUser.subscribe(u => (this.user = u));
+     
+    //get user details
+    this.authicateService.getFullUserDetails(this.user.UserId).subscribe(r => {
+      this.currentUser = r;
+      //User not verified
+      if (Number(this.currentUser.StatusId) == STATUS_USER_NEW) {
+        this.isNewUser = true;
+      }
 
+  
+    });
   }
   showAddPatientModal() {
     this.showPopup = true;
@@ -97,7 +103,7 @@ export class DashboardComponent implements OnInit {
         audio.src = "../../assets/sounds/beep.wav";
         audio.load();
         audio.play();
-        setTimeout(function () {
+        setTimeout(function() {
           // say it
           var base = `Now calling patient number, ${nextId}`;
           var msg = new SpeechSynthesisUtterance(base);
@@ -121,8 +127,7 @@ export class DashboardComponent implements OnInit {
   }
 
   logout() {
- 
     this.authicateService.logout();
-    this.router.navigate(['/']);
+    this.router.navigate(["/"]);
   }
 }
