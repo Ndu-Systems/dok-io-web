@@ -7,6 +7,7 @@ if (IS_LOCAL) {
 }
 
 export const   API_URL = api;
+export const   APP_VERSION = '1.0';
 export const WEB_HOST = web;
 export const LAST_INSERT_ID = "LAST_INSERT_ID";
 export const CURRENT_USER = "CURRENT_USER";

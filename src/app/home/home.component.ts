@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExitModalEventEmmiter } from '../models/modal.eventemitter.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {APP_VERSION} from './../shared/config'
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ export class HomeComponent implements OnInit {
   showSignUp: boolean;
   toggleMobileMenu: boolean;
   rForm: FormGroup;
+  version=APP_VERSION;
 
   email = '';
   cellphone = '';
