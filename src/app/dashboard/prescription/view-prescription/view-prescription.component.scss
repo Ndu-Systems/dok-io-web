@@ -22,7 +22,7 @@
       background: #fff;
 
       img {
-        height: 60%;
+        height: 4rem;
       }
     }
 
@@ -115,6 +115,12 @@
   }
 }
 
-.print-btn, img{
-  width: 40%;
+.print-btn{
+  width: 50%;
+}
+
+.pc-only {
+  img {
+    height: 3rem;
+  }
 }

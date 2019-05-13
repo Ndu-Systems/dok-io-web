@@ -101,7 +101,7 @@
     </section>
     <section class="actions print">
       <div class="col-1-of-2">      
-        <div><img class="print-btn" src="assets/images/dashboard/print-prescription-btn.svg" alt="print prescription" (click)="showPrintModal()"></div>
+        <button class="btn success print-btn" type="button"  (click)="showPrintModal()" ><i class="fas fa-print"></i> print prescription</button>   
       </div>
     </section>
     <div class="overlay" *ngIf="showModal">

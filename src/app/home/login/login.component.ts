@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private spinnerService: SpinnerService,
   ) {
-    if (this.loginService.currentUserValue){
+    if (this.loginService.currentUserValue) {
       this.router.navigate(['dashboard']);
     }
   }
@@ -53,18 +53,18 @@ export class LoginComponent implements OnInit {
 
   Login() {
     this.spinnerService.showSpinner();
- 
+    debugger
     this.loginService
       .loginUser(this.formValues.email.value, this.formValues.password.value)
       .pipe(first())
       .subscribe(response => {
-    
-        if (response) {
+        if (response.UserId !== undefined) {
           // this.router.navigate(["/dashboard"]);
           this.router.navigate(["/dashboard"]);
           this.spinnerService.hideSpinner();
         } else {
           this.error = response;
+          this.spinnerService.hideSpinner();         
         }
       });
   }

@@ -25,9 +25,7 @@ export class LoginService {
       email: Email,
       password: Password
     };
-
     const reqheaders = new HttpHeaders({ "Content-Type": "application/json" });
-
     return this.httpClient
       .post<any>(this.url + "/api/login/login-user.php", JSON.stringify(data), {
         headers: reqheaders

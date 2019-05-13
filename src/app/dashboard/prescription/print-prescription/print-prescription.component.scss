@@ -93,12 +93,15 @@
 }
 
 .print{
-    height: 6rem;
-    padding: 2rem;
+  padding: 2rem;    
+}
 
-    img{
-        height: 2rem;
-        cursor: pointer;
-        width: 70%;
+.modal {
+  top: 0%;
+
+  .modal-header {
+    img {
+      width: 5rem;
     }
+  }
 }
