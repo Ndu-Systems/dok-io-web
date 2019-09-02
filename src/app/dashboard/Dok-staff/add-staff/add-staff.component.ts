@@ -1,9 +1,7 @@
-import { SignUpService } from './../../../services/sign-up.service';
-import { LoginService } from "src/app/home/login";
 import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { getCurrentUser } from "src/app/shared";
-import { PatientService } from "src/app/services";
+import { PatientService, LoginService, SignUpService } from "src/app/services";
 import { MessageService } from "primeng/api";
 
 @Component({

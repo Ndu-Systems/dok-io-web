@@ -1,8 +1,7 @@
-import { PracticesService } from './../../../services/practices.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { getCurrentUser } from 'src/app/shared';
-import { LoginService } from 'src/app/home/login';
+import { LoginService, PracticesService } from 'src/app/services';
 
 @Component({
   selector: 'app-add-practice',
@@ -16,17 +15,17 @@ export class AddPracticeComponent implements OnInit {
   rForm: FormGroup;
 
   prescriptionGiven: string;
-  UserId: string ='';
-  error: string ='';
+  UserId = '';
+  error = '';
 
   constructor(
     private fb: FormBuilder,
-    private authitacateService: LoginService,
+    private authenticateService: LoginService,
     private practicesService: PracticesService,
-  ) {}
+  ) { }
 
   ngOnInit() {
-    this.UserId = this.authitacateService.getUser.UserId;
+    this.UserId = this.authenticateService.getUser.UserId;
     this.rForm = this.fb.group({
       Name: [null, Validators.required],
       Address: [null, Validators.required],

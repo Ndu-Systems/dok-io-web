@@ -1,9 +1,8 @@
 import { CloseModalEventEmmiter } from "./../../../models/modal.eventemitter.model";
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"; //l-f
-import { PatientService } from "src/app/services";
+import { PatientService, LoginService } from "src/app/services";
 import { LAST_INSERT_ID, getCurrentUser } from "src/app/shared";
-import { LoginService } from "../../../home/login/login.service";
 
 @Component({
   selector: "app-add-patient",

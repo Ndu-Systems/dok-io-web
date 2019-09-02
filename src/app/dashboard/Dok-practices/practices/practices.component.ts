@@ -1,7 +1,7 @@
 import { PracticesService } from 'src/app/services/practices.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginService } from 'src/app/home/login';
+import { LoginService } from 'src/app/services';
 
 @Component({
   selector: 'app-practices',
@@ -10,14 +10,14 @@ import { LoginService } from 'src/app/home/login';
 })
 export class PracticesComponent implements OnInit {
 
-  practices$:Observable<any>;
-  user:any;
+  practices$: Observable<any>;
+  user: any;
   showAddPractice: boolean;
   searchText: any;
-  p:any;
-  
+  p: any;
 
-  constructor(private authiticateService:LoginService,private practicesService:PracticesService) { 
+
+  constructor(private authiticateService: LoginService, private practicesService: PracticesService) {
     this.authiticateService.currentUser.subscribe(u => this.user = u);
     this.practices$ = this.practicesService.getPractices(this.user.UserId);
 
@@ -26,8 +26,8 @@ export class PracticesComponent implements OnInit {
   ngOnInit() {
 
   }
-  showModal(){
-    this.showAddPractice= true;
+  showModal() {
+    this.showAddPractice = true;
   }
   closeModal(e: boolean) {
     this.showAddPractice = e;

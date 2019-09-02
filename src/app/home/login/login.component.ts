@@ -3,10 +3,10 @@ import { CURRENT_USER } from './../../shared/config';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { LoginService } from './login.service';
-import { Router, ActivatedRoute } from '@angular/router';
+ import { Router, ActivatedRoute } from '@angular/router';
 import { ExitModalEventEmmiter } from 'src/app/models/modal.eventemitter.model';
 import { first } from 'rxjs/operators';
+import { LoginService } from 'src/app/services';
 
 @Component({
   selector: 'app-login',
@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
 
   Login() {
     this.spinnerService.showSpinner();
-    debugger
     this.loginService
       .loginUser(this.formValues.email.value, this.formValues.password.value)
       .pipe(first())
@@ -64,7 +63,7 @@ export class LoginComponent implements OnInit {
           this.spinnerService.hideSpinner();
         } else {
           this.error = response;
-          this.spinnerService.hideSpinner();         
+          this.spinnerService.hideSpinner();
         }
       });
   }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CURRENT_USER } from '.';
-import { LoginService } from '../home/login';
+import { LoginService } from '../services';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
     // return false;
     const currentUser = this.loginService.currentUserValue;
     if (currentUser) {
-     
+
       if (route.data.roles && route.data.roles.indexOf(currentUser.Role) === -1) {
         // role not authorised sor redirect to login page
         this.router.navigate(['/']);

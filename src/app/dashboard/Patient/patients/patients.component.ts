@@ -1,14 +1,12 @@
 import { User } from 'src/app/models';
-import { QueeService } from "./../../../services/quee.service";
-import { Patient } from "./../../../models/patient.model";
+ import { Patient } from "./../../../models/patient.model";
 import { Component, OnInit } from "@angular/core";
-import { PatientService } from "src/app/services";
+import { PatientService, QueeService, LoginService } from "src/app/services";
 import { Observable } from "rxjs";
 import { BreadCrumb } from "../../bread-crumb/bread-crumb.model";
 import { getCurrentUser, USER_ROLES_STAFF } from "src/app/shared";
 import { CloseModalEventEmmiter } from "src/app/models/modal.eventemitter.model";
 import { MessageService } from "primeng/api";
-import { LoginService } from "../../../home/login/login.service";
 
 @Component({
   selector: "app-patients",

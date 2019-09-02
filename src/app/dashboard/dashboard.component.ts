@@ -1,6 +1,4 @@
-import { LoginService } from "./../home/login/login.service";
-import { QueeService } from "./../services/quee.service";
-import { Component, OnInit } from "@angular/core";
+ import { Component, OnInit } from "@angular/core";
 import {
   CloseModalEventEmmiter,
   ExitModalEventEmmiter
@@ -9,6 +7,7 @@ import { Observable } from "rxjs";
 import { Router } from "@angular/router";
 import { IfStmt } from "@angular/compiler";
 import { USER_ROLES_STAFF, STATUS_USER_NEW } from "../shared";
+import { LoginService, QueeService } from "../services";
 
 @Component({
   selector: "app-dashboard",
@@ -40,14 +39,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     //get userid
-    this.authicateService.currentUser.subscribe(u => (this.user = u));     
+    this.authicateService.currentUser.subscribe(u => (this.user = u));
     //get user details
     this.authicateService.getFullUserDetails(this.user.UserId).subscribe(r => {
       this.currentUser = r;
       //User not verified
       if (Number(this.currentUser.StatusId) == STATUS_USER_NEW) {
         this.isNewUser = true;
-      }  
+      }
     });
   }
   showAddPatientModal() {

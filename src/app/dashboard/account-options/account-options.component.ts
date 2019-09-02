@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ExitModalEventEmmiter } from 'src/app/models/modal.eventemitter.model';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/home/login';
+import { LoginService } from 'src/app/services';
 
 @Component({
   selector: 'app-account-options',

@@ -3,7 +3,7 @@
 .home {
   padding: 0;
   height: auto;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 10px 0px rgba(250, 183, 183, 0.15);
   background-image: url("../../assets/images/home/back-ground-header.svg");
   background-repeat: no-repeat;
   background-size: 108%;
@@ -24,7 +24,7 @@
 .navigation {
   padding: 2%;
 
-  
+
   .col-1-of-2 {
     grid-template-columns: 30% auto;
 
@@ -54,7 +54,7 @@
       }
     }
 
-  
+
   }
   @media only screen and (max-width: 600px) {
     display: none;
@@ -122,7 +122,7 @@
         color: white;
         font-weight: 500;
         font-size: 2rem;
-  
+
         img {
           margin-top: -1rem;
           width: 40%;
@@ -130,7 +130,7 @@
       }
     }
 
- 
+
   }
   @media only screen and (max-width: 600px) {
     display: block;

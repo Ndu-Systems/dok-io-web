@@ -1,8 +1,7 @@
-import { CURRENT_USER } from "./../../shared/config";
-import { Injectable } from "@angular/core";
+ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, BehaviorSubject } from "rxjs";
-import { API_URL } from "src/app/shared";
+import { API_URL, CURRENT_USER } from "src/app/shared";
 import { map } from "rxjs/operators";
 import { User } from "src/app/models";
 @Injectable({

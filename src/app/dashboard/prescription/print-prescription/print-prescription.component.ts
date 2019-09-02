@@ -3,7 +3,7 @@ import { ExitModalEventEmmiter } from 'src/app/models/modal.eventemitter.model';
 import { Patient } from 'src/app/models/patient.model';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
-import { LoginService } from 'src/app/home/login';
+import { LoginService } from 'src/app/services';
 
 @Component({
   selector: 'app-print-prescription',

@@ -2,9 +2,9 @@ import { STATUS_USER_NEW } from "./../../shared/config";
 import { User } from "./../../models/user";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { LoginService } from "../login";
-import { first } from "rxjs/operators";
+ import { first } from "rxjs/operators";
 import { UserService } from "src/app/services/user.service";
+import { LoginService } from "src/app/services";
 
 @Component({
   selector: "app-verify-email",

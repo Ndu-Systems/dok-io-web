@@ -1,58 +1,7 @@
-<!-- <div class="popup">
-  <div class="popup__content">
- 
-    <a href="#home" class="btn btn-close">Exit</a>
-      
-    <div class="popup__gradient">
-    </div>
-  </div>
-</div> -->
 
-<section class="modal shadow-black">
-  <section class="modal-header">
-    <div class="col-1-of-2 modal-header-login">
-      <div>
-        <h1>Login</h1>
-      </div>
-      <div>
-        <img src="assets/images/home/login-exit.svg" alt="exit button" class="exit-btn" (click)="closeModal()">
-      </div>
-    </div>
-  </section>
-  <section class="popup-body">
-      <form [formGroup]="rForm"  (ngSubmit)="Login()" action="" class="box form-group" class="dashboard-forms">
-          <div class="controls">
-              <label for="mail">Email:</label>
-              <input type="email"  class ="input-field" id="mail" formControlName="email" >
-              <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
-                Email is requried
-              </div>
-          </div>
-           <div class="controls">
-              <label for="password">Password:</label>
-              <input type="password" class ="input-field"  id="password"   formControlName="password">   
-              <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
-                Passowrd is requried
-              </div>
-          </div>      
-          
-            <div class="controls">
-                <input type="submit" value="Login" class="button" [disabled]="!rForm.valid" />
-              </div>
-            <div class="error">
-              {{error}}
-            </div>
-      </form>
-      <section class="contact-us">
-          <div class="col-1-of-2">
-              <h1>
-                <span class="try-us">
-                    Not yet with the program? no worries try us out.
-                </span>
-              </h1>
-              <img src="assets/images/home/contact-us.svg" alt="contact us">
-            </div>
-      </section>
-     
-  </section>
-</section>
+<div class="accounts">
+  <div class="col-1-of-2">
+      <p>sign-in works</p>
+      <img src="assets/images/home/sign-in-bg.svg" alt="sign-in background" class="side-image">
+   </div>
+</div>

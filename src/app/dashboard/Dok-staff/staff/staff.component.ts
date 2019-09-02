@@ -1,6 +1,6 @@
-import { LoginService } from './../../../home/login/login.service';
-import { Component, OnInit } from '@angular/core';
+ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { LoginService } from 'src/app/services';
 
 @Component({
   selector: 'app-staff',
@@ -14,7 +14,7 @@ export class StaffComponent implements OnInit {
   searchText: any;
   p:any;
 
-  constructor(private loginService:LoginService,) { 
+  constructor(private loginService:LoginService) {
     this.loginService.currentUser.subscribe(u => this.user = u);
     this.staff$ = this.loginService.getUserByParentId(this.user.UserId);
   }

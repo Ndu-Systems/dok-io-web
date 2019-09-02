@@ -6,10 +6,8 @@
         <li><a routerLink="">Home</a></li>
         <!-- <li><a routerLink="">About</a></li>
         <li><a routerLink="">How it works</a></li> -->
-        <li><a routerLink="" (click)="showLoginModal()">Login</a></li>
-        <li><a routerLink="" (click)="showSignUpModal()">Sign Up</a></li>
-        <!-- <li><a class="call-us">084 252 9472</a></li> -->
-      </ul>
+        <li><a routerLink="sign-in">sign in</a></li>
+       </ul>
     </div>
   </section>
   <div class="mobile-nav">
@@ -20,7 +18,7 @@
       <img src="assets/images/home/toggle-menu.svg" (click)="toggleNavMobile()" alt="">
 
     </div>
-    
+
   </div>
   <div class="mobile-menu-items" *ngIf="toggleMobileMenu">
     <div class="close-btn">
@@ -89,7 +87,7 @@
       <img src="assets/images/home/laptop-demo.svg" alt="laptop demo">
     </div>
   </div>
- 
+
 
   <section class="our-offering">
     <div class="col-1-of-2">
@@ -167,7 +165,7 @@
     </div>
     <hr>
     <h1 class="powered-by">
-      <span class="powered">powered by</span> www.ndu-systems.net  
+      <span class="powered">powered by</span> www.ndu-systems.net
     </h1>
     <p>
       v{{version}}
