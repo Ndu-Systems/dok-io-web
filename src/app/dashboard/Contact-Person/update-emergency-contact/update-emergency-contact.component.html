@@ -23,21 +23,21 @@
           <label for="">Name</label> <br />
           <input type="text" class="input-field" formControlName="Name" />
           <div class="alert" *ngIf="!rForm.controls['Name'].valid">
-             Name is requried
+             Name is required
           </div>
         </div>
         <div class="controls">
           <label for="">Relationship</label> <br />
           <input type="text" class="input-field" formControlName="Relationship" />
           <div class="alert" *ngIf="!rForm.controls['Relationship'].valid">
-              Relationship is requried
+              Relationship is required
           </div>
         </div>
         <div class="controls">
           <label for="">Contact no.</label> <br />
           <input type="text" class="input-field" formControlName="CellNumber" />
           <div class="alert" *ngIf="!rForm.controls['CellNumber'].valid">
-              Contact no. is requried
+              Contact no. is required
           </div>
         </div>
         <div class="image-div pc-only">
@@ -47,7 +47,7 @@
       <div class="controls">
         <input type="submit" value="SAVE" class="button" [disabled]="!rForm.valid" />
       </div>
-   
+
     </form>
   </section>
 </section>

@@ -1,6 +1,6 @@
 import { WEB_HOST, VERIFICATIONLINK } from './../../shared/config';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ExitModalEventEmmiter } from 'src/app/models';
 import { Router } from '@angular/router';
  import { SignUpService } from 'src/app/services/sign-up.service';
@@ -38,7 +38,10 @@ export class SignUpComponent implements OnInit {
       IdNumber: [null, Validators.required],
       CreateUserId: ['SYS', Validators.required],
       ModifyUserId: ['SYS', Validators.required],
-      Email: [null, Validators.required],
+      Email:  new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])),
       Password: [null, Validators.required],
       PasswordConfirm: [null, Validators.required],
       StatusId: [4, Validators.required]

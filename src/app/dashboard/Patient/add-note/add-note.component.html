@@ -22,7 +22,7 @@
              <label for="">Note For:</label> <br />
              <input type="text" class ="input-field" disabled="true" formControlName="Name" />
            </div>
-         
+
            <div class="controls">
             <label>Prescription Given:</label><br><br>
            <div class="switch-conatiner">
@@ -36,22 +36,22 @@
            <img src="assets/images/dashboard/note-icon.svg" alt="">
            </div>
          </div>
-   
-   
+
+
          <div class="col-1-of-3 col-1-of-2">
              <div class="controls">
                <label for="">Notes:</label> <br />
                <textarea name=""   class ="input-field textarea" formControlName="Notes" id="" cols="30" rows="10"></textarea>
                <div class="alert" *ngIf="!rForm.controls['Notes'].valid">
-                  Note is requried
+                  Note is required
                </div>
              </div>
            </div>
-   
-   
-     
-          
-         
+
+
+
+
+
            <div class="controls">
              <input type="submit" value="SAVE" class="button" [disabled]="!rForm.valid" />
            </div>
@@ -59,4 +59,3 @@
     </section>
    </section>
  <p-toast></p-toast>
-   

@@ -22,14 +22,14 @@
           <label for="">Symptoms</label> <br />
           <input type="text" class="input-field" formControlName="symptoms" />
           <div class="alert" *ngIf="!rForm.controls['symptoms'].valid && rForm.controls['symptoms'].touched">
-            Symptoms is requried
+            Symptoms is required
           </div>
         </div>
         <div class="controls">
           <label for="">Diagnosis</label> <br />
           <input type="text" class="input-field" formControlName="diagnosis" />
           <div class="alert" *ngIf="!rForm.controls['diagnosis'].valid && rForm.controls['diagnosis'].touched">
-            Diagnosis is requried
+            Diagnosis is required
           </div>
         </div>
         <div class="image-div">
@@ -42,14 +42,14 @@
           <label for="">Blood Preasure</label> <br />
           <input type="text" class="input-field" formControlName="boolPreasure" />
           <div class="alert" *ngIf="!rForm.controls['boolPreasure'].valid && rForm.controls['boolPreasure'].touched">
-            Blood Preasure is requried
+            Blood Preasure is required
           </div>
         </div>
         <div class="controls">
           <label for="">Pulse Rate</label> <br />
           <input type="text" class="input-field" formControlName="pulseRate" />
           <div class="alert" *ngIf="!rForm.controls['pulseRate'].valid && rForm.controls['pulseRate'].touched">
-            Pulse Rate is requried
+            Pulse Rate is required
           </div>
         </div>
 
@@ -58,7 +58,7 @@
       <div formArrayName="drugs" class="drugs">
         <h1>
           Drugs
-        </h1> 
+        </h1>
         <div *ngFor="let drug of formDrugs.controls; let i=index" [formGroupName]="i">
           <div class="col-1-of-3">
             <div class="controls">
@@ -77,14 +77,14 @@
               <label for="">Dosage</label> <br />
               <input type="text" class="input-field" formControlName="dosage" />
             </div>
-            <div class="controls btn-remove">                
-                <button class="btn warning" type="button" (click)="deleteDrug(i)"  ><i class="fas fa-trash"></i> remove</button> 
+            <div class="controls btn-remove">
+                <button class="btn warning" type="button" (click)="deleteDrug(i)"  ><i class="fas fa-trash"></i> remove</button>
             </div>
           </div>
         </div>
-             
-          <button class="btn primary-add" type="button"  (click)="addDrug()" ><i class="fas fa-plus"></i> drug</button>   
-       
+
+          <button class="btn primary-add" type="button"  (click)="addDrug()" ><i class="fas fa-plus"></i> drug</button>
+
 
       </div>
 
