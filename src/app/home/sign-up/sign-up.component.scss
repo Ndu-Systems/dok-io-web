@@ -1,8 +1,10 @@
 .panel {
   padding-top: 123px;
+
   .panel-header {
     margin-bottom: 60px;
   }
+
   .panel-direct {
     padding: 2rem 0;
   }
@@ -17,8 +19,10 @@
     background-position-x: center;
     background-position-y: -20px;
     background-size: contain;
+
     .panel {
       padding: 3rem;
+
       .panel-body {
         .form {
           margin-top: 90px;
@@ -26,4 +30,33 @@
       }
     }
   }
+}
+
+@media only screen and (width: 1024px) {
+  .accounts {
+    background: url('../../../assets/images/home/account-ipad-bg.svg');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: -20px;
+    background-size: contain;
+  }
+}
+
+@media only screen and (width: 768px) {
+  .accounts {
+    background: url('../../../assets/images/home/account-ipad-bg.svg');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: -20px;
+    background-size: contain;
+    .panel {
+      .panel-body {
+        .form {
+          margin-top: 80px;
+
+        }
+      }
+    }
+  }
+
 }
