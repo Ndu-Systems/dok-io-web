@@ -30,15 +30,23 @@
         padding-bottom: 1rem;
       }
 
+      .tip {
+        font-size: 15px;
+        font-weight: 400;
+        display: block;
+        padding-top: 20px;
+      }
+
       a.cta {
         text-transform: capitalize;
         font-weight: 600;
         color: $blue-color;
         cursor: pointer;
+
         &.home {
           margin-top: 1rem;
           display: block;
-          color: $grey-color;
+          color: $ocean-blue-color;
           font-size: 13px;
         }
       }
@@ -97,7 +105,7 @@
       }
 
       // direct
-      .panel-direct  {
+      .panel-direct {
         padding: 5rem 0;
       }
     }
@@ -109,4 +117,51 @@
     margin: 0 5.5rem;
   }
 
+}
+
+
+// mobile IphoneX
+@media only screen and (max-width: 600px) {
+  .accounts {
+
+    background-repeat: no-repeat;
+    .col-1-of-2 {
+      grid-template-columns: 100%;
+    }
+
+    img {
+      display: none;
+    }
+
+    .panel {
+
+      padding: 3rem;
+
+      .panel-body {
+        .panel-header {
+          font-size: 25px;
+          margin-bottom: 58px;
+        }
+
+        .form {
+          width: 100%;
+          padding: 2rem;
+          background-color: $white-color;
+          margin-top: 220px;
+
+          .form-group {
+            &.actions {
+              a.cta {
+                &.forgot-password {
+                   font-size: 15px;
+                   text-align: center;
+                   margin-bottom: 1rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

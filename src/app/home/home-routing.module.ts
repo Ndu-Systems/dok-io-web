@@ -7,12 +7,14 @@ import { VERIFICATIONLINK } from '../shared';
 import { SignUpComponent } from './sign-up';
 import { AboutUsComponent } from './about-us';
 import { HowItWorksComponent } from './how-it-works';
+import { ForgotPasswordComponent } from './forgot-password';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: `${VERIFICATIONLINK}/:id`, component: VerifyEmailComponent },
   { path: 'sign-in', component: LoginComponent },
-  { path: 'sign-up', component: SignUpComponent }
+  { path: 'sign-up', component: SignUpComponent },
+  {path: 'forgot-password', component: ForgotPasswordComponent}
 ];
 export const declarations: Array<any> = [
   HomeComponent,
@@ -20,7 +22,8 @@ export const declarations: Array<any> = [
   SignUpComponent,
   VerifyEmailComponent,
   AboutUsComponent,
-  HowItWorksComponent
+  HowItWorksComponent,
+  ForgotPasswordComponent
 ];
 
 @NgModule({
