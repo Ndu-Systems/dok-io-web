@@ -58,8 +58,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(response => {
         if (response.UserId !== undefined) {
-          // this.router.navigate(["/dashboard"]);
-          this.router.navigate(["/dashboard"]);
+           this.router.navigate(['/dashboard']);
           this.spinnerService.hideSpinner();
         } else {
           this.error = response;
